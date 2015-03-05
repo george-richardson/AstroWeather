@@ -14,14 +14,18 @@ public class Main extends JFrame {
 	
 	private boolean orientation;
 	private AstroPanel p;
-	private static final int lh = 393, lw = 498, ph = 553, pw = 338;
+	
+	private static final int LANDSCAPE_HEIGHT = 393;
+	private static final int LANDSCAPE_WIDTH = 498;
+	private static final int PORTRAIT_HEIGHT = 553;
+	private static final int PORTRAIT_WIDTH = 338;
 
 	public static void main(String[] args) {
 		new Main();
 	}
 	
 	private Main() {
-		setSize(pw, ph);
+		setSize(PORTRAIT_WIDTH, PORTRAIT_HEIGHT);
 		orientation = true;
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -45,8 +49,8 @@ public class Main extends JFrame {
 
 	
 	private void switchOrientation() {
-		if (orientation) setSize(lw, lh);
-		else setSize(pw ,ph);
+		if (orientation) setSize(LANDSCAPE_WIDTH, LANDSCAPE_HEIGHT);
+		else setSize(PORTRAIT_WIDTH, PORTRAIT_HEIGHT);
 		orientation = !orientation;
 		validate();
 		printSize();
