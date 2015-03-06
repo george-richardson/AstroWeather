@@ -1,4 +1,4 @@
-package AstroWeather;
+package Graphs;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

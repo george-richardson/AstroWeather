@@ -1,4 +1,4 @@
-package AstroWeather;
+package Graphs;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
