@@ -15,7 +15,7 @@ class test extends JFrame {
 	public static void main(String[] args) {
 		JFrame f = new test();
 		f.setResizable(false);
-		JPanel panel = JPanelWithBackground.load("C:/Users/Beneen/GUI project/background.png");
+		JPanel panel = JPanelWithBackground.load("assets/background.png");
 		panel.add(new TemperatureGraph(createDataset()));
 		f.setContentPane(panel);
 		f.setVisible(true);

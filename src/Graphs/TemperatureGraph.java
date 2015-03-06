@@ -1,12 +1,11 @@
 package Graphs;
 
-import java.awt.Color;
-import java.awt.Dimension;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
@@ -14,8 +13,14 @@ import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+import java.awt.*;
+
 @SuppressWarnings("serial")
 public class TemperatureGraph extends ChartPanel {
+
+	private static final Color PRIMARY_COLOR = Color.WHITE;
+	private static final Color BACKGROUND_COLOR = new Color(0.0f, 0.0f, 0.0f,
+			0.0f);
 
 	private static final String TITLE = "Temperature By Hour";
 	private static final String X_AXIS_LABEl = "";
@@ -23,12 +28,13 @@ public class TemperatureGraph extends ChartPanel {
 	private static final boolean ENABLE_LEGEND = false;
 	private static final boolean ENABLE_TOOLTIPS = false;
 	private static final boolean ENABLE_URLS = false;
-	private static final Color TRANSPARENT = new Color(0.0f, 0.0f, 0.0f, 0.0f);
 
 	public TemperatureGraph(XYSeries temperatureByHour) {
 		super(createChart(temperatureByHour));
-		setPreferredSize(new Dimension(500, 270)); //TODO: might not need this if we can get it to fill the container
-		setBackground(TRANSPARENT);
+		setPreferredSize(new Dimension(500, 270)); // TODO: might not need this
+													// if we can get it to fill
+													// the container
+		setBackground(BACKGROUND_COLOR);
 	}
 
 	private static XYDataset createDataset(XYSeries temperatureByHour) {
@@ -39,24 +45,38 @@ public class TemperatureGraph extends ChartPanel {
 
 	private static JFreeChart createChart(XYSeries temperatureByHour) {
 		XYDataset dataset = createDataset(temperatureByHour);
-		
-		JFreeChart chart = ChartFactory.createXYLineChart(TITLE, X_AXIS_LABEl, Y_AXIS_LABEl, dataset, PlotOrientation.VERTICAL, ENABLE_LEGEND, ENABLE_TOOLTIPS, ENABLE_URLS);
-		chart.setBackgroundPaint(TRANSPARENT);
+
+		JFreeChart chart = ChartFactory.createXYLineChart(TITLE, X_AXIS_LABEl,
+				Y_AXIS_LABEl, dataset, PlotOrientation.VERTICAL, ENABLE_LEGEND,
+				ENABLE_TOOLTIPS, ENABLE_URLS);
+		chart.setBackgroundPaint(BACKGROUND_COLOR);
+		chart.getTitle().setPaint(PRIMARY_COLOR);
 
 		XYPlot plot = chart.getXYPlot();
-		plot.setBackgroundPaint(TRANSPARENT);
+		plot.setBackgroundPaint(BACKGROUND_COLOR);
 
-		plot.setDomainGridlinePaint(Color.white);
-		plot.setRangeGridlinePaint(Color.white);
+		plot.setDomainGridlinePaint(PRIMARY_COLOR);
+		plot.setRangeGridlinePaint(PRIMARY_COLOR);
+
+		ValueAxis domainAxis = plot.getDomainAxis();
+		colorAxis(domainAxis);
+
+		ValueAxis rangeAxis = plot.getRangeAxis();
+		colorAxis(rangeAxis);
 
 		XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
 		renderer.setBaseShapesVisible(false);
+		renderer.setSeriesPaint(0, PRIMARY_COLOR);
+
 		plot.setRenderer(renderer);
 
-		NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
 		rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
 
 		return chart;
-		
+	}
+
+	private static void colorAxis(ValueAxis rangeAxis) {
+		rangeAxis.setAxisLinePaint(PRIMARY_COLOR);
+		rangeAxis.setTickLabelPaint(PRIMARY_COLOR);
 	}
 }
