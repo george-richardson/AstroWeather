@@ -1,5 +1,7 @@
 package Graphs;
 
+import java.util.Calendar;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -8,8 +10,8 @@ import org.jfree.data.xy.XYSeries;
 class test extends JFrame {
 	public test() {
 		setTitle("app");
-		setSize(480, 320); // default size is 0,0
-		setLocation(10, 200); // default is 0,0 (top left corner)
+		setSize(480, 320);
+		setLocation(10, 200);
 	}
 
 	public static void main(String[] args) {
@@ -20,15 +22,18 @@ class test extends JFrame {
 		f.setContentPane(panel);
 		f.setVisible(true);
 	}
-	
+
 	private static XYSeries createDataset() {
 		// TODO: get data from API
 		XYSeries series = new XYSeries("Temperature");
-		series.add(1.0, 1.0);
-		series.add(2.0, 4.0);
-		series.add(3.0, 3.0);
-		series.add(4.0, 5.0);
-		series.add(5.0, 5.0);
+
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.HOUR_OF_DAY, 0);
+		for (int i = 0; i < 24; i++) {
+			series.add(calendar.getTimeInMillis(), Math.random() * 20);
+			calendar.add(Calendar.HOUR, 1);
+		}
+
 		return series;
 	}
 }

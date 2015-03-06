@@ -1,9 +1,9 @@
 package Graphs;
 
-
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.PlotOrientation;
@@ -13,7 +13,10 @@ import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+import Common.Resources;
+
 import java.awt.*;
+import java.text.SimpleDateFormat;
 
 @SuppressWarnings("serial")
 public class TemperatureGraph extends ChartPanel {
@@ -28,6 +31,8 @@ public class TemperatureGraph extends ChartPanel {
 	private static final boolean ENABLE_LEGEND = false;
 	private static final boolean ENABLE_TOOLTIPS = false;
 	private static final boolean ENABLE_URLS = false;
+	private static final SimpleDateFormat HOUR_FORMAT = new SimpleDateFormat(
+			"kk");
 
 	public TemperatureGraph(XYSeries temperatureByHour) {
 		super(createChart(temperatureByHour));
@@ -46,9 +51,12 @@ public class TemperatureGraph extends ChartPanel {
 	private static JFreeChart createChart(XYSeries temperatureByHour) {
 		XYDataset dataset = createDataset(temperatureByHour);
 
-		JFreeChart chart = ChartFactory.createXYLineChart(TITLE, X_AXIS_LABEl,
-				Y_AXIS_LABEl, dataset, PlotOrientation.VERTICAL, ENABLE_LEGEND,
+		JFreeChart chart = ChartFactory.createTimeSeriesChart(TITLE,
+				X_AXIS_LABEl, Y_AXIS_LABEl, dataset, ENABLE_LEGEND,
 				ENABLE_TOOLTIPS, ENABLE_URLS);
+
+		chart.getTitle().setFont(Resources.chartTitleFont);
+
 		chart.setBackgroundPaint(BACKGROUND_COLOR);
 		chart.getTitle().setPaint(PRIMARY_COLOR);
 
@@ -58,7 +66,8 @@ public class TemperatureGraph extends ChartPanel {
 		plot.setDomainGridlinePaint(PRIMARY_COLOR);
 		plot.setRangeGridlinePaint(PRIMARY_COLOR);
 
-		ValueAxis domainAxis = plot.getDomainAxis();
+		DateAxis domainAxis = (DateAxis) plot.getDomainAxis();
+		domainAxis.setDateFormatOverride(HOUR_FORMAT);
 		colorAxis(domainAxis);
 
 		ValueAxis rangeAxis = plot.getRangeAxis();
