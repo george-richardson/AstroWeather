@@ -20,6 +20,7 @@ public class Main extends JFrame {
 	private AstroPanel p;
 	private static final Dimension landscapeDimension = new Dimension(480, 320), portraitDimension = new Dimension(320, 480);
 
+
 	public static void main(String[] args) {
 		new Main();
 	}
@@ -27,6 +28,7 @@ public class Main extends JFrame {
 	private Main() {
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		ge.registerFont(Resources.homeButtonFont);
+
 		orientation = true;
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -54,6 +56,7 @@ public class Main extends JFrame {
 	private void switchOrientation() {
 		if (orientation) changeDimensions(landscapeDimension);
 		else changeDimensions(portraitDimension);
+
 		orientation = !orientation;
 		p.changeOrientation(orientation);
 		pack();		
