@@ -11,14 +11,14 @@ import javax.swing.JFrame;
 
 import Common.AstroPanel;
 import Common.Resources;
-import Home.MainPanel;
+import Location.LocationPanel;
 
 @SuppressWarnings("serial")
 public class Main extends JFrame {
 	
 	private boolean orientation;
 	private AstroPanel p;
-	private static final Dimension landscapeDimension = new Dimension(480, 320), portraitDimension = new Dimension(320, 480);
+	private static final int lh = 320, lw = 480, ph = 480, pw = 320;
 
 
 	public static void main(String[] args) {
@@ -28,6 +28,7 @@ public class Main extends JFrame {
 	private Main() {
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		ge.registerFont(Resources.homeButtonFont);
+		
 
 		orientation = true;
 		setResizable(false);
@@ -42,10 +43,8 @@ public class Main extends JFrame {
 		});
 		
 		add(switchOrientationBtn, BorderLayout.SOUTH);
-		p = new MainPanel(this, orientation);
-		p.setMinimumSize(new Dimension(320, 480));
-		p.setPreferredSize(new Dimension(320, 480));
-		p.setMaximumSize(new Dimension(320, 480));
+		p = new LocationPanel(this, orientation);
+		changeDimensions();
 		add(p, BorderLayout.CENTER);
 		pack();
 		setLocationRelativeTo(null);
@@ -54,23 +53,34 @@ public class Main extends JFrame {
 
 	
 	private void switchOrientation() {
-		if (orientation) changeDimensions(landscapeDimension);
-		else changeDimensions(portraitDimension);
-
 		orientation = !orientation;
+		changeDimensions();
 		p.changeOrientation(orientation);
-		pack();		
+		pack();
 	}
 	
-	private void changeDimensions(Dimension d) {
+	private void changeDimensions() {
+		Dimension d;
+		if (orientation) d = new Dimension(pw, ph);
+		else d = new Dimension(lw, lh);
 		p.setMinimumSize(d);
 		p.setPreferredSize(d);
 		p.setMaximumSize(d);
 	}
 	
-	public void changePanel(AstroPanel p) {
-		this.remove(this.p);
+	public void changePanel(AstroPanel newPanel) {
+		remove(p);
+		p = newPanel;
 		add(p, BorderLayout.CENTER);
+		
+		// Do not ask me why this works. Wizardry i expect.
+//		setVisible(false);
+//		switchOrientation();
+//		switchOrientation();
+//		setVisible(true);
+		// Do not ask me why this doesnt work
+		changeDimensions();
+		pack();
 	}
 
 }

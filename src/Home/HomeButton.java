@@ -38,7 +38,12 @@ public class HomeButton extends JButton {
 	
 	@Override
 	public Dimension getPreferredSize() {
-		return new Dimension(100, 90);
+		return new Dimension(100, 100);
+	}
+	
+	@Override
+	public Dimension getMinimumSize() {
+		return new Dimension(100, 100);
 	}
 	
 	public static Icon createIcon(String filePath) {
