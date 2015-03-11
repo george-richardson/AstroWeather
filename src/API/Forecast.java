@@ -8,8 +8,10 @@ public class Forecast {
 	String date;
 	String lowTemp;
 	String highTemp;
-	String rain;// tells you if rain or general sky conditions -> overlaps with clouds
-	String clouds;
+	String precipitation;
+	String rainType;
+	String cloudVal;
+	String cloudType;
 	String windDir;
 	String windSpeedVal;
 	String windSpeedType;
@@ -20,4 +22,5 @@ public class Forecast {
 	String sunset;
 	
 
+	
 }

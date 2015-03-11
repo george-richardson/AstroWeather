@@ -1,6 +1,9 @@
 package API;
+import java.util.ArrayList;
 
-public class TestWeather
+
+
+public abstract class TestWeather
 {
 
 	// list of codes for cities
@@ -27,20 +30,28 @@ public class TestWeather
 		 */ 
 		 
 		
-	    AstroWeatherAPI x = new AstroWeatherAPI("Adelaide");
+	 //   AstroWeatherChecker x = new AstroWeatherChecker("London");
+	    
+		AstroWeatherChecker z = new HourlyWeatherChecker("London");
+	    AstroWeatherChecker y = new DailyWeatherChecker("London");
 	    		//("London");
 		
-		for(Forecast  f: x.weatherForecastList){
+	   // AstroWeatherChecker z = new HourlyWeatherChecker("London");
+	    
+		///for(Forecast  f: x.weatherForecastList){
+	    
 			
+	    for(Forecast  f: y.getWeather()){
 			
 			//System.out.println(f.day);
 			System.out.println("date " + f.date);
-			System.out.println("clouds " + f.clouds);
+			System.out.println("clouds val " + f.cloudVal);
+			System.out.println("clouds type " + f.cloudType);
 			System.out.println("low temp "+f.lowTemp);
 			System.out.println("high temp " + f.highTemp);
 			System.out.println("windtype " + f.windSpeedType);
-		    System.out.println("rain "+f.rain);
-		   
+		    System.out.println("raintype "+f.rainType);
+		    System.out.println("precipitation "+f.precipitation);
 		    System.out.println("windval " + f.windSpeedVal);
 		    System.out.println("wind direction " + f.windDir);
 		    System.out.println("sunrise " + f.sunrise);
@@ -54,6 +65,9 @@ public class TestWeather
 		    
 		}
 		
+	    ArrayList<Forecast> d = y.getWeather();
+	    
+	    System.out.println(d.get(0).highTemp);
 		
 		
 	}//end main 
