@@ -1,3 +1,5 @@
+package Settings;
+
 import javax.imageio.*;
 import java.awt.*;
 import java.awt.event.*;
