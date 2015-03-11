@@ -2,14 +2,15 @@ package Home;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
+import java.awt.RenderingHints;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -35,7 +36,7 @@ public class MainPanel extends AstroPanel {
 	
 	public void commonInit() {
 		UIManager.put("ScrollBar.width", new Integer(0));
-		setBackground(Resources.bgColor);
+		//setBackground(Resources.bgColor);
 		
 		// Current Day
 		currentDay = new JPanel();
@@ -174,5 +175,8 @@ public class MainPanel extends AstroPanel {
 		if (orientation) portraitInit();
 		else landscapeInit();
 	}
+	
+	
+
 	
 }

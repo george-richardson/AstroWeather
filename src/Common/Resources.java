@@ -13,10 +13,12 @@ import javax.imageio.ImageIO;
 
 public class Resources {
 	public static final Color bgColor = new Color(26, 65, 81);
+	public static final Color bgColorTop = new Color(11, 25, 31);
+	public static final Color bgColorBottom = new Color(65, 142, 194);
 	public static final Color titleColor = new Color(255, 255, 255);
 	public static final Font titleFont = getFont(24, 0.1);
 	public static final Font homeButtonFont = getFont(14, 0.2);
-	public static final Font chartTitleFont = getFont(14, 0.2);
+	public static final Font chartTitleFont = getFont(14, 	0.2);
 	public static final Image backgroundImage = load("assets/background.png");
 		
 	private static Font getFont(float size, double spacing) {
