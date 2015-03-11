@@ -1,38 +1,20 @@
 package API;
 
 
+import java.text.SimpleDateFormat;
+
 // check weather in hours
 public class HourlyWeatherChecker extends AstroWeatherChecker{
 
 	public HourlyWeatherChecker(String city) {
 		super(city);
-		
+
+		this.numDays = "7";
 		this.timePeriod = "hourly?";
-		
+		this.timeAttribute = "from";
+		this.timeFormat = new SimpleDateFormat("yyyy-M-dd'T'HH:mm:ss"); //2015-03-11T18:00:00
+
 		theWeatherRSS = getWeatherAsRSS(city,timePeriod);
-		
-		init();
-		
-		
 	}
 
-	
-	
-	//set up forecast arrayList and set correct hours and days
-	public void init(){
-		
-		TimeTracker track = new TimeTracker();
-		
-		String [] dates = track.getHourlyDates();
-		
-		
-		for (int i = 0; i < dates.length; i++) {
-		
-			Forecast f = new Forecast();
-			f.date = dates[i];
-			weatherForecastList.add(f);
-			
-		}
-	}
-	
 }//end class

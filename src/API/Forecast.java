@@ -1,11 +1,9 @@
 package API;
 
-public class Forecast {
+import java.util.Date;
 
-	
-	 
-	
-	String date;
+public class Forecast {
+	Date date;
 	String lowTemp;
 	String highTemp;
 	String precipitation;
@@ -20,7 +18,4 @@ public class Forecast {
 	String pressure;
 	String sunrise;
 	String sunset;
-	
-
-	
 }
