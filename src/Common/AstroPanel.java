@@ -19,6 +19,14 @@ public abstract class AstroPanel extends JPanel {
         this.forecasts = forecasts;
         //setOpaque(false);
     }
+    
+    protected AstroPanel(Main parent, boolean orientation) {
+        this.parent = parent;
+        this.orientation= orientation;
+        this.forecasts = null;
+        //setOpaque(false);
+    }
+    
     protected void change(AstroPanel p) {
         parent.changePanel(p);
     }
