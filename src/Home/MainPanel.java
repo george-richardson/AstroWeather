@@ -46,21 +46,21 @@ public class MainPanel extends AstroPanel {
 		cloudCoverBtn = new HomeButton(HomeButton.createIcon("moon75.png"), "Cloud");
 		lunarBtn = new MoonPhaseButton();
 		windBtn = new WindDirectionButton(forecasts.getTodaysForecast());
-		tempBtn = new HomeButton("Temp", "8�");
+		tempBtn = new TemperatureButton(forecasts.getTodaysForecast());
         tempBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 change(new TemperatureByHour(parent, orientation, forecasts));
             }
         });
-		humidityBtn = new HomeButton("Humidity", "11%");
+		humidityBtn = new HumidityButton(forecasts.getTodaysForecast());
         humidityBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 change(new HumidityByHour(parent, orientation, forecasts));
             }
         });
-		precipBtn = new HomeButton("Rain", "80%");
+		precipBtn = new PrecipitationButton(forecasts.getTodaysForecast());
         precipBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

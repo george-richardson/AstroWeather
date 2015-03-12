@@ -10,7 +10,7 @@
   <credit/>
   <meta>
     <lastupdate/>
-    <calctime>0.0038</calctime>
+    <calctime>0.1439</calctime>
     <nextupdate/>
   </meta>
   <sun rise="2015-03-12T06:20:30" set="2015-03-12T17:59:52"/>
@@ -106,54 +106,54 @@
       <clouds value="few clouds" all="20" unit="%"/>
     </time>
     <time day="2015-03-21">
-      <symbol number="500" name="light rain" var="10d"/>
-      <precipitation value="1.05" type="rain"/>
+      <symbol number="501" name="moderate rain" var="10d"/>
+      <precipitation value="5.08" type="rain"/>
       <windDirection deg="268" code="W" name="West"/>
       <windSpeed mps="7.76" name="Moderate breeze"/>
-      <temperature day="9.96" min="7.81" max="9.96" night="7.81" eve="9.6" morn="8.39"/>
+      <temperature day="9.96" min="6.58" max="9.96" night="6.58" eve="8.47" morn="8.39"/>
       <pressure unit="hPa" value="1017.66"/>
       <humidity value="0" unit="%"/>
       <clouds value="broken clouds" all="56" unit="%"/>
     </time>
     <time day="2015-03-22">
       <symbol number="501" name="moderate rain" var="10d"/>
-      <precipitation value="3.68" type="rain"/>
-      <windDirection deg="306" code="NW" name="Northwest"/>
-      <windSpeed mps="9.61" name="Fresh Breeze"/>
-      <temperature day="9.9" min="6.29" max="9.9" night="6.29" eve="8.56" morn="8.69"/>
-      <pressure unit="hPa" value="1004.36"/>
+      <precipitation value="5.63" type="rain"/>
+      <windDirection deg="279" code="W" name="West"/>
+      <windSpeed mps="10.82" name="Strong breeze"/>
+      <temperature day="8.51" min="6.3" max="8.62" night="6.3" eve="7.99" morn="8.62"/>
+      <pressure unit="hPa" value="998.53"/>
       <humidity value="0" unit="%"/>
-      <clouds value="broken clouds" all="80" unit="%"/>
+      <clouds value="broken clouds" all="74" unit="%"/>
     </time>
     <time day="2015-03-23">
       <symbol number="501" name="moderate rain" var="10d"/>
-      <precipitation value="3.11" type="rain"/>
-      <windDirection deg="204" code="SSW" name="South-southwest"/>
-      <windSpeed mps="6.71" name="Moderate breeze"/>
-      <temperature day="9.52" min="3.56" max="11.05" night="7.39" eve="11.05" morn="3.56"/>
-      <pressure unit="hPa" value="1012.66"/>
+      <precipitation value="6.28" type="rain"/>
+      <windDirection deg="301" code="WNW" name="West-northwest"/>
+      <windSpeed mps="9.42" name="Fresh Breeze"/>
+      <temperature day="8.37" min="6.12" max="8.37" night="6.12" eve="7.55" morn="6.21"/>
+      <pressure unit="hPa" value="1004.47"/>
       <humidity value="0" unit="%"/>
-      <clouds value="overcast clouds" all="94" unit="%"/>
+      <clouds value="broken clouds" all="60" unit="%"/>
     </time>
     <time day="2015-03-24">
-      <symbol number="501" name="moderate rain" var="10d"/>
-      <precipitation value="3.51" type="rain"/>
-      <windDirection deg="256" code="WSW" name="West-southwest"/>
-      <windSpeed mps="8.17" name="Fresh Breeze"/>
-      <temperature day="8.88" min="6.31" max="8.88" night="6.31" eve="8.15" morn="6.5"/>
-      <pressure unit="hPa" value="1012.68"/>
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="2.98" type="rain"/>
+      <windDirection deg="278" code="W" name="West"/>
+      <windSpeed mps="2.55" name="Light breeze"/>
+      <temperature day="7.55" min="4.05" max="7.55" night="4.05" eve="6.25" morn="5.16"/>
+      <pressure unit="hPa" value="1008.88"/>
       <humidity value="0" unit="%"/>
-      <clouds value="broken clouds" all="71" unit="%"/>
+      <clouds value="overcast clouds" all="91" unit="%"/>
     </time>
     <time day="2015-03-25">
-      <symbol number="501" name="moderate rain" var="10d"/>
-      <precipitation value="10.18" type="rain"/>
-      <windDirection deg="258" code="WSW" name="West-southwest"/>
-      <windSpeed mps="5.83" name="Moderate breeze"/>
-      <temperature day="9.16" min="1.97" max="9.16" night="1.97" eve="8.72" morn="6.24"/>
-      <pressure unit="hPa" value="1012.02"/>
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="1.58" type="rain"/>
+      <windDirection deg="331" code="NNW" name="North-northwest"/>
+      <windSpeed mps="7.38" name="Moderate breeze"/>
+      <temperature day="6.86" min="1.97" max="6.86" night="1.97" eve="5.41" morn="3.3"/>
+      <pressure unit="hPa" value="1023.24"/>
       <humidity value="0" unit="%"/>
-      <clouds value="overcast clouds" all="87" unit="%"/>
+      <clouds value="broken clouds" all="51" unit="%"/>
     </time>
     <time day="2015-03-26">
       <symbol number="501" name="moderate rain" var="10d"/>
