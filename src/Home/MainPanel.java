@@ -43,7 +43,7 @@ public class MainPanel extends AstroPanel {
 
 		currentDay.add(currentDayLabel, BorderLayout.NORTH);
 
-		cloudCoverBtn = new HomeButton(HomeButton.createIcon("moon75.png"), "Cloud");
+		cloudCoverBtn = new CloudCoverageButton(forecasts.getTodaysForecast());
 		lunarBtn = new MoonPhaseButton();
 		windBtn = new WindDirectionButton(forecasts.getTodaysForecast());
 		tempBtn = new TemperatureButton(forecasts.getTodaysForecast());

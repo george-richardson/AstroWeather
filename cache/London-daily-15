@@ -10,7 +10,7 @@
   <credit/>
   <meta>
     <lastupdate/>
-    <calctime>0.1439</calctime>
+    <calctime>0.0184</calctime>
     <nextupdate/>
   </meta>
   <sun rise="2015-03-12T06:20:30" set="2015-03-12T17:59:52"/>
@@ -18,19 +18,19 @@
     <time day="2015-03-12">
       <symbol number="803" name="broken clouds" var="04n"/>
       <precipitation/>
-      <windDirection deg="153" code="SSE" name="South-southeast"/>
-      <windSpeed mps="7" name="Moderate breeze"/>
-      <temperature day="7.31" min="6.1" max="7.31" night="6.1" eve="7.31" morn="7.31"/>
-      <pressure unit="hPa" value="1030.07"/>
-      <humidity value="63" unit="%"/>
-      <clouds value="broken clouds" all="56" unit="%"/>
+      <windDirection deg="154" code="SSE" name="South-southeast"/>
+      <windSpeed mps="6.27" name="Moderate breeze"/>
+      <temperature day="7.31" min="7.02" max="7.31" night="7.02" eve="7.31" morn="7.31"/>
+      <pressure unit="hPa" value="1030.24"/>
+      <humidity value="64" unit="%"/>
+      <clouds value="broken clouds" all="80" unit="%"/>
     </time>
     <time day="2015-03-13">
       <symbol number="803" name="broken clouds" var="04d"/>
       <precipitation/>
       <windDirection deg="98" code="E" name="East"/>
       <windSpeed mps="5.16" name="Gentle Breeze"/>
-      <temperature day="8.5" min="0.7" max="8.55" night="0.7" eve="6.05" morn="4.24"/>
+      <temperature day="9.22" min="1.21" max="9.22" night="1.21" eve="6.66" morn="5.05"/>
       <pressure unit="hPa" value="1032.16"/>
       <humidity value="85" unit="%"/>
       <clouds value="broken clouds" all="68" unit="%"/>
@@ -40,7 +40,7 @@
       <precipitation/>
       <windDirection deg="59" code="ENE" name="East-northeast"/>
       <windSpeed mps="6.01" name="Moderate breeze"/>
-      <temperature day="5.11" min="2.28" max="5.88" night="3.64" eve="4.83" morn="2.28"/>
+      <temperature day="5.42" min="2.69" max="6.13" night="3.75" eve="5.04" morn="2.69"/>
       <pressure unit="hPa" value="1038.96"/>
       <humidity value="83" unit="%"/>
       <clouds value="broken clouds" all="68" unit="%"/>
@@ -106,41 +106,41 @@
       <clouds value="few clouds" all="20" unit="%"/>
     </time>
     <time day="2015-03-21">
-      <symbol number="501" name="moderate rain" var="10d"/>
-      <precipitation value="5.08" type="rain"/>
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="1.05" type="rain"/>
       <windDirection deg="268" code="W" name="West"/>
       <windSpeed mps="7.76" name="Moderate breeze"/>
-      <temperature day="9.96" min="6.58" max="9.96" night="6.58" eve="8.47" morn="8.39"/>
+      <temperature day="9.96" min="7.81" max="9.96" night="7.81" eve="9.6" morn="8.39"/>
       <pressure unit="hPa" value="1017.66"/>
       <humidity value="0" unit="%"/>
       <clouds value="broken clouds" all="56" unit="%"/>
     </time>
     <time day="2015-03-22">
       <symbol number="501" name="moderate rain" var="10d"/>
-      <precipitation value="5.63" type="rain"/>
-      <windDirection deg="279" code="W" name="West"/>
-      <windSpeed mps="10.82" name="Strong breeze"/>
-      <temperature day="8.51" min="6.3" max="8.62" night="6.3" eve="7.99" morn="8.62"/>
-      <pressure unit="hPa" value="998.53"/>
+      <precipitation value="3.68" type="rain"/>
+      <windDirection deg="306" code="NW" name="Northwest"/>
+      <windSpeed mps="9.61" name="Fresh Breeze"/>
+      <temperature day="9.9" min="6.29" max="9.9" night="6.29" eve="8.56" morn="8.69"/>
+      <pressure unit="hPa" value="1004.36"/>
       <humidity value="0" unit="%"/>
-      <clouds value="broken clouds" all="74" unit="%"/>
+      <clouds value="broken clouds" all="80" unit="%"/>
     </time>
     <time day="2015-03-23">
       <symbol number="501" name="moderate rain" var="10d"/>
-      <precipitation value="6.28" type="rain"/>
-      <windDirection deg="301" code="WNW" name="West-northwest"/>
-      <windSpeed mps="9.42" name="Fresh Breeze"/>
-      <temperature day="8.37" min="6.12" max="8.37" night="6.12" eve="7.55" morn="6.21"/>
-      <pressure unit="hPa" value="1004.47"/>
+      <precipitation value="3.11" type="rain"/>
+      <windDirection deg="204" code="SSW" name="South-southwest"/>
+      <windSpeed mps="6.71" name="Moderate breeze"/>
+      <temperature day="9.52" min="3.56" max="11.05" night="7.39" eve="11.05" morn="3.56"/>
+      <pressure unit="hPa" value="1012.66"/>
       <humidity value="0" unit="%"/>
-      <clouds value="broken clouds" all="60" unit="%"/>
+      <clouds value="overcast clouds" all="94" unit="%"/>
     </time>
     <time day="2015-03-24">
-      <symbol number="500" name="light rain" var="10d"/>
-      <precipitation value="2.98" type="rain"/>
+      <symbol number="502" name="heavy intensity rain" var="10d"/>
+      <precipitation value="12.12" type="rain"/>
       <windDirection deg="278" code="W" name="West"/>
       <windSpeed mps="2.55" name="Light breeze"/>
-      <temperature day="7.55" min="4.05" max="7.55" night="4.05" eve="6.25" morn="5.16"/>
+      <temperature day="7.55" min="4.05" max="7.55" night="4.05" eve="6.25" morn="6.5"/>
       <pressure unit="hPa" value="1008.88"/>
       <humidity value="0" unit="%"/>
       <clouds value="overcast clouds" all="91" unit="%"/>
