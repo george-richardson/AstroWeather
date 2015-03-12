@@ -18,4 +18,12 @@ public class Forecast {
 	public String pressure;
 	public String sunrise;
 	public String sunset;
+
+    public String getWindDirection() {
+        int hyphenIndex = windDir.indexOf('-');
+        if (hyphenIndex < 0) {
+            return windDir;
+        }
+        return windDir.substring(0, hyphenIndex);
+    }
 }

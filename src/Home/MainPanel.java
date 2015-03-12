@@ -45,7 +45,7 @@ public class MainPanel extends AstroPanel {
 
 		cloudCoverBtn = new HomeButton(HomeButton.createIcon("moon75.png"), "Cloud");
 		lunarBtn = new MoonPhaseButton();
-		windBtn = new HomeButton(HomeButton.createIcon("moon75.png"), "Wind");
+		windBtn = new WindDirectionButton(forecasts.getTodaysForecast());
 		tempBtn = new HomeButton("Temp", "8�");
         tempBtn.addActionListener(new ActionListener() {
             @Override
