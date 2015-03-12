@@ -1,29 +1,41 @@
 package Settings;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JRadioButton;
-import java.awt.*;
 
-public class TemperatureFrame extends JFrame implements ActionListener {
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+
+@SuppressWarnings("serial")
+public class TemperatureFrame extends JDialog implements ActionListener {
     private JRadioButton celsius = new JRadioButton("Celsius");
     private JRadioButton fahrenheit = new JRadioButton("Fahrenheit");
     private JButton confirm = new JButton("Confirm");
     public static final int CELSIUS = 0;
     public static final int FAHRENHEIT = 1;
     private int metrics = TemperatureFrame.CELSIUS;
-    private Main parent = null;
+    private SettingsMain parent = null;
     private JLabel tempLabel = new JLabel("Temperature");
     private JPanel tempPanel = new JPanel();
     private JPanel celsiusPanel  = new JPanel();
     private JPanel fahrenheitPanel = new JPanel();
     private JPanel confirmPanel = new JPanel();
-    public TemperatureFrame(Main parent) {
+    public TemperatureFrame(JFrame frame, SettingsMain parent) {
+    	super(frame);
+    	setUndecorated(true);
     	this.parent = parent;
+    	load();
+    	setSize(new Dimension(200, 170));
+    	setLocationRelativeTo(frame);
+    	setVisible(true);
     }
     
 	public void load() {

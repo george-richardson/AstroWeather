@@ -1,25 +1,27 @@
 package Settings;
+import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
-public class Main extends JFrame implements ActionListener {
-    private MainPanel mainPanel = new MainPanel();
-    private MainPanel locationPanel = new MainPanel ();
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import Common.AstroPanel;
+import Common.Resources;
+@SuppressWarnings("serial")
+public class SettingsMain extends AstroPanel implements ActionListener {
+    private SettingsMainPanel mainPanel = new SettingsMainPanel();
+    private SettingsMainPanel locationPanel = new SettingsMainPanel ();
     private JTextField tempText = new JTextField("Celcius");
     private JTextField windText = new JTextField("Miles per hour");
     private JButton tempBut = new JButton("Temperatre");
@@ -35,12 +37,12 @@ public class Main extends JFrame implements ActionListener {
     private JPanel settingsPanel = new JPanel();     
     private JPanel headerPanel = new JPanel(); 
    
-    private MainPanel Temp = new MainPanel();
-    private MainPanel Wind = new MainPanel();
+    private SettingsMainPanel Temp = new SettingsMainPanel();
+    private SettingsMainPanel Wind = new SettingsMainPanel();
     private JPanel Support = new JPanel();
-    private MainPanel About = new MainPanel();
-    private MainPanel Feedback = new MainPanel();
-    private MainPanel Help = new MainPanel();
+    private SettingsMainPanel About = new SettingsMainPanel();
+    private SettingsMainPanel Feedback = new SettingsMainPanel();
+    private SettingsMainPanel Help = new SettingsMainPanel();
     public static int CELSIUS = 0;
     public static int FAHRENHEIT = 1;
     public static int KM_PER_HOUR = 0;
@@ -54,24 +56,30 @@ public class Main extends JFrame implements ActionListener {
     
     
     public static void main(String[] args) {
-        Main app = new Main();
-        app.startApp();
+        //Main app = new Main();
+        //app.startApp();
     }
     
-    public Main() {
-        super("Settings");
-        this.addWindowListener(new WindowAdapter(){
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-        });
-    }
+    public SettingsMain(AstroWeather.Main parent, boolean orientation) {
+		super(parent, orientation);
+		setLayout(new BorderLayout());
+		startApp();
+	}
+    
+//    public Main() {
+//        super("Settings");
+//        this.addWindowListener(new WindowAdapter(){
+//            public void windowClosing(WindowEvent e) {
+//                System.exit(0);
+//            }
+//        });
+//    }
 
     public void startApp() {
-        Container c = getContentPane();
+        //Container c = getContentPane();
         tempBut.setHorizontalAlignment(SwingConstants.LEFT);
         windBut.setHorizontalAlignment(SwingConstants.LEFT);
-        back.setIcon(new ImageIcon(getClass().getResource("back.png")));
+        back.setIcon(Resources.getImage("settings/back.png"));
         headerPanel.setLayout(new GridLayout(1, 2));
         headerPanel.setBackground(new Color(36,102,176));
         headerPanel.add(back);
@@ -83,12 +91,12 @@ public class Main extends JFrame implements ActionListener {
         {
             public void mouseEntered(MouseEvent evt)
             {
-                back.setIcon(new ImageIcon(getClass().getResource("back1.png")));
+                back.setIcon(Resources.getImage("settings/back1.png"));
               // back.setIcon(icon1);
             }
             public void mouseExited(MouseEvent evt)
             {
-            back.setIcon(new ImageIcon(getClass().getResource("back.png")));
+            back.setIcon(Resources.getImage("settings/back.png"));
             }
            
         });
@@ -180,10 +188,10 @@ public class Main extends JFrame implements ActionListener {
         mainPanel.add(About);
         mainPanel.add(Feedback);
         mainPanel.add(Help);
-        c.add(mainPanel);
+        add(mainPanel, BorderLayout.CENTER);
         
-        this.setSize(320, 480);
-        this.setResizable(false);
+        //this.setSize(320, 480);
+        //this.setResizable(false);
         this.setVisible(true);
         back.addActionListener(this);
         tempBut.addActionListener(this);
@@ -203,7 +211,7 @@ public class Main extends JFrame implements ActionListener {
     
     public void setTmperatureMetrics(int metrics) {
         this.tempMetrics = metrics;
-        if(this.tempMetrics == Main.CELSIUS) {
+        if(this.tempMetrics == SettingsMain.CELSIUS) {
             tempText.setText("Celsius");
         }
         else {
@@ -216,7 +224,7 @@ public class Main extends JFrame implements ActionListener {
     
     public void setWindMetrics(int metrics) {
         this.windMetrics = metrics;
-        if(this.windMetrics == Main.KM_PER_HOUR) {
+        if(this.windMetrics == SettingsMain.KM_PER_HOUR) {
             windText.setText("Kilometers per hour");
         }
         else {
@@ -230,11 +238,7 @@ public class Main extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(tempBut)) {
-            TemperatureFrame tempFrame = new TemperatureFrame(this);
-            tempFrame.load();
-            tempFrame.setVisible(true);
-            tempFrame.setSize(new Dimension(200, 170));
-            tempFrame.setLocation(300,  300);
+            new TemperatureFrame(parent, this);
             
         }
         else if(e.getSource().equals(back)){
@@ -243,29 +247,36 @@ public class Main extends JFrame implements ActionListener {
         }
         
          if (e.getSource().equals(windBut)) {
-            WindFrame windFrame = new WindFrame(this);
-            windFrame.load();
-            windFrame.setVisible(true);
-            windFrame.setSize(new Dimension(200, 170));
-            windFrame.setLocation(300,  300);
+            new WindFrame(parent, this);
+            
+            //windFrame.setLocation(300,  300);
             
         }
         else if(e.getSource().equals(aboutBut)){
            
-            AboutThisApp abtFrame = new AboutThisApp(this);
-            abtFrame.load();
-            abtFrame.setVisible(true);
-            this.setVisible(false);
-            abtFrame.setSize(new Dimension(320, 480));
-            abtFrame.setLocation(0,0);
+            AboutThisApp abtFrame = new AboutThisApp(parent, orientation);
+            parent.changePanel(abtFrame);
+//            abtFrame.load();
+//            abtFrame.setVisible(true);
+//            this.setVisible(false);
+//            abtFrame.setSize(new Dimension(320, 480));
+//            abtFrame.setLocation(0,0);
         }
         else if(e.getSource().equals(helpBut)){
-            Help helpFrame = new Help(this);
-           helpFrame.load();
-            helpFrame.setVisible(true);
-            this.setVisible(false);
-            helpFrame.setSize(new Dimension(320, 480));
-           helpFrame.setLocation(0,0);
+            Help helpFrame = new Help(parent, orientation);
+            helpFrame.load();
+            parent.changePanel(helpFrame);
+            
+//            helpFrame.setVisible(true);
+//            this.setVisible(false);
+//            helpFrame.setSize(new Dimension(320, 480));
+//           helpFrame.setLocation(0,0);
         }
     }
+
+	@Override
+	public void changeOrientation(boolean orientation) {
+		// TODO Auto-generated method stub
+		orientation = !orientation;
+	}
 }

@@ -1,19 +1,24 @@
 package Settings;
-import java.awt.Container;
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JRadioButton;
-import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
-public class Help extends JFrame implements ActionListener {
-    private Main parent = null; 
-    private MainPanel home = new MainPanel();
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
+import AstroWeather.Main;
+import Common.AstroPanel;
+import Common.Resources;
+@SuppressWarnings("serial")
+public class Help extends AstroPanel implements ActionListener {
+    //private SettingsMain parent = null; 
+    private SettingsMainPanel home = new SettingsMainPanel();
     private JPanel panel1 = new JPanel();
     private JPanel headerPanel = new JPanel();
     private JButton back = new JButton();
@@ -21,19 +26,20 @@ public class Help extends JFrame implements ActionListener {
     private JLabel helpFeed = new JLabel("     Help and feedback");
     private JLabel helpFeed1 = new JLabel("     These are the most common questions we been ");
     private JLabel helpFeed2 = new JLabel("     about the application ");
-   public Help(Main parent) {
-       this.parent = parent;
-      
+   public Help(Main parent, boolean orientation) {
+	   super(parent, orientation);
+	   setLayout(new BorderLayout());
+       //this.parent = parent;
     }  
     
      public void load() {
-         Container c = getContentPane();
+         //Container c = getContentPane();
          home.setLayout(new GridLayout(8, 1));
          headerPanel.setLayout(new GridLayout(1, 2));
          headerPanel.setBackground(new Color(36,102,176));
          headerPanel.add(back);
          
-         back.setIcon(new ImageIcon(getClass().getResource("backMain.png")));
+         back.setIcon(Resources.getImage("settings/backMain.png"));
           back.setOpaque(false);
           back.setContentAreaFilled(false);
           back.setBorderPainted(false);
@@ -42,12 +48,12 @@ public class Help extends JFrame implements ActionListener {
         {
             public void mouseEntered(MouseEvent evt)
             {
-                back.setIcon(new ImageIcon(getClass().getResource("backMain1.png")));
+                back.setIcon(Resources.getImage("settings/backMain1.png"));
               // back.setIcon(icon1);
             }
             public void mouseExited(MouseEvent evt)
             {
-            back.setIcon(new ImageIcon(getClass().getResource("backMain.png")));
+            back.setIcon(Resources.getImage("settings/backMain.png"));
             }
            
         });
@@ -69,9 +75,9 @@ public class Help extends JFrame implements ActionListener {
         
          home.add(headerPanel);
          home.add(panel1);
-         c.add(home); 
-         this.setResizable(false);
-         this.setVisible(true);
+         add(home, BorderLayout.CENTER); 
+         //this.setResizable(false);
+         //this.setVisible(true);
          back.addActionListener(this);
         }
      
@@ -81,10 +87,17 @@ public class Help extends JFrame implements ActionListener {
         @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(back)) {
-            this.setVisible(false);
-            this.dispose(); 
-            parent.setVisible(true);
+            //this.setVisible(false);
+            //this.dispose(); 
+            //parent.setVisible(true);
+        	parent.changePanel(new SettingsMain(parent, orientation));
         }
         
     }
+
+		@Override
+		public void changeOrientation(boolean orientation) {
+			// TODO Auto-generated method stub
+			orientation = !orientation;
+		}
 }

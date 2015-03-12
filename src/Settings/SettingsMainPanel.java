@@ -8,15 +8,16 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 
-public class MainPanel extends JPanel {
-    public MainPanel(){
+@SuppressWarnings("serial")
+public class SettingsMainPanel extends JPanel {
+    public SettingsMainPanel(){
     }
     
     @Override
     protected void paintComponent(Graphics g) {
         BufferedImage image = null;
         try {                
-    		image = ImageIO.read(getClass().getResource("background2.jpg"));
+    		image = ImageIO.read(new File("assets/settings/background2.jpg"));
         } catch (IOException ex) {
             System.out.println("Exception caught, exception is: " + ex.getMessage());
         }            
