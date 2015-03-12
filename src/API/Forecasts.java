@@ -22,4 +22,8 @@ public class Forecasts {
 	public List<Forecast> getDailyForecasts() {
 		return dailyForecasts;
 	}
+
+    public Forecast getTodaysForecast() {
+        return getDailyForecasts().get(0);
+    }
 }
