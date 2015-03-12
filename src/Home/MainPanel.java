@@ -5,9 +5,12 @@ import API.Forecasts;
 import AstroWeather.Main;
 import Common.AstroPanel;
 import Common.Resources;
+import Graphs.TemperatureByHourGraphPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
 public class MainPanel extends AstroPanel {
@@ -43,6 +46,12 @@ public class MainPanel extends AstroPanel {
 		lunarBtn = new HomeButton(HomeButton.createIcon("moon75.png"), "Lunar");
 		windBtn = new HomeButton(HomeButton.createIcon("moon75.png"), "Wind");
 		tempBtn = new HomeButton("Temp", "8�");
+        tempBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                change(new TemperatureByHourGraphPanel(parent, orientation, forecasts));
+            }
+        });
 		humidityBtn = new HomeButton("Humidity", "11%");
 		precipBtn = new HomeButton("Rain", "80%");
 
