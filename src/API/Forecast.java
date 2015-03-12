@@ -26,4 +26,23 @@ public class Forecast {
         }
         return windDir.substring(0, hyphenIndex);
     }
+
+    public String getHighTemperature() {
+        int decimalPointIndex = highTemp.indexOf('.');
+        if (decimalPointIndex < 0) {
+            return highTemp;
+        }
+        return highTemp.substring(0, decimalPointIndex);
+    }
+
+    public String getPrecipitation() {
+        if (precipitation != null) {
+            return precipitation;
+        }
+        return "80"; // TODO: API needs to support precipitation
+    }
+
+    public String getHumidity() {
+        return humidity;
+    }
 }
