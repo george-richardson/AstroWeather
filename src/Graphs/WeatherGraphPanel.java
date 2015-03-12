@@ -30,18 +30,17 @@ public abstract class WeatherGraphPanel extends AstroPanel {
 
 
 	public WeatherGraphPanel(Main parent, boolean orientation, Forecasts forecasts, String graphTitle) {
-		super(parent, orientation, forecasts);
+        super(parent, orientation, forecasts);
+        setLayout(new BorderLayout());
 		JButton back = new JButton("Back");
 		back.addActionListener(backListener);
 		add(back, BorderLayout.NORTH);
-		setLayout(new BorderLayout());
 		add(new WeatherGraph(graphTitle, collectDataByHour(forecasts.getHourlyForecasts(), graphTitle)), BorderLayout.CENTER);
 	}
 
 	@Override
 	public void changeOrientation(boolean orientation) {
-		// Nothing special needs to happen for the temperature graph,
-		// it will resize automatically
+        this.orientation = orientation;
 	}
 
 	private XYSeries collectDataByHour(List<Forecast> hourlyForecasts, String graphTitle) {
