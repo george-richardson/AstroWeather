@@ -7,6 +7,9 @@ import java.net.URLConnection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,7 +22,7 @@ public abstract class AstroWeatherChecker {
 
 		String theWeatherRSS;
 		String theCity;
-		ArrayList<Forecast> weatherForecastList;
+		List<Forecast> weatherForecastList;
 
 
 		// attribute of weather chosen eg name, value, max, min
@@ -86,7 +89,7 @@ public abstract class AstroWeatherChecker {
 
 
 
-		public ArrayList<Forecast> getWeather(){
+		public List<Forecast> getWeather(){
 			int numberOfSamples = calculateNumberOfSamples();
 			for (int i = 0; i < numberOfSamples; i++) {
 				weatherForecastList.add(new Forecast());
@@ -115,7 +118,7 @@ public abstract class AstroWeatherChecker {
 				System.out.println("error retrieving weather information");
 			}
 
-			return weatherForecastList;
+            return filterByNumberOfDaysToKeep();
 
 		}
 
@@ -326,6 +329,30 @@ public abstract class AstroWeatherChecker {
 			return null;
 		}
 
+    private List<Forecast> filterByNumberOfDaysToKeep() {
+        if (weatherForecastList.isEmpty()) {
+            return weatherForecastList;
+        }
+
+        Date maxDate = calculateMaxDateToKeep();
+        List<Forecast> filtered = new ArrayList<>();
+        for (Forecast forecast : weatherForecastList) {
+            if (forecast.date.before(maxDate)) {
+                filtered.add(forecast);
+            }
+        }
+        return filtered;
+    }
+
+    private Date calculateMaxDateToKeep() {
+        int daysToKeep = Integer.parseInt(numDays);
+        Date first = weatherForecastList.get(0).date;
+        Calendar current = Calendar.getInstance();
+        current.setTime(first);
+        current.add(Calendar.DAY_OF_MONTH, daysToKeep);
+        current.add(Calendar.SECOND, 1);
+        return current.getTime();
+    }
 
 
 	}// end class

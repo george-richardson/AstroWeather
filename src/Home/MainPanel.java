@@ -5,6 +5,8 @@ import API.Forecasts;
 import AstroWeather.Main;
 import Common.AstroPanel;
 import Common.Resources;
+import Graphs.HumidityByHour;
+import Graphs.PrecipitationByHour;
 import Graphs.TemperatureByHourGraphPanel;
 
 import javax.swing.*;
@@ -53,7 +55,19 @@ public class MainPanel extends AstroPanel {
             }
         });
 		humidityBtn = new HomeButton("Humidity", "11%");
+        humidityBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                change(new HumidityByHour(parent, orientation, forecasts));
+            }
+        });
 		precipBtn = new HomeButton("Rain", "80%");
+        precipBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                change(new PrecipitationByHour(parent, orientation, forecasts));
+            }
+        });
 
 		otherDays = new JPanel(new GridLayout(10, 1));
 		otherDays.setOpaque(false);

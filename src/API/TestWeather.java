@@ -1,6 +1,6 @@
 package API;
 import java.util.ArrayList;
-
+import java.util.List;
 
 
 public abstract class TestWeather
@@ -65,7 +65,7 @@ public abstract class TestWeather
 
 		}
 
-	    ArrayList<Forecast> d = y.getWeather();
+	    List<Forecast> d = y.getWeather();
 
 	    System.out.println(d.get(0).highTemp);
 
