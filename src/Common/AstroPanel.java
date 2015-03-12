@@ -1,32 +1,31 @@
 package Common;
 
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-
-import javax.swing.JPanel;
-
+import API.Forecasts;
 import AstroWeather.Main;
+
+import javax.swing.*;
+import java.awt.*;
 
 @SuppressWarnings("serial")
 public abstract class AstroPanel extends JPanel {
-	protected Main parent;
-	protected boolean orientation;
-	
-	protected AstroPanel(Main parent, boolean orientation) {
-		this.parent = parent;
-		this.orientation= orientation;
-		//setOpaque(false);
-	}
-	protected void change(AstroPanel p) {
-		parent.changePanel(p);
-	}
 
-	public abstract void changeOrientation(boolean orientation);
-	
-	@Override
+    protected Forecasts forecasts;
+    protected Main parent;
+    protected boolean orientation;
+
+    protected AstroPanel(Main parent, boolean orientation, Forecasts forecasts) {
+        this.parent = parent;
+        this.orientation= orientation;
+        this.forecasts = forecasts;
+        //setOpaque(false);
+    }
+    protected void change(AstroPanel p) {
+        parent.changePanel(p);
+    }
+
+    public abstract void changeOrientation(boolean orientation);
+
+    @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;

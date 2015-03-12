@@ -1,0 +1,605 @@
+Index: src/Common/AstroPanel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Common/AstroPanel.java	(revision 35cb066a725111637ed364be8997a3d8edb6f571)
++++ src/Common/AstroPanel.java	(revision )
+@@ -1,23 +1,22 @@
+ package Common;
+ 
+-import java.awt.Color;
+-import java.awt.GradientPaint;
+-import java.awt.Graphics;
+-import java.awt.Graphics2D;
+-import java.awt.RenderingHints;
+-
+-import javax.swing.JPanel;
+-
++import API.Forecasts;
+ import AstroWeather.Main;
+ 
++import javax.swing.*;
++import java.awt.*;
++
+ @SuppressWarnings("serial")
+ public abstract class AstroPanel extends JPanel {
++
++	protected Forecasts forecasts;
+ 	protected Main parent;
+ 	protected boolean orientation;
+-	
++
+-	protected AstroPanel(Main parent, boolean orientation) {
++	protected AstroPanel(Main parent, boolean orientation, Forecasts forecasts) {
+ 		this.parent = parent;
+ 		this.orientation= orientation;
++		this.forecasts = forecasts;
+ 		//setOpaque(false);
+ 	}
+ 	protected void change(AstroPanel p) {
+@@ -25,7 +24,7 @@
+ 	}
+ 
+ 	public abstract void changeOrientation(boolean orientation);
+-	
++
+ 	@Override
+     protected void paintComponent(Graphics g) {
+         super.paintComponent(g);
+Index: src/API/HourlyWeatherChecker.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/API/HourlyWeatherChecker.java	(revision 35cb066a725111637ed364be8997a3d8edb6f571)
++++ src/API/HourlyWeatherChecker.java	(revision )
+@@ -9,7 +9,7 @@
+ 	public HourlyWeatherChecker(String city) {
+ 		super(city);
+ 
+-		this.numDays = "7";
++		this.numDays = "1";
+ 		this.timePeriod = "hourly?";
+ 		this.timeAttribute = "from";
+ 		this.timeFormat = new SimpleDateFormat("yyyy-M-dd'T'HH:mm:ss"); //2015-03-11T18:00:00
+Index: src/Location/LocationPanel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Location/LocationPanel.java	(revision 35cb066a725111637ed364be8997a3d8edb6f571)
++++ src/Location/LocationPanel.java	(revision )
+@@ -1,35 +1,34 @@
+ package Location;
+ 
+-import java.awt.BorderLayout;
+-import java.awt.Dimension;
+-import java.awt.event.ActionEvent;
+-import java.awt.event.ActionListener;
+-
+-import javax.swing.JButton;
+-import javax.swing.JPanel;
+-import javax.swing.JTextField;
+-
++import API.Forecasts;
+ import AstroWeather.Main;
+ import Common.AstroPanel;
+ import Common.Resources;
+ import Home.MainPanel;
+ 
++import javax.swing.*;
++import java.awt.*;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
++
+ @SuppressWarnings("serial")
+ public class LocationPanel extends AstroPanel {
++
+ 	private ActionListener actionListener = new ActionListener() {
+-		
++
+ 		@Override
+ 		public void actionPerformed(ActionEvent e) {
+-			parent.changePanel(new MainPanel(parent, orientation));
++			parent.changePanel(new MainPanel(parent, orientation, new Forecasts(locationField.getText())));
+ 		}
+ 	};
+-	
++
++	private JTextField locationField = new JTextField();
++
+ 	public LocationPanel(Main parent, boolean orientation) {
+-		super(parent, orientation);
++		super(parent, orientation, null);
+ 		setLayout(new BorderLayout());
+ 		setBackground(Resources.bgColor);
+ 		JPanel topPanel = new JPanel(new BorderLayout());
+-		JTextField locationField = new JTextField();
+ 		topPanel.add(locationField, BorderLayout.CENTER);
+ 		JButton goBtn = new JButton("Go");
+ 		goBtn.addActionListener(actionListener);
+Index: src/API/Forecasts.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/API/Forecasts.java	(revision )
++++ src/API/Forecasts.java	(revision )
+@@ -0,0 +1,25 @@
++package API;
++
++import java.util.List;
++
++public class Forecasts {
++
++	private List<Forecast> hourlyForecasts;
++	private List<Forecast> dailyForecasts;
++
++	public Forecasts(String city) {
++		HourlyWeatherChecker hourlyWeatherChecker = new HourlyWeatherChecker(city);
++		hourlyForecasts = hourlyWeatherChecker.getWeather();
++
++		DailyWeatherChecker dailyWeatherChecker = new DailyWeatherChecker(city);
++		dailyForecasts = dailyWeatherChecker.getWeather();
++	}
++
++	public List<Forecast> getHourlyForecasts() {
++		return hourlyForecasts;
++	}
++
++	public List<Forecast> getDailyForecasts() {
++		return dailyForecasts;
++	}
++}
+Index: src/AstroWeather/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/AstroWeather/Main.java	(revision 35cb066a725111637ed364be8997a3d8edb6f571)
++++ src/AstroWeather/Main.java	(revision )
+@@ -1,21 +1,17 @@
+ package AstroWeather;
+ 
+-import java.awt.BorderLayout;
+-import java.awt.Dimension;
+-import java.awt.GraphicsEnvironment;
+-import java.awt.event.ActionEvent;
+-import java.awt.event.ActionListener;
+-
+-import javax.swing.JButton;
+-import javax.swing.JFrame;
+-
+ import Common.AstroPanel;
+ import Common.Resources;
+ import Location.LocationPanel;
++
++import javax.swing.*;
++import java.awt.*;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
+ 
+ @SuppressWarnings("serial")
+ public class Main extends JFrame {
+-	
++
+ 	private boolean orientation;
+ 	private AstroPanel p;
+ 	private static final int lh = 320, lw = 480, ph = 480, pw = 320;
+@@ -24,11 +20,11 @@
+ 	public static void main(String[] args) {
+ 		new Main();
+ 	}
+-	
++
+ 	private Main() {
+ 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+ 		ge.registerFont(Resources.homeButtonFont);
+-		
++
+ 
+ 		orientation = true;
+ 		setResizable(false);
+@@ -41,7 +37,7 @@
+ 				switchOrientation();
+ 			}
+ 		});
+-		
++
+ 		add(switchOrientationBtn, BorderLayout.SOUTH);
+ 		p = new LocationPanel(this, orientation);
+ 		changeDimensions();
+@@ -51,14 +47,14 @@
+ 		setVisible(true);
+ 	}
+ 
+-	
++
+ 	private void switchOrientation() {
+ 		orientation = !orientation;
+ 		changeDimensions();
+ 		p.changeOrientation(orientation);
+ 		pack();
+ 	}
+-	
++
+ 	private void changeDimensions() {
+ 		Dimension d;
+ 		if (orientation) d = new Dimension(pw, ph);
+@@ -67,12 +63,12 @@
+ 		p.setPreferredSize(d);
+ 		p.setMaximumSize(d);
+ 	}
+-	
++
+ 	public void changePanel(AstroPanel newPanel) {
+ 		remove(p);
+ 		p = newPanel;
+ 		add(p, BorderLayout.CENTER);
+-		
++
+ 		// Do not ask me why this works. Wizardry i expect.
+ //		setVisible(false);
+ //		switchOrientation();
+Index: src/Common/Resources.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Common/Resources.java	(revision 35cb066a725111637ed364be8997a3d8edb6f571)
++++ src/Common/Resources.java	(revision )
+@@ -1,26 +1,20 @@
+ package Common;
+ 
+-import java.awt.Color;
+-import java.awt.Font;
+-import java.awt.Image;
++import java.awt.*;
+ import java.awt.font.TextAttribute;
+ import java.io.File;
+-import java.io.IOException;
+ import java.util.HashMap;
+ import java.util.Map;
+ 
+-import javax.imageio.ImageIO;
+-
+ public class Resources {
+-	public static final Color bgColor = new Color(26, 65, 81);
++	public static final Color bgColor = new Color(0, 0, 0, 0.0f);
+ 	public static final Color bgColorTop = new Color(11, 25, 31);
+ 	public static final Color bgColorBottom = new Color(65, 142, 194);
+ 	public static final Color titleColor = new Color(255, 255, 255);
+ 	public static final Font titleFont = getFont(24, 0.1);
+ 	public static final Font homeButtonFont = getFont(14, 0.2);
+ 	public static final Font chartTitleFont = getFont(14, 	0.2);
+-	public static final Image backgroundImage = load("assets/background.png");
+-		
++
+ 	private static Font getFont(float size, double spacing) {
+ 		Map<TextAttribute, Object> attributes = new HashMap<TextAttribute, Object>();
+ 		attributes.put(TextAttribute.TRACKING, spacing);
+@@ -29,14 +23,6 @@
+ 		} catch (Exception e) {
+ 			System.err.println("ERR: FONT FILE NOT FOUND");
+ 			return new Font(Font.SERIF, Font.PLAIN, 12);
+-		}
+-	}
+-	
+-	private static Image load(String pathToImage) {
+-		try {
+-			return ImageIO.read(new File(pathToImage));
+-		} catch (IOException e) {
+-			throw new RuntimeException("Cannot load image: " + pathToImage, e);
+ 		}
+ 	}
+ }
+Index: src/Graphs/WeatherGraph.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Graphs/WeatherGraph.java	(revision 35cb066a725111637ed364be8997a3d8edb6f571)
++++ src/Graphs/WeatherGraph.java	(revision )
+@@ -1,39 +1,36 @@
+ package Graphs;
+ 
++import Common.Resources;
+ import org.jfree.chart.ChartFactory;
+ import org.jfree.chart.ChartPanel;
+ import org.jfree.chart.JFreeChart;
+ import org.jfree.chart.axis.DateAxis;
+ import org.jfree.chart.axis.NumberAxis;
+ import org.jfree.chart.axis.ValueAxis;
+-import org.jfree.chart.plot.PlotOrientation;
+ import org.jfree.chart.plot.XYPlot;
+ import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+ import org.jfree.data.xy.XYDataset;
+ import org.jfree.data.xy.XYSeries;
+ import org.jfree.data.xy.XYSeriesCollection;
+ 
+-import Common.Resources;
+-
+-import java.awt.*;
+ import java.awt.event.MouseListener;
+ import java.text.SimpleDateFormat;
+ import java.util.EventListener;
+ 
+ @SuppressWarnings("serial")
+ public class WeatherGraph extends ChartPanel {
+-	
++
+ 	private static final String X_AXIS_LABEl = "";
+ 	private static final String Y_AXIS_LABEl = "";
+ 	private static final boolean ENABLE_LEGEND = false;
+ 	private static final boolean ENABLE_TOOLTIPS = false;
+ 	private static final boolean ENABLE_URLS = false;
+-	private static final SimpleDateFormat HOUR_FORMAT = new SimpleDateFormat(
+-			"kk");
++	private static final SimpleDateFormat HOUR_FORMAT = new SimpleDateFormat("kk");
+ 
+ 	public WeatherGraph(String title, XYSeries dataByHour) {
+ 		super(createChart(title, dataByHour));
+ 		setBackground(Resources.bgColor);
++		setOpaque(false);
+ 		removeClickListeners();
+ 	}
+ 
+@@ -95,4 +92,4 @@
+ 		rangeAxis.setAxisLinePaint(Resources.titleColor);
+ 		rangeAxis.setTickLabelPaint(Resources.titleColor);
+ 	}
+-}
+\ No newline at end of file
++}
+Index: src/Graphs/WeatherGraphPanel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Graphs/WeatherGraphPanel.java	(revision 35cb066a725111637ed364be8997a3d8edb6f571)
++++ src/Graphs/WeatherGraphPanel.java	(revision )
+@@ -1,18 +1,18 @@
+ package Graphs;
+ 
+-import java.awt.BorderLayout;
+-
+-import org.jfree.data.xy.XYSeries;
+-
++import API.Forecasts;
+ import AstroWeather.Main;
+ import Common.AstroPanel;
++import org.jfree.data.xy.XYSeries;
+ 
++import java.awt.*;
++
+ @SuppressWarnings("serial")
+ public class WeatherGraphPanel extends AstroPanel {
+ 
+-	public WeatherGraphPanel(Main parent, boolean orientation, String graphTitle, XYSeries dataByHour) {
+-		super(parent, orientation);
++	public WeatherGraphPanel(Main parent, boolean orientation, Forecasts forecasts, String graphTitle, XYSeries dataByHour) {
++		super(parent, orientation, forecasts);
+-		
++
+ 		setLayout(new BorderLayout());
+ 		add(new WeatherGraph(graphTitle, dataByHour), BorderLayout.CENTER);
+ 	}
+Index: src/Home/MainPanel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Home/MainPanel.java	(revision 35cb066a725111637ed364be8997a3d8edb6f571)
++++ src/Home/MainPanel.java	(revision )
+@@ -1,79 +1,67 @@
+ package Home;
+ 
+-import java.awt.BorderLayout;
+-import java.awt.Color;
+-import java.awt.GradientPaint;
+-import java.awt.Graphics;
+-import java.awt.Graphics2D;
+-import java.awt.GridBagConstraints;
+-import java.awt.GridBagLayout;
+-import java.awt.GridLayout;
+-import java.awt.RenderingHints;
+-
+-import javax.swing.BorderFactory;
+-import javax.swing.JLabel;
+-import javax.swing.JPanel;
+-import javax.swing.JScrollPane;
+-import javax.swing.UIManager;
+-
++import API.Forecasts;
+ import AstroWeather.Main;
+ import Common.AstroPanel;
+ import Common.Resources;
+ 
++import javax.swing.*;
++import java.awt.*;
++
+ @SuppressWarnings("serial")
+ public class MainPanel extends AstroPanel {
+ 	private JPanel currentDay, otherDays, hourScroll, buttonGrid;
+ 	private JLabel currentDayLabel;
+ 	private JScrollPane dayScrollPane;
+ 	private HomeButton windBtn, tempBtn, cloudCoverBtn, lunarBtn, precipBtn, humidityBtn;
+-	
++
+-	public MainPanel(Main parent, boolean orientation) {
+-		super(parent, orientation);
++	public MainPanel(Main parent, boolean orientation, Forecasts forecasts) {
++		super(parent, orientation, forecasts);
+ 		commonInit();
+ 		if (orientation) portraitInit();
+ 		else landscapeInit();
+ 	}
+-	
++
+ 	public void commonInit() {
+ 		UIManager.put("ScrollBar.width", new Integer(0));
+ 		//setBackground(Resources.bgColor);
+-		
++
+ 		// Current Day
+ 		currentDay = new JPanel();
+ 		currentDay.setOpaque(false);
+ 		currentDay.setLayout(new BorderLayout());
+-		
++
+ 		currentDayLabel = new JLabel("<html>Monday<span style='text-size: 18px'>02/02</span></html>");
+ 		currentDayLabel.setFont(Resources.titleFont);
+ 		currentDayLabel.setForeground(Resources.titleColor);
+ 		currentDayLabel.setHorizontalAlignment(JLabel.CENTER);
+-		
++
+ 		currentDay.add(currentDayLabel, BorderLayout.NORTH);
+-		
++
+ 		cloudCoverBtn = new HomeButton(HomeButton.createIcon("moon75.png"), "Cloud");
+ 		lunarBtn = new HomeButton(HomeButton.createIcon("moon75.png"), "Lunar");
+ 		windBtn = new HomeButton(HomeButton.createIcon("moon75.png"), "Wind");
+ 		tempBtn = new HomeButton("Temp", "8�");
+ 		humidityBtn = new HomeButton("Humidity", "11%");
+ 		precipBtn = new HomeButton("Rain", "80%");
+-		
++
+ 		otherDays = new JPanel(new GridLayout(10, 1));
+ 		otherDays.setOpaque(false);
+-		
++
+ 		for (int i = 0; i < 10; i++) {
+ 			otherDays.add(new DayPanel());
+ 		}
+-		
++
+ 		dayScrollPane = new JScrollPane(otherDays);
+ 		dayScrollPane.setBorder(null);
+ 		dayScrollPane.setOpaque(false);
+ 		dayScrollPane.getViewport().setOpaque(false);
+ 		dayScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+ 		dayScrollPane.getVerticalScrollBar().setUnitIncrement(16);
+-		
++
+ 	}
+-	
+-	public void portraitInit() {		
++
++	public void portraitInit() {
+ 		buttonGrid = new JPanel(new GridLayout(2, 3));
+ 		buttonGrid.setOpaque(false);
+ 		buttonGrid.add(cloudCoverBtn);
+@@ -83,26 +71,26 @@
+ 		buttonGrid.add(humidityBtn);
+ 		buttonGrid.add(precipBtn);
+ 		currentDay.add(buttonGrid, BorderLayout.CENTER);
+-		
++
+ 		hourScroll = new JPanel(new GridLayout(1, 10));
+ 		hourScroll.setOpaque(false);
+-		
++
+ 		hourScroll.add(new HourButton("20", true));
+ 		for (int i = 0; i < 9; i++) {
+ 			hourScroll.add(new HourButton("20"));
+ 		}
+-		
++
+ 		JScrollPane hourScrollPane = new JScrollPane(hourScroll);
+ 		hourScrollPane.setOpaque(false);
+ 		hourScrollPane.setBorder(BorderFactory.createMatteBorder(1, 0, 1, 0, Resources.titleColor));
+ 		hourScrollPane.getViewport().setOpaque(false);
+ 		hourScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+ 		hourScrollPane.getHorizontalScrollBar().setUnitIncrement(16);
+-		
++
+ 		// Set Layout.
+ 		setLayout(new GridBagLayout());
+ 		GridBagConstraints gbc = new GridBagConstraints();
+-		
++
+ 		// Add Panels to main panel
+ 		gbc.gridx = 0;
+ 		gbc.gridy = 0;
+@@ -110,16 +98,16 @@
+ 		gbc.weightx = 1;
+ 		gbc.fill = GridBagConstraints.BOTH;
+ 		add(currentDay, gbc);
+-		
++
+ 		gbc.gridy = 1;
+ 		gbc.weighty = 80;
+ 		add(hourScrollPane, gbc);
+-		
++
+ 		gbc.gridy = 2;
+ 		gbc.weighty = 250;
+ 		add(dayScrollPane, gbc);
+ 	}
+-	
++
+ 	public void landscapeInit() {
+ 		buttonGrid = new JPanel(new GridLayout(3, 2));
+ 		buttonGrid.setOpaque(false);
+@@ -130,15 +118,15 @@
+ 		buttonGrid.add(windBtn);
+ 		buttonGrid.add(precipBtn);
+ 		currentDay.add(buttonGrid, BorderLayout.CENTER);
+-		
++
+ 		hourScroll = new JPanel(new GridLayout(10, 1));
+ 		hourScroll.setOpaque(false);
+-		
++
+ 		hourScroll.add(new HourButton("20", true));
+ 		for (int i = 0; i < 9; i++) {
+ 			hourScroll.add(new HourButton("20"));
+ 		}
+-		
++
+ 		JScrollPane hourScrollPane = new JScrollPane(hourScroll);
+ 		hourScrollPane.setBorder(null);
+ 		hourScrollPane.setOpaque(false);
+@@ -147,11 +135,11 @@
+ 		hourScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+ 		hourScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+ 		hourScrollPane.getVerticalScrollBar().setUnitIncrement(16);
+-		
++
+ 		// Set Layout.
+ 		setLayout(new GridBagLayout());
+ 		GridBagConstraints gbc = new GridBagConstraints();
+-		
++
+ 		// Add Panels to main panel
+ 		gbc.gridx = 0;
+ 		gbc.gridy = 0;
+@@ -159,24 +147,20 @@
+ 		gbc.weightx = 1;
+ 		gbc.fill = GridBagConstraints.BOTH;
+ 		add(currentDay, gbc);
+-		
++
+ 		gbc.gridx = 1;
+ 		gbc.weightx = 60;
+ 		add(hourScrollPane, gbc);
+-		
++
+ 		gbc.gridx = 2;
+ 		gbc.weightx = 250;
+ 		add(dayScrollPane, gbc);
+ 	}
+-	
++
+ 	public void changeOrientation(boolean orientation) {
+ 		this.orientation = orientation;
+ 		removeAll();
+ 		if (orientation) portraitInit();
+ 		else landscapeInit();
+ 	}
+-	
+-	
+-
+-	
+ }

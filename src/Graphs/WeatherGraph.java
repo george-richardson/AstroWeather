@@ -1,39 +1,36 @@
 package Graphs;
 
+import Common.Resources;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-import Common.Resources;
-
-import java.awt.*;
 import java.awt.event.MouseListener;
 import java.text.SimpleDateFormat;
 import java.util.EventListener;
 
 @SuppressWarnings("serial")
 public class WeatherGraph extends ChartPanel {
-	
+
 	private static final String X_AXIS_LABEl = "";
 	private static final String Y_AXIS_LABEl = "";
 	private static final boolean ENABLE_LEGEND = false;
 	private static final boolean ENABLE_TOOLTIPS = false;
 	private static final boolean ENABLE_URLS = false;
-	private static final SimpleDateFormat HOUR_FORMAT = new SimpleDateFormat(
-			"kk");
+	private static final SimpleDateFormat HOUR_FORMAT = new SimpleDateFormat("kk");
 
 	public WeatherGraph(String title, XYSeries dataByHour) {
 		super(createChart(title, dataByHour));
 		setBackground(Resources.bgColor);
+		setOpaque(false);
 		removeClickListeners();
 	}
 
@@ -55,7 +52,8 @@ public class WeatherGraph extends ChartPanel {
 		return dataset;
 	}
 
-	private static JFreeChart createChart(String title, XYSeries temperatureByHour) {
+	private static JFreeChart createChart(String title,
+			XYSeries temperatureByHour) {
 		XYDataset dataset = createDataset(temperatureByHour);
 
 		JFreeChart chart = ChartFactory.createTimeSeriesChart(title,

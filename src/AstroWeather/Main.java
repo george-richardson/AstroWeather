@@ -1,21 +1,17 @@
 package AstroWeather;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.GraphicsEnvironment;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
 import Common.AstroPanel;
 import Common.Resources;
 import Location.LocationPanel;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 @SuppressWarnings("serial")
 public class Main extends JFrame {
-	
+
 	private boolean orientation;
 	private AstroPanel p;
 	private static final int lh = 320, lw = 480, ph = 480, pw = 320;
@@ -24,11 +20,11 @@ public class Main extends JFrame {
 	public static void main(String[] args) {
 		new Main();
 	}
-	
+
 	private Main() {
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		ge.registerFont(Resources.homeButtonFont);
-		
+
 
 		orientation = true;
 		setResizable(false);
@@ -41,7 +37,7 @@ public class Main extends JFrame {
 				switchOrientation();
 			}
 		});
-		
+
 		add(switchOrientationBtn, BorderLayout.SOUTH);
 		p = new LocationPanel(this, orientation);
 		changeDimensions();
@@ -51,14 +47,14 @@ public class Main extends JFrame {
 		setVisible(true);
 	}
 
-	
+
 	private void switchOrientation() {
 		orientation = !orientation;
 		changeDimensions();
 		p.changeOrientation(orientation);
 		pack();
 	}
-	
+
 	private void changeDimensions() {
 		Dimension d;
 		if (orientation) d = new Dimension(pw, ph);
@@ -67,12 +63,12 @@ public class Main extends JFrame {
 		p.setPreferredSize(d);
 		p.setMaximumSize(d);
 	}
-	
+
 	public void changePanel(AstroPanel newPanel) {
 		remove(p);
 		p = newPanel;
 		add(p, BorderLayout.CENTER);
-		
+
 		// Do not ask me why this works. Wizardry i expect.
 //		setVisible(false);
 //		switchOrientation();

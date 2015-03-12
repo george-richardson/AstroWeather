@@ -1,18 +1,19 @@
 package Graphs;
 
-import java.awt.BorderLayout;
-
-import org.jfree.data.xy.XYSeries;
-
+import API.Forecasts;
+import API.Forecasts;
 import AstroWeather.Main;
 import Common.AstroPanel;
+import org.jfree.data.xy.XYSeries;
+
+import java.awt.*;
 
 @SuppressWarnings("serial")
 public class WeatherGraphPanel extends AstroPanel {
 
-	public WeatherGraphPanel(Main parent, boolean orientation, String graphTitle, XYSeries dataByHour) {
-		super(parent, orientation);
-		
+	public WeatherGraphPanel(Main parent, boolean orientation, Forecasts forecasts, String graphTitle, XYSeries dataByHour) {
+		super(parent, orientation, forecasts);
+
 		setLayout(new BorderLayout());
 		add(new WeatherGraph(graphTitle, dataByHour), BorderLayout.CENTER);
 	}

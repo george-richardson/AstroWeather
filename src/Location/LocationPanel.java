@@ -1,35 +1,34 @@
 package Location;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
+import API.Forecasts;
 import AstroWeather.Main;
 import Common.AstroPanel;
 import Common.Resources;
 import Home.MainPanel;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 @SuppressWarnings("serial")
 public class LocationPanel extends AstroPanel {
+
 	private ActionListener actionListener = new ActionListener() {
-		
+
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			parent.changePanel(new MainPanel(parent, orientation));
+			parent.changePanel(new MainPanel(parent, orientation, new Forecasts(locationField.getText())));
 		}
 	};
-	
+
+	private JTextField locationField = new JTextField();
+
 	public LocationPanel(Main parent, boolean orientation) {
-		super(parent, orientation);
+		super(parent, orientation, null);
 		setLayout(new BorderLayout());
 		setBackground(Resources.bgColor);
 		JPanel topPanel = new JPanel(new BorderLayout());
-		JTextField locationField = new JTextField();
 		topPanel.add(locationField, BorderLayout.CENTER);
 		JButton goBtn = new JButton("Go");
 		goBtn.addActionListener(actionListener);
