@@ -226,8 +226,8 @@ public abstract class AstroWeatherChecker {
 
 
             URLConnection con = url.openConnection();
-            con.setConnectTimeout(3000);
-            con.setReadTimeout(3000);
+            con.setConnectTimeout(2000);
+            con.setReadTimeout(2000);
 
             Pattern p = Pattern.compile("text/html;\\s+charset=([^\\s]+)\\s*");
             Matcher m = p.matcher(con.getContentType());

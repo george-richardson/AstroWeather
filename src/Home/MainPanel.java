@@ -1,13 +1,12 @@
 package Home;
 
 import API.Forecasts;
-import API.Forecasts;
 import AstroWeather.Main;
 import Common.AstroPanel;
 import Common.Resources;
 import Graphs.HumidityByHour;
 import Graphs.PrecipitationByHour;
-import Graphs.TemperatureByHourGraphPanel;
+import Graphs.TemperatureByHour;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,13 +44,13 @@ public class MainPanel extends AstroPanel {
 		currentDay.add(currentDayLabel, BorderLayout.NORTH);
 
 		cloudCoverBtn = new HomeButton(HomeButton.createIcon("moon75.png"), "Cloud");
-		lunarBtn = new HomeButton(HomeButton.createIcon("moon75.png"), "Lunar");
+		lunarBtn = new MoonPhaseButton();
 		windBtn = new HomeButton(HomeButton.createIcon("moon75.png"), "Wind");
 		tempBtn = new HomeButton("Temp", "8�");
         tempBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                change(new TemperatureByHourGraphPanel(parent, orientation, forecasts));
+                change(new TemperatureByHour(parent, orientation, forecasts));
             }
         });
 		humidityBtn = new HomeButton("Humidity", "11%");

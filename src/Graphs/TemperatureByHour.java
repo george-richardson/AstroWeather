@@ -4,9 +4,9 @@ import API.Forecast;
 import API.Forecasts;
 import AstroWeather.Main;
 
-public class TemperatureByHourGraphPanel extends WeatherGraphPanel {
+public class TemperatureByHour extends WeatherGraphPanel {
 
-	public TemperatureByHourGraphPanel(Main parent, boolean orientation, Forecasts forecasts) {
+	public TemperatureByHour(Main parent, boolean orientation, Forecasts forecasts) {
 		super(parent, orientation, forecasts, "Temperature By Hour");
 	}
 
