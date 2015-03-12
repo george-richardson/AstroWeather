@@ -298,7 +298,7 @@ public abstract class AstroWeatherChecker {
 
 			//	URL url = new URL("http://api.openweathermap.org/data/2.5/forecast/hourly?q="+city+"&mode=xml&units=metric&cnt=1");
 
-				URL url = new URL("http://api.openweathermap.org/data/2.5/forecast/" +timePeriod+ "q="+city+"&mode=xml&units=metric&cnt="+numDays);
+				URL url = new URL("http://api.openweathermap.org/data/2.5/forecast/" +timePeriod+ "q="+city+"&mode=xml&units=metric&cnt="+numDays+"&APPID=0a53221ef5a622a0d9a16cece339aae4");
 				//change to hourly
 
 
