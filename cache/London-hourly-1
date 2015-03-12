@@ -10,7 +10,7 @@
   <credit/>
   <meta>
     <lastupdate/>
-    <calctime>0.0835</calctime>
+    <calctime>0.0435</calctime>
     <nextupdate/>
   </meta>
   <sun rise="2015-03-12T06:20:30" set="2015-03-12T17:59:52"/>
@@ -424,6 +424,16 @@
       <pressure unit="hPa" value="1031.21"/>
       <humidity value="92" unit="%"/>
       <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time from="2015-03-17T21:00:00" to="2015-03-18T00:00:00">
+      <symbol number="800" name="sky is clear" var="02n"/>
+      <precipitation/>
+      <windDirection deg="284.5" code="WNW" name="West-northwest"/>
+      <windSpeed mps="1.81" name="Light breeze"/>
+      <temperature unit="celsius" value="3.76" min="3.76" max="3.76"/>
+      <pressure unit="hPa" value="1033.81"/>
+      <humidity value="89" unit="%"/>
+      <clouds value="clear sky" all="8" unit="%"/>
     </time>
   </forecast>
 </weatherdata>
