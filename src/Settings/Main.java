@@ -1,0 +1,271 @@
+package Settings;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+public class Main extends JFrame implements ActionListener {
+    private MainPanel mainPanel = new MainPanel();
+    private MainPanel locationPanel = new MainPanel ();
+    private JTextField tempText = new JTextField("Celcius");
+    private JTextField windText = new JTextField("Miles per hour");
+    private JButton tempBut = new JButton("Temperatre");
+    private JButton windBut = new JButton("Wind Speed");
+    private JButton feedbackBut = new JButton("Feedback");
+    private JButton aboutBut = new JButton("About this app");
+    private JButton helpBut = new JButton("Help");
+    private JLabel suppText = new JLabel("SUPPORT");
+    private JLabel settingsLabel = new JLabel("SETTINGS");
+    private JLabel locationText = new JLabel("    Show current Location");
+    private JLabel locallText = new JLabel("Show current location");
+    private JButton back = new JButton();
+    private JPanel settingsPanel = new JPanel();     
+    private JPanel headerPanel = new JPanel(); 
+   
+    private MainPanel Temp = new MainPanel();
+    private MainPanel Wind = new MainPanel();
+    private JPanel Support = new JPanel();
+    private MainPanel About = new MainPanel();
+    private MainPanel Feedback = new MainPanel();
+    private MainPanel Help = new MainPanel();
+    public static int CELSIUS = 0;
+    public static int FAHRENHEIT = 1;
+    public static int KM_PER_HOUR = 0;
+    public static int MILES_PER_HOUR = 1;
+    private int tempMetrics = CELSIUS;
+    private int windMetrics = KM_PER_HOUR;
+    
+    private JCheckBox locationBox = new JCheckBox(); 
+    
+    Font myFont = new Font("Kreativ", Font.BOLD, 14);
+    
+    
+    public static void main(String[] args) {
+        Main app = new Main();
+        app.startApp();
+    }
+    
+    public Main() {
+        super("Settings");
+        this.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+    }
+
+    public void startApp() {
+        Container c = getContentPane();
+        tempBut.setHorizontalAlignment(SwingConstants.LEFT);
+        windBut.setHorizontalAlignment(SwingConstants.LEFT);
+        back.setIcon(new ImageIcon(getClass().getResource("back.png")));
+        headerPanel.setLayout(new GridLayout(1, 2));
+        headerPanel.setBackground(new Color(36,102,176));
+        headerPanel.add(back);
+        back.setOpaque(false);
+        back.setContentAreaFilled(false);
+        back.setBorderPainted(false);
+        back.setHorizontalAlignment(SwingConstants.LEFT);
+        back.addMouseListener(new MouseAdapter()
+        {
+            public void mouseEntered(MouseEvent evt)
+            {
+                back.setIcon(new ImageIcon(getClass().getResource("back1.png")));
+              // back.setIcon(icon1);
+            }
+            public void mouseExited(MouseEvent evt)
+            {
+            back.setIcon(new ImageIcon(getClass().getResource("back.png")));
+            }
+           
+        });
+        
+        settingsPanel.setLayout(new GridLayout(1, 1));
+        settingsPanel.setOpaque(false);
+        settingsPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(51,181,229)));
+        settingsPanel.add(settingsLabel);
+        settingsLabel.setForeground(Color.white);
+        
+        Support.setLayout(new GridLayout(1, 1));
+        Support.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(51,181,229)));
+        Support.setBackground(new Color(0,0,0,0));
+        Support.add(suppText);
+        suppText.setForeground(Color.white);
+        
+        locationPanel.setLayout(new GridLayout(2, 2));
+        locationPanel.setOpaque(false);
+        locationText.setForeground(Color.white);
+        locallText.setForeground(Color.gray);
+        locationPanel.add(locationText);
+        locationBox.setHorizontalAlignment(SwingConstants.CENTER);
+        locationBox.setOpaque(false);
+        locationBox.setContentAreaFilled(false);
+        locationBox.setBorderPainted(false);
+        locationPanel.add(locationBox);
+        locationPanel.add(locallText);
+        
+        Temp.setLayout(new GridLayout(2, 1));
+        Temp.setBackground(new Color(0,0,0,0));
+        tempBut.setOpaque(false);
+        tempBut.setContentAreaFilled(false);
+        tempBut.setBorderPainted(false);
+        tempBut.setForeground(Color.white);
+        Temp.add(tempBut);
+        Temp.add(tempText);
+        
+        Wind.setLayout(new GridLayout(2, 1));
+        Wind.setBackground(new Color(0,0,0,0));
+        windBut.setOpaque(false);
+        windBut.setContentAreaFilled(false);
+        windBut.setBorderPainted(false);
+        windBut.setForeground(Color.white);
+        Wind.add(windBut);
+        Wind.add(windText);
+      
+        tempText.setForeground(Color.gray);
+        tempText.setOpaque(false);
+        tempText.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        
+        windText.setForeground(Color.gray);
+        windText.setOpaque(false);;
+        windText.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+        
+        About.setLayout(new GridLayout(1, 1));
+        About.setBackground(new Color(0,0,0,0));
+        aboutBut.setOpaque(false);
+        aboutBut.setContentAreaFilled(false);
+        aboutBut.setBorderPainted(false);
+        aboutBut.setForeground(Color.white);
+        aboutBut.setHorizontalAlignment(SwingConstants.LEFT);
+        About.add(aboutBut);
+         
+        Feedback.setLayout(new GridLayout(1, 1));
+        Feedback.setBackground(new Color(0,0,0,0));
+        feedbackBut.setOpaque(false);
+        feedbackBut.setContentAreaFilled(false);
+        feedbackBut.setBorderPainted(false);
+        feedbackBut.setForeground(Color.white);
+        feedbackBut.setHorizontalAlignment(SwingConstants.LEFT);
+        Feedback.add(feedbackBut);
+        
+        Help.setLayout(new GridLayout(1, 1));
+        Help.setBackground(new Color(0,0,0,0));
+        helpBut.setOpaque(false);
+        helpBut.setContentAreaFilled(false);
+        helpBut.setBorderPainted(false);
+        helpBut.setForeground(Color.white);
+        helpBut.setHorizontalAlignment(SwingConstants.LEFT);
+        Help.add(helpBut);
+        
+        mainPanel.setLayout(new GridLayout(9, 1));
+        mainPanel.add(headerPanel);
+        mainPanel.add(settingsPanel);
+        mainPanel.add(locationPanel);
+        mainPanel.add(Temp); 
+        mainPanel.add(Wind);
+        mainPanel.add(Support);
+        mainPanel.add(About);
+        mainPanel.add(Feedback);
+        mainPanel.add(Help);
+        c.add(mainPanel);
+        
+        this.setSize(320, 480);
+        this.setResizable(false);
+        this.setVisible(true);
+        back.addActionListener(this);
+        tempBut.addActionListener(this);
+        windBut.addActionListener(this);
+        aboutBut.addActionListener(this);
+        helpBut.addActionListener(this);
+        feedbackBut.addActionListener(this);
+    }
+    
+    public int getTemperatureMetrics() {
+        return this.tempMetrics;
+    }
+    
+    public int getWindMetrics() {
+        return this.windMetrics;
+    }
+    
+    public void setTmperatureMetrics(int metrics) {
+        this.tempMetrics = metrics;
+        if(this.tempMetrics == Main.CELSIUS) {
+            tempText.setText("Celsius");
+        }
+        else {
+            tempText.setText("Fahre..s");
+        }
+        
+        mainPanel.repaint();
+        this.repaint();
+    }
+    
+    public void setWindMetrics(int metrics) {
+        this.windMetrics = metrics;
+        if(this.windMetrics == Main.KM_PER_HOUR) {
+            windText.setText("Kilometers per hour");
+        }
+        else {
+            windText.setText("Miles per hour");
+        }
+        
+        mainPanel.repaint();
+        this.repaint();
+    }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource().equals(tempBut)) {
+            TemperatureFrame tempFrame = new TemperatureFrame(this);
+            tempFrame.load();
+            tempFrame.setVisible(true);
+            tempFrame.setSize(new Dimension(200, 170));
+            tempFrame.setLocation(300,  300);
+            
+        }
+        else if(e.getSource().equals(back)){
+         
+          
+        }
+        
+         if (e.getSource().equals(windBut)) {
+            WindFrame windFrame = new WindFrame(this);
+            windFrame.load();
+            windFrame.setVisible(true);
+            windFrame.setSize(new Dimension(200, 170));
+            windFrame.setLocation(300,  300);
+            
+        }
+        else if(e.getSource().equals(aboutBut)){
+           
+            AboutThisApp abtFrame = new AboutThisApp(this);
+            abtFrame.load();
+            abtFrame.setVisible(true);
+            this.setVisible(false);
+            abtFrame.setSize(new Dimension(320, 480));
+            abtFrame.setLocation(0,0);
+        }
+        else if(e.getSource().equals(helpBut)){
+            Help helpFrame = new Help(this);
+           helpFrame.load();
+            helpFrame.setVisible(true);
+            this.setVisible(false);
+            helpFrame.setSize(new Dimension(320, 480));
+           helpFrame.setLocation(0,0);
+        }
+    }
+}
