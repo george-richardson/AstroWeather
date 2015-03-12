@@ -10,7 +10,7 @@
   <credit/>
   <meta>
     <lastupdate/>
-    <calctime>0.8886</calctime>
+    <calctime>0.2291</calctime>
     <nextupdate/>
   </meta>
   <sun rise="2015-03-12T11:19:58" set="2015-03-12T23:19:09"/>
@@ -20,7 +20,7 @@
       <precipitation/>
       <windDirection deg="86" code="E" name="East"/>
       <windSpeed mps="3.75" name="Gentle Breeze"/>
-      <temperature day="29.38" min="21.75" max="29.41" night="21.75" eve="26.34" morn="29.38"/>
+      <temperature day="29.41" min="21.78" max="29.44" night="21.78" eve="26.37" morn="29.41"/>
       <pressure unit="hPa" value="1003.65"/>
       <humidity value="58" unit="%"/>
       <clouds value="clear sky" all="8" unit="%"/>
@@ -30,7 +30,7 @@
       <precipitation value="2.76" type="rain"/>
       <windDirection deg="104" code="ESE" name="East-southeast"/>
       <windSpeed mps="3.02" name="Light breeze"/>
-      <temperature day="24.91" min="20.54" max="26.67" night="20.54" eve="24.34" morn="22.54"/>
+      <temperature day="24.93" min="20.55" max="26.68" night="20.55" eve="24.35" morn="22.56"/>
       <pressure unit="hPa" value="1003"/>
       <humidity value="88" unit="%"/>
       <clouds value="overcast clouds" all="88" unit="%"/>
@@ -40,100 +40,130 @@
       <precipitation/>
       <windDirection deg="98" code="E" name="East"/>
       <windSpeed mps="3.82" name="Gentle Breeze"/>
-      <temperature day="28.81" min="20.69" max="28.81" night="23.46" eve="25.57" morn="20.69"/>
+      <temperature day="28.82" min="20.7" max="28.82" night="23.46" eve="25.57" morn="20.7"/>
       <pressure unit="hPa" value="1002.33"/>
       <humidity value="65" unit="%"/>
       <clouds value="few clouds" all="12" unit="%"/>
     </time>
     <time day="2015-03-15">
       <symbol number="500" name="light rain" var="10d"/>
-      <precipitation value="0.58" type="rain"/>
-      <windDirection deg="96" code="E" name="East"/>
-      <windSpeed mps="3.77" name="Gentle Breeze"/>
-      <temperature day="28.95" min="20.11" max="29.23" night="20.11" eve="25.71" morn="22.74"/>
-      <pressure unit="hPa" value="1003.17"/>
-      <humidity value="65" unit="%"/>
-      <clouds value="few clouds" all="20" unit="%"/>
+      <precipitation/>
+      <windDirection deg="85" code="E" name="East"/>
+      <windSpeed mps="3.52" name="Gentle Breeze"/>
+      <temperature day="29.55" min="23.86" max="29.55" night="23.94" eve="27.33" morn="23.86"/>
+      <pressure unit="hPa" value="1015.01"/>
+      <humidity value="0" unit="%"/>
+      <clouds value="scattered clouds" all="40" unit="%"/>
     </time>
     <time day="2015-03-16">
       <symbol number="500" name="light rain" var="10d"/>
-      <precipitation value="0.72" type="rain"/>
-      <windDirection deg="54" code="NE" name="NorthEast"/>
-      <windSpeed mps="4.26" name="Gentle Breeze"/>
-      <temperature day="28.66" min="23.08" max="28.66" night="23.08" eve="26.16" morn="23.37"/>
-      <pressure unit="hPa" value="1014.61"/>
+      <precipitation value="0.63" type="rain"/>
+      <windDirection deg="67" code="ENE" name="East-northeast"/>
+      <windSpeed mps="3.41" name="Gentle Breeze"/>
+      <temperature day="28.82" min="23.61" max="28.82" night="23.61" eve="26.92" morn="23.94"/>
+      <pressure unit="hPa" value="1015.12"/>
       <humidity value="0" unit="%"/>
-      <clouds value="scattered clouds" all="32" unit="%"/>
+      <clouds value="broken clouds" all="50" unit="%"/>
     </time>
     <time day="2015-03-17">
       <symbol number="500" name="light rain" var="10d"/>
-      <precipitation value="0.94" type="rain"/>
-      <windDirection deg="78" code="ENE" name="East-northeast"/>
-      <windSpeed mps="3.53" name="Gentle Breeze"/>
-      <temperature day="28.17" min="22.6" max="28.17" night="22.84" eve="25.95" morn="22.6"/>
-      <pressure unit="hPa" value="1014.14"/>
+      <precipitation value="0.53" type="rain"/>
+      <windDirection deg="62" code="ENE" name="East-northeast"/>
+      <windSpeed mps="4.83" name="Gentle Breeze"/>
+      <temperature day="28.2" min="23" max="28.2" night="23" eve="25.76" morn="23.98"/>
+      <pressure unit="hPa" value="1013.32"/>
       <humidity value="0" unit="%"/>
-      <clouds value="scattered clouds" all="29" unit="%"/>
+      <clouds value="scattered clouds" all="43" unit="%"/>
     </time>
     <time day="2015-03-18">
       <symbol number="500" name="light rain" var="10d"/>
-      <precipitation value="0.29" type="rain"/>
-      <windDirection deg="96" code="E" name="East"/>
-      <windSpeed mps="2.96" name="Light breeze"/>
-      <temperature day="28.47" min="22.56" max="28.47" night="22.94" eve="26.11" morn="22.56"/>
-      <pressure unit="hPa" value="1014.19"/>
+      <precipitation value="0.52" type="rain"/>
+      <windDirection deg="86" code="E" name="East"/>
+      <windSpeed mps="3.17" name="Light breeze"/>
+      <temperature day="28.56" min="23.28" max="28.56" night="24.01" eve="26.25" morn="23.28"/>
+      <pressure unit="hPa" value="1013.42"/>
       <humidity value="0" unit="%"/>
-      <clouds value="scattered clouds" all="27" unit="%"/>
+      <clouds value="few clouds" all="11" unit="%"/>
     </time>
     <time day="2015-03-19">
-      <symbol number="501" name="moderate rain" var="10d"/>
-      <precipitation value="6.93" type="rain"/>
-      <windDirection deg="99" code="E" name="East"/>
-      <windSpeed mps="3.23" name="Light breeze"/>
-      <temperature day="28.48" min="22.57" max="28.48" night="24.69" eve="27.7" morn="22.57"/>
-      <pressure unit="hPa" value="1014.5"/>
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="0.2" type="rain"/>
+      <windDirection deg="97" code="E" name="East"/>
+      <windSpeed mps="4.25" name="Gentle Breeze"/>
+      <temperature day="28.86" min="23.23" max="28.86" night="23.23" eve="26.51" morn="23.57"/>
+      <pressure unit="hPa" value="1014.38"/>
       <humidity value="0" unit="%"/>
-      <clouds value="few clouds" all="10" unit="%"/>
+      <clouds value="clear sky" all="8" unit="%"/>
     </time>
     <time day="2015-03-20">
       <symbol number="500" name="light rain" var="10d"/>
-      <precipitation value="0.23" type="rain"/>
-      <windDirection deg="83" code="E" name="East"/>
-      <windSpeed mps="4.43" name="Gentle Breeze"/>
-      <temperature day="29.86" min="24.1" max="29.86" night="24.1" eve="27.85" morn="25.2"/>
-      <pressure unit="hPa" value="1015.48"/>
+      <precipitation/>
+      <windDirection deg="71" code="ENE" name="East-northeast"/>
+      <windSpeed mps="2.82" name="Light breeze"/>
+      <temperature day="29.79" min="23.35" max="29.79" night="23.57" eve="27.52" morn="23.35"/>
+      <pressure unit="hPa" value="1015.89"/>
       <humidity value="0" unit="%"/>
-      <clouds value="few clouds" all="19" unit="%"/>
+      <clouds value="few clouds" all="23" unit="%"/>
     </time>
     <time day="2015-03-21">
       <symbol number="500" name="light rain" var="10d"/>
-      <precipitation value="1.15" type="rain"/>
-      <windDirection deg="91" code="E" name="East"/>
-      <windSpeed mps="3.59" name="Gentle Breeze"/>
-      <temperature day="29.15" min="23.66" max="29.15" night="23.66" eve="27.06" morn="23.85"/>
-      <pressure unit="hPa" value="1015.01"/>
+      <precipitation value="0.77" type="rain"/>
+      <windDirection deg="60" code="ENE" name="East-northeast"/>
+      <windSpeed mps="3.06" name="Light breeze"/>
+      <temperature day="29.22" min="23.36" max="29.22" night="24.34" eve="27.23" morn="23.36"/>
+      <pressure unit="hPa" value="1014.57"/>
       <humidity value="0" unit="%"/>
-      <clouds value="scattered clouds" all="25" unit="%"/>
+      <clouds value="scattered clouds" all="28" unit="%"/>
     </time>
     <time day="2015-03-22">
       <symbol number="500" name="light rain" var="10d"/>
-      <precipitation value="2" type="rain"/>
-      <windDirection deg="100" code="E" name="East"/>
-      <windSpeed mps="2.89" name="Light breeze"/>
-      <temperature day="28.1" min="23.32" max="28.1" night="23.41" eve="26.75" morn="23.32"/>
-      <pressure unit="hPa" value="1014.72"/>
+      <precipitation value="1.25" type="rain"/>
+      <windDirection deg="52" code="NE" name="NorthEast"/>
+      <windSpeed mps="2.47" name="Light breeze"/>
+      <temperature day="29.34" min="22.91" max="29.34" night="22.91" eve="26.55" morn="24.51"/>
+      <pressure unit="hPa" value="1013.29"/>
       <humidity value="0" unit="%"/>
-      <clouds value="scattered clouds" all="41" unit="%"/>
+      <clouds value="scattered clouds" all="26" unit="%"/>
     </time>
     <time day="2015-03-23">
       <symbol number="500" name="light rain" var="10d"/>
-      <precipitation value="0.63" type="rain"/>
+      <precipitation value="1.53" type="rain"/>
       <windDirection deg="102" code="ESE" name="East-southeast"/>
-      <windSpeed mps="3.37" name=""/>
-      <temperature day="28.69" min="23.37" max="28.69" night="27.1" eve="27.1" morn="23.37"/>
-      <pressure unit="hPa" value="1015.24"/>
+      <windSpeed mps="1.73" name="Light breeze"/>
+      <temperature day="29.25" min="22.67" max="29.25" night="23.38" eve="26.12" morn="22.67"/>
+      <pressure unit="hPa" value="1012.28"/>
       <humidity value="0" unit="%"/>
-      <clouds value="scattered clouds" all="45" unit="%"/>
+      <clouds value="scattered clouds" all="25" unit="%"/>
+    </time>
+    <time day="2015-03-24">
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="1.8" type="rain"/>
+      <windDirection deg="107" code="ESE" name="East-southeast"/>
+      <windSpeed mps="3.08" name="Light breeze"/>
+      <temperature day="28.9" min="23.75" max="28.9" night="23.8" eve="26.42" morn="23.75"/>
+      <pressure unit="hPa" value="1014.89"/>
+      <humidity value="0" unit="%"/>
+      <clouds value="few clouds" all="21" unit="%"/>
+    </time>
+    <time day="2015-03-25">
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="0.93" type="rain"/>
+      <windDirection deg="85" code="E" name="East"/>
+      <windSpeed mps="4.51" name="Gentle Breeze"/>
+      <temperature day="28.53" min="24.19" max="28.53" night="24.67" eve="27.3" morn="24.19"/>
+      <pressure unit="hPa" value="1016.75"/>
+      <humidity value="0" unit="%"/>
+      <clouds value="scattered clouds" all="35" unit="%"/>
+    </time>
+    <time day="2015-03-26">
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="2.38" type="rain"/>
+      <windDirection deg="100" code="E" name="East"/>
+      <windSpeed mps="5.57" name="Moderate breeze"/>
+      <temperature day="29.58" min="24.45" max="29.58" night="27.58" eve="27.58" morn="24.45"/>
+      <pressure unit="hPa" value="1016.03"/>
+      <humidity value="0" unit="%"/>
+      <clouds value="scattered clouds" all="31" unit="%"/>
     </time>
   </forecast>
 </weatherdata>

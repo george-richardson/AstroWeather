@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<weatherdata>
+  <location>
+    <name>Tooz</name>
+    <type/>
+    <country>Iraq</country>
+    <timezone/>
+    <location altitude="0" latitude="34.7652" longitude="44.6886" geobase="geonames" geobaseid="0"/>
+  </location>
+  <credit/>
+  <meta>
+    <lastupdate/>
+    <calctime>0.7023</calctime>
+    <nextupdate/>
+  </meta>
+  <sun rise="2015-03-12T03:15:40" set="2015-03-12T15:06:16"/>
+  <forecast>
+    <time from="2015-03-12T18:00:00" to="2015-03-12T21:00:00">
+      <symbol number="804" name="overcast clouds" var="04n"/>
+      <precipitation/>
+      <windDirection deg="191.5" code="SSW" name="South-southwest"/>
+      <windSpeed mps="7.15" name="Moderate breeze"/>
+      <temperature unit="celsius" value="19.41" min="19.41" max="22.23"/>
+      <pressure unit="hPa" value="1006.97"/>
+      <humidity value="23" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2015-03-12T21:00:00" to="2015-03-13T00:00:00">
+      <symbol number="500" name="light rain" var="10n"/>
+      <precipitation value="0.1" unit="3h" type="rain"/>
+      <windDirection deg="166.502" code="SSE" name="South-southeast"/>
+      <windSpeed mps="5.27" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="16.73" min="16.73" max="19.41"/>
+      <pressure unit="hPa" value="1007.3"/>
+      <humidity value="40" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2015-03-13T00:00:00" to="2015-03-13T03:00:00">
+      <symbol number="500" name="light rain" var="10n"/>
+      <precipitation value="0.5" unit="3h" type="rain"/>
+      <windDirection deg="182.502" code="S" name="South"/>
+      <windSpeed mps="1.41" name="Calm"/>
+      <temperature unit="celsius" value="15.2" min="15.2" max="17.74"/>
+      <pressure unit="hPa" value="1006.86"/>
+      <humidity value="56" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2015-03-13T03:00:00" to="2015-03-13T06:00:00">
+      <symbol number="500" name="light rain" var="10n"/>
+      <precipitation value="0.56" unit="3h" type="rain"/>
+      <windDirection deg="74.0009" code="ENE" name="East-northeast"/>
+      <windSpeed mps="1.41" name="Calm"/>
+      <temperature unit="celsius" value="13.29" min="13.29" max="15.69"/>
+      <pressure unit="hPa" value="1007.32"/>
+      <humidity value="73" unit="%"/>
+      <clouds value="overcast clouds" all="88" unit="%"/>
+    </time>
+    <time from="2015-03-13T06:00:00" to="2015-03-13T09:00:00">
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="0.04" unit="3h" type="rain"/>
+      <windDirection deg="327.501" code="NNW" name="North-northwest"/>
+      <windSpeed mps="0.97" name="Calm"/>
+      <temperature unit="celsius" value="17.32" min="17.32" max="19.58"/>
+      <pressure unit="hPa" value="1007.73"/>
+      <humidity value="53" unit="%"/>
+      <clouds value="few clouds" all="24" unit="%"/>
+    </time>
+    <time from="2015-03-13T09:00:00" to="2015-03-13T12:00:00">
+      <symbol number="803" name="broken clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="195.003" code="SSW" name="South-southwest"/>
+      <windSpeed mps="2.56" name="Light breeze"/>
+      <temperature unit="celsius" value="21.02" min="21.02" max="23.13"/>
+      <pressure unit="hPa" value="1007.55"/>
+      <humidity value="45" unit="%"/>
+      <clouds value="broken clouds" all="64" unit="%"/>
+    </time>
+    <time from="2015-03-13T12:00:00" to="2015-03-13T15:00:00">
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="2.29" unit="3h" type="rain"/>
+      <windDirection deg="212.001" code="SSW" name="South-southwest"/>
+      <windSpeed mps="2.21" name="Light breeze"/>
+      <temperature unit="celsius" value="19.77" min="19.77" max="21.74"/>
+      <pressure unit="hPa" value="1006.95"/>
+      <humidity value="55" unit="%"/>
+      <clouds value="scattered clouds" all="32" unit="%"/>
+    </time>
+    <time from="2015-03-13T15:00:00" to="2015-03-13T18:00:00">
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="0.86" unit="3h" type="rain"/>
+      <windDirection deg="285.504" code="WNW" name="West-northwest"/>
+      <windSpeed mps="1.13" name="Calm"/>
+      <temperature unit="celsius" value="18.53" min="18.53" max="20.37"/>
+      <pressure unit="hPa" value="1007.33"/>
+      <humidity value="53" unit="%"/>
+      <clouds value="few clouds" all="12" unit="%"/>
+    </time>
+    <time from="2015-03-13T18:00:00" to="2015-03-13T21:00:00">
+      <symbol number="500" name="light rain" var="10n"/>
+      <precipitation value="0.03" unit="3h" type="rain"/>
+      <windDirection deg="305.004" code="NW" name="Northwest"/>
+      <windSpeed mps="0.67" name="Calm"/>
+      <temperature unit="celsius" value="13.17" min="13.17" max="14.86"/>
+      <pressure unit="hPa" value="1008.92"/>
+      <humidity value="69" unit="%"/>
+      <clouds value="few clouds" all="12" unit="%"/>
+    </time>
+    <time from="2015-03-13T21:00:00" to="2015-03-14T00:00:00">
+      <symbol number="500" name="light rain" var="10n"/>
+      <precipitation value="0.05" unit="3h" type="rain"/>
+      <windDirection deg="30.0099" code="NNE" name="North-northeast"/>
+      <windSpeed mps="2.66" name="Light breeze"/>
+      <temperature unit="celsius" value="10.62" min="10.62" max="12.17"/>
+      <pressure unit="hPa" value="1009.42"/>
+      <humidity value="89" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time from="2015-03-14T00:00:00" to="2015-03-14T03:00:00">
+      <symbol number="800" name="sky is clear" var="01n"/>
+      <precipitation/>
+      <windDirection deg="11.003" code="N" name="North"/>
+      <windSpeed mps="1.1" name="Calm"/>
+      <temperature unit="celsius" value="7.83" min="7.83" max="9.24"/>
+      <pressure unit="hPa" value="1009.18"/>
+      <humidity value="88" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time from="2015-03-14T03:00:00" to="2015-03-14T06:00:00">
+      <symbol number="800" name="sky is clear" var="01n"/>
+      <precipitation/>
+      <windDirection deg="328.513" code="NNW" name="North-northwest"/>
+      <windSpeed mps="1.51" name=""/>
+      <temperature unit="celsius" value="6.44" min="6.44" max="7.71"/>
+      <pressure unit="hPa" value="1009.77"/>
+      <humidity value="84" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time from="2015-03-14T06:00:00" to="2015-03-14T09:00:00">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="346.501" code="NNW" name="North-northwest"/>
+      <windSpeed mps="2.52" name="Light breeze"/>
+      <temperature unit="celsius" value="15.54" min="15.54" max="16.67"/>
+      <pressure unit="hPa" value="1010.78"/>
+      <humidity value="68" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time from="2015-03-14T09:00:00" to="2015-03-14T12:00:00">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="297.505" code="WNW" name="West-northwest"/>
+      <windSpeed mps="2.06" name="Light breeze"/>
+      <temperature unit="celsius" value="22" min="22" max="22.98"/>
+      <pressure unit="hPa" value="1009.54"/>
+      <humidity value="42" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time from="2015-03-14T12:00:00" to="2015-03-14T15:00:00">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="279.507" code="W" name="West"/>
+      <windSpeed mps="2.01" name="Light breeze"/>
+      <temperature unit="celsius" value="23.49" min="23.49" max="24.34"/>
+      <pressure unit="hPa" value="1007.59"/>
+      <humidity value="28" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time from="2015-03-14T15:00:00" to="2015-03-14T18:00:00">
+      <symbol number="803" name="broken clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="288.501" code="WNW" name="West-northwest"/>
+      <windSpeed mps="1.52" name=""/>
+      <temperature unit="celsius" value="20.53" min="20.53" max="21.23"/>
+      <pressure unit="hPa" value="1007.45"/>
+      <humidity value="25" unit="%"/>
+      <clouds value="broken clouds" all="56" unit="%"/>
+    </time>
+    <time from="2015-03-14T18:00:00" to="2015-03-14T21:00:00">
+      <symbol number="803" name="broken clouds" var="04n"/>
+      <precipitation/>
+      <windDirection deg="321.5" code="NW" name="Northwest"/>
+      <windSpeed mps="2.57" name="Light breeze"/>
+      <temperature unit="celsius" value="15.27" min="15.27" max="15.84"/>
+      <pressure unit="hPa" value="1008.41"/>
+      <humidity value="41" unit="%"/>
+      <clouds value="broken clouds" all="68" unit="%"/>
+    </time>
+    <time from="2015-03-14T21:00:00" to="2015-03-15T00:00:00">
+      <symbol number="803" name="broken clouds" var="04n"/>
+      <precipitation/>
+      <windDirection deg="342.501" code="NNW" name="North-northwest"/>
+      <windSpeed mps="1.22" name="Calm"/>
+      <temperature unit="celsius" value="11.82" min="11.82" max="12.24"/>
+      <pressure unit="hPa" value="1008"/>
+      <humidity value="65" unit="%"/>
+      <clouds value="broken clouds" all="64" unit="%"/>
+    </time>
+    <time from="2015-03-15T00:00:00" to="2015-03-15T03:00:00">
+      <symbol number="800" name="sky is clear" var="01n"/>
+      <precipitation/>
+      <windDirection deg="301.501" code="WNW" name="West-northwest"/>
+      <windSpeed mps="1.76" name="Light breeze"/>
+      <temperature unit="celsius" value="8.79" min="8.79" max="9.07"/>
+      <pressure unit="hPa" value="1007.83"/>
+      <humidity value="79" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time from="2015-03-15T03:00:00" to="2015-03-15T06:00:00">
+      <symbol number="800" name="sky is clear" var="01n"/>
+      <precipitation/>
+      <windDirection deg="342.508" code="NNW" name="North-northwest"/>
+      <windSpeed mps="1.32" name="Calm"/>
+      <temperature unit="celsius" value="7.07" min="7.07" max="7.21"/>
+      <pressure unit="hPa" value="1008.26"/>
+      <humidity value="81" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time from="2015-03-15T06:00:00" to="2015-03-15T09:00:00">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="349.506" code="" name=""/>
+      <windSpeed mps="2.03" name="Light breeze"/>
+      <temperature unit="celsius" value="18.28" min="18.28" max="18.28"/>
+      <pressure unit="hPa" value="1009.11"/>
+      <humidity value="53" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time from="2015-03-15T09:00:00" to="2015-03-15T12:00:00">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="322.5" code="NW" name="Northwest"/>
+      <windSpeed mps="3.31" name=""/>
+      <temperature unit="celsius" value="25.05" min="25.05" max="25.05"/>
+      <pressure unit="hPa" value="1008.48"/>
+      <humidity value="31" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time from="2015-03-15T12:00:00" to="2015-03-15T15:00:00">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="328.502" code="NNW" name="North-northwest"/>
+      <windSpeed mps="4.66" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="25.49" min="25.49" max="25.49"/>
+      <pressure unit="hPa" value="1006.86"/>
+      <humidity value="23" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time from="2015-03-15T15:00:00" to="2015-03-15T18:00:00">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="324.002" code="NW" name="Northwest"/>
+      <windSpeed mps="2.87" name="Light breeze"/>
+      <temperature unit="celsius" value="22.16" min="22.16" max="22.16"/>
+      <pressure unit="hPa" value="1006.69"/>
+      <humidity value="23" unit="%"/>
+      <clouds value="clear sky" all="0" unit="%"/>
+    </time>
+    <time from="2015-03-15T18:00:00" to="2015-03-15T21:00:00">
+      <symbol number="802" name="scattered clouds" var="03n"/>
+      <precipitation/>
+      <windDirection deg="349.001" code="" name=""/>
+      <windSpeed mps="3.02" name="Light breeze"/>
+      <temperature unit="celsius" value="15.38" min="15.38" max="15.38"/>
+      <pressure unit="hPa" value="1007.63"/>
+      <humidity value="35" unit="%"/>
+      <clouds value="scattered clouds" all="32" unit="%"/>
+    </time>
+    <time from="2015-03-15T21:00:00" to="2015-03-16T00:00:00">
+      <symbol number="802" name="scattered clouds" var="03n"/>
+      <precipitation/>
+      <windDirection deg="346.008" code="NNW" name="North-northwest"/>
+      <windSpeed mps="1.2" name="Calm"/>
+      <temperature unit="celsius" value="13.91" min="13.91" max="13.91"/>
+      <pressure unit="hPa" value="1007.48"/>
+      <humidity value="40" unit="%"/>
+      <clouds value="scattered clouds" all="44" unit="%"/>
+    </time>
+    <time from="2015-03-16T00:00:00" to="2015-03-16T03:00:00">
+      <symbol number="803" name="broken clouds" var="04n"/>
+      <precipitation/>
+      <windDirection deg="298.009" code="WNW" name="West-northwest"/>
+      <windSpeed mps="0.27" name=""/>
+      <temperature unit="celsius" value="12.54" min="12.54" max="12.54"/>
+      <pressure unit="hPa" value="1007.14"/>
+      <humidity value="42" unit="%"/>
+      <clouds value="broken clouds" all="56" unit="%"/>
+    </time>
+    <time from="2015-03-16T03:00:00" to="2015-03-16T06:00:00">
+      <symbol number="802" name="scattered clouds" var="03n"/>
+      <precipitation/>
+      <windDirection deg="79.5037" code="E" name="East"/>
+      <windSpeed mps="1.85" name="Light breeze"/>
+      <temperature unit="celsius" value="11.27" min="11.27" max="11.27"/>
+      <pressure unit="hPa" value="1007.33"/>
+      <humidity value="52" unit="%"/>
+      <clouds value="scattered clouds" all="44" unit="%"/>
+    </time>
+    <time from="2015-03-16T06:00:00" to="2015-03-16T09:00:00">
+      <symbol number="802" name="scattered clouds" var="03d"/>
+      <precipitation/>
+      <windDirection deg="92.5001" code="E" name="East"/>
+      <windSpeed mps="2.06" name="Light breeze"/>
+      <temperature unit="celsius" value="18.93" min="18.93" max="18.93"/>
+      <pressure unit="hPa" value="1008.06"/>
+      <humidity value="34" unit="%"/>
+      <clouds value="scattered clouds" all="48" unit="%"/>
+    </time>
+    <time from="2015-03-16T09:00:00" to="2015-03-16T12:00:00">
+      <symbol number="801" name="few clouds" var="02d"/>
+      <precipitation/>
+      <windDirection deg="109.001" code="ESE" name="East-southeast"/>
+      <windSpeed mps="2.33" name="Light breeze"/>
+      <temperature unit="celsius" value="25.28" min="25.28" max="25.28"/>
+      <pressure unit="hPa" value="1007.03"/>
+      <humidity value="24" unit="%"/>
+      <clouds value="few clouds" all="12" unit="%"/>
+    </time>
+    <time from="2015-03-16T12:00:00" to="2015-03-16T15:00:00">
+      <symbol number="804" name="overcast clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="214.001" code="SW" name="Southwest"/>
+      <windSpeed mps="2.37" name="Light breeze"/>
+      <temperature unit="celsius" value="24.99" min="24.99" max="24.99"/>
+      <pressure unit="hPa" value="1005.22"/>
+      <humidity value="21" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2015-03-16T15:00:00" to="2015-03-16T18:00:00">
+      <symbol number="804" name="overcast clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="222" code="SW" name="Southwest"/>
+      <windSpeed mps="2.56" name="Light breeze"/>
+      <temperature unit="celsius" value="22.76" min="22.76" max="22.76"/>
+      <pressure unit="hPa" value="1005.2"/>
+      <humidity value="23" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2015-03-16T18:00:00" to="2015-03-16T21:00:00">
+      <symbol number="804" name="overcast clouds" var="04n"/>
+      <precipitation/>
+      <windDirection deg="211.5" code="SSW" name="South-southwest"/>
+      <windSpeed mps="3.33" name=""/>
+      <temperature unit="celsius" value="20.41" min="20.41" max="20.41"/>
+      <pressure unit="hPa" value="1005.81"/>
+      <humidity value="27" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2015-03-16T21:00:00" to="2015-03-17T00:00:00">
+      <symbol number="500" name="light rain" var="10n"/>
+      <precipitation value="0.09" unit="3h" type="rain"/>
+      <windDirection deg="223.503" code="SW" name="Southwest"/>
+      <windSpeed mps="3.31" name=""/>
+      <temperature unit="celsius" value="19.69" min="19.69" max="19.69"/>
+      <pressure unit="hPa" value="1006.33"/>
+      <humidity value="33" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2015-03-17T00:00:00" to="2015-03-17T03:00:00">
+      <symbol number="500" name="light rain" var="10n"/>
+      <precipitation value="0.010000000000001" unit="3h" type="rain"/>
+      <windDirection deg="237.501" code="WSW" name="West-southwest"/>
+      <windSpeed mps="1.27" name="Calm"/>
+      <temperature unit="celsius" value="18.12" min="18.12" max="18.12"/>
+      <pressure unit="hPa" value="1006.14"/>
+      <humidity value="36" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2015-03-17T03:00:00" to="2015-03-17T06:00:00">
+      <symbol number="500" name="light rain" var="10n"/>
+      <precipitation value="0.09" unit="3h" type="rain"/>
+      <windDirection deg="313.5" code="NW" name="Northwest"/>
+      <windSpeed mps="1.46" name="Calm"/>
+      <temperature unit="celsius" value="17.01" min="17.01" max="17.01"/>
+      <pressure unit="hPa" value="1007"/>
+      <humidity value="42" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2015-03-17T06:00:00" to="2015-03-17T09:00:00">
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="0.06" unit="3h" type="rain"/>
+      <windDirection deg="352.503" code="" name=""/>
+      <windSpeed mps="1.96" name="Light breeze"/>
+      <temperature unit="celsius" value="20.67" min="20.67" max="20.67"/>
+      <pressure unit="hPa" value="1008.68"/>
+      <humidity value="35" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2015-03-17T09:00:00" to="2015-03-17T12:00:00">
+      <symbol number="804" name="overcast clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="187.008" code="S" name="South"/>
+      <windSpeed mps="3.71" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="22.77" min="22.77" max="22.77"/>
+      <pressure unit="hPa" value="1009.05"/>
+      <humidity value="28" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2015-03-17T12:00:00" to="2015-03-17T15:00:00">
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="0.050000000000001" unit="3h" type="rain"/>
+      <windDirection deg="203.007" code="SSW" name="South-southwest"/>
+      <windSpeed mps="4.36" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="23.22" min="23.22" max="23.22"/>
+      <pressure unit="hPa" value="1007.43"/>
+      <humidity value="27" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2015-03-17T15:00:00" to="2015-03-17T18:00:00">
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="0.34" unit="3h" type="rain"/>
+      <windDirection deg="326.5" code="NNW" name="North-northwest"/>
+      <windSpeed mps="2.58" name="Light breeze"/>
+      <temperature unit="celsius" value="18.36" min="18.36" max="18.36"/>
+      <pressure unit="hPa" value="1007.59"/>
+      <humidity value="48" unit="%"/>
+      <clouds value="overcast clouds" all="88" unit="%"/>
+    </time>
+    <time from="2015-03-17T18:00:00" to="2015-03-17T21:00:00">
+      <symbol number="500" name="light rain" var="10n"/>
+      <precipitation value="0.0099999999999998" unit="3h" type="rain"/>
+      <windDirection deg="8.0004" code="N" name="North"/>
+      <windSpeed mps="3.49" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="15.08" min="15.08" max="15.08"/>
+      <pressure unit="hPa" value="1008.19"/>
+      <humidity value="63" unit="%"/>
+      <clouds value="broken clouds" all="80" unit="%"/>
+    </time>
+  </forecast>
+</weatherdata>
+
