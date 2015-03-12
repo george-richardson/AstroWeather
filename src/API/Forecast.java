@@ -3,19 +3,19 @@ package API;
 import java.util.Date;
 
 public class Forecast {
-	Date date;
-	String lowTemp;
-	String highTemp;
-	String precipitation;
-	String rainType;
-	String cloudVal;
-	String cloudType;
-	String windDir;
-	String windSpeedVal;
-	String windSpeedType;
-	String humidity;
-	String visibility;
-	String pressure;
-	String sunrise;
-	String sunset;
+	public Date date;
+	public String lowTemp;
+	public String highTemp;
+	public String precipitation;
+	public String rainType;
+	public String cloudVal;
+	public String cloudType;
+	public String windDir;
+	public String windSpeedVal;
+	public String windSpeedType;
+	public String humidity;
+	public String visibility;
+	public String pressure;
+	public String sunrise;
+	public String sunset;
 }
