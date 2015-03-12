@@ -1,23 +1,30 @@
 
 package Settings;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JRadioButton;
-import java.awt.*;
 
-public class WindFrame extends JFrame implements ActionListener {
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+
+import AstroWeather.Main;
+
+@SuppressWarnings("serial")
+public class WindFrame extends JDialog implements ActionListener {
     private JRadioButton kmPerHour = new JRadioButton("Kilometers per hour");
     private JRadioButton milesPerHour = new JRadioButton("Miles per hour");
     private JButton confirm = new JButton("Confirm");
     public static final int KMPERHOUR = 0;
     public static final int MILESPERHOUR = 1;
     private int metrics = WindFrame.KMPERHOUR ;
-    private Main parent = null;
+    private SettingsMain parent = null;
     private JLabel windLabel = new JLabel("Wind Speed");
     private JPanel windPanel = new JPanel();
     private JPanel kphPanel  = new JPanel();
@@ -25,8 +32,15 @@ public class WindFrame extends JFrame implements ActionListener {
     private JPanel confirmPanel = new JPanel();
     
 
-    public WindFrame(Main parent) {
-        this.parent = parent;
+    public WindFrame(Main frame, SettingsMain parent) {
+    	//super(frame, true);
+    	super(frame);
+    	setUndecorated(true);
+    	this.parent = parent;
+    	load();
+    	setSize(new Dimension(200, 170));
+    	setLocationRelativeTo(frame);
+    	setVisible(true);
     }
     
     public void load() {

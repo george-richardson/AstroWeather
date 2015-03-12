@@ -1,10 +1,15 @@
 package Common;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.font.TextAttribute;
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 public class Resources {
 	public static final Color bgColor = new Color(0, 0, 0, 0.0f);
@@ -23,6 +28,15 @@ public class Resources {
 		} catch (Exception e) {
 			System.err.println("ERR: FONT FILE NOT FOUND");
 			return new Font(Font.SERIF, Font.PLAIN, 12);
+		}
+	}
+	
+	public static ImageIcon getImage(String filePath) {
+		try {
+			return new ImageIcon(ImageIO.read(new File("assets/" + filePath)));
+		} catch (IOException e) {
+			System.err.println("ERR: COULD NOT FIND ICON FILE");
+			return null;
 		}
 	}
 }
