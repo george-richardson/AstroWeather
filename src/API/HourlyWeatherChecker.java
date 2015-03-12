@@ -10,7 +10,7 @@ public class HourlyWeatherChecker extends AstroWeatherChecker{
 		super(city);
 
 		this.numDays = "1";
-		this.timePeriod = "hourly?";
+		this.timePeriod = "hourly";
 		this.timeAttribute = "from";
 		this.timeFormat = new SimpleDateFormat("yyyy-M-dd'T'HH:mm:ss"); //2015-03-11T18:00:00
 

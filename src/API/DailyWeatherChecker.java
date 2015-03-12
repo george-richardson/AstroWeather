@@ -10,7 +10,7 @@ public class DailyWeatherChecker extends AstroWeatherChecker {
 
 		this.numDays = "15";
 
-		this.timePeriod = "daily?";
+		this.timePeriod = "daily";
 		this.timeAttribute = "day";
 		this.timeFormat = new SimpleDateFormat("yyyy-M-dd"); //2015-03-11
 

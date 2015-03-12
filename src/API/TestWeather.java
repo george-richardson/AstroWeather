@@ -64,12 +64,6 @@ public abstract class TestWeather
 			//only get sunrise and sunset for current day
 
 		}
-
-	    List<Forecast> d = y.getWeather();
-
-	    System.out.println(d.get(0).highTemp);
-
-
 	}//end main
 
 
