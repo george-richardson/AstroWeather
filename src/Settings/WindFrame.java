@@ -1,80 +1,103 @@
-package Settings;
 
-import javax.imageio.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
+package Settings;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
-import java.awt.event.WindowAdapter;
-import java.awt.image.BufferedImage;
- 
-public class WindFrame extends JFrame implements ActionListener
-{
-     JPanel panel2 = new JPanel();
-     JPanel UniPanel = new JPanel();
-     JPanel Speed = new JPanel();
-     JPanel Speed1 = new JPanel();
-     JPanel Cance = new JPanel();
-     JRadioButton mph = new JRadioButton("Miles per hour");
-     JRadioButton kph = new JRadioButton("Kilometers per hour");
-     JRadioButton celciusbut = new JRadioButton();
-     JRadioButton fahrenbut = new JRadioButton();
-     JButton cancel = new JButton("Cancel");
-     JLabel windLabel = new JLabel("Wind Speed");    
-    public static void main(String[] args) {
-      WindFrame application = new WindFrame();
-        application.startApp();
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JRadioButton;
+import java.awt.*;
+
+public class WindFrame extends JFrame implements ActionListener {
+    private JRadioButton kmPerHour = new JRadioButton("Kilometers per hour");
+    private JRadioButton milesPerHour = new JRadioButton("Miles per hour");
+    private JButton confirm = new JButton("Confirm");
+    public static final int KMPERHOUR = 0;
+    public static final int MILESPERHOUR = 1;
+    private int metrics = WindFrame.KMPERHOUR ;
+    private Main parent = null;
+    private JLabel windLabel = new JLabel("Wind Speed");
+    private JPanel windPanel = new JPanel();
+    private JPanel kphPanel  = new JPanel();
+    private JPanel mphPanel = new JPanel();
+    private JPanel confirmPanel = new JPanel();
+    
+
+    public WindFrame(Main parent) {
+        this.parent = parent;
     }
     
-    
-    public void startApp() {
-    Container c = getContentPane();
-    panel2.setLayout(new GridLayout(4, 1));
-    panel2.setBackground(new Color(40,40,40));
-    windLabel.setForeground(new Color(51,181,229));
-    UniPanel.setLayout(new GridLayout(1, 1));
-    UniPanel.add(windLabel);
-    UniPanel.setOpaque(false);
-    UniPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(51,181,229)));
-    panel2.add(UniPanel);
-    
-    Speed.setLayout(new GridLayout(1,1)); 
-    Speed.add(mph);
-    Speed.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(60,60,60)));
-    mph.setOpaque(false);
-    mph.setForeground(Color.white);
-    Speed.setOpaque(false);
-    panel2.add(Speed);
-    
-    Speed1.setLayout(new GridLayout(1,1)); 
-    Speed1.add(kph);
-    kph.setOpaque(false);
-    kph.setForeground(Color.white);
-    Speed1.setOpaque(false);
-    panel2.add(Speed1);
-    
-    
-    
-    
-    
-    Cance.setLayout(new GridLayout(1,1)); 
-    Cance.setOpaque(false);
-    Cance.add(cancel);
-    cancel.setContentAreaFilled(false);
-    cancel.setBorderPainted(false);
-    cancel.setOpaque(false);
-    cancel.setForeground(Color.white);
-    Cance.setBorder(BorderFactory.createMatteBorder(2, 0, 0, 0, new Color(60,60,60)));
-    panel2.add(Cance);
-    
-    c.add(panel2);
-    this.setSize(200, 170);
-    this.setResizable(false);
-    this.setVisible(true);
-    mph.addActionListener(this);
-    kph.addActionListener(this);
+    public void load() {
+        Container c = getContentPane();
+        c.setLayout(new GridLayout(4, 1));
+        c.setBackground(new Color(40,40,40));
+         
+        windPanel.setLayout(new GridLayout(1, 1));
+        windPanel.add(windLabel);
+        windLabel.setForeground(new Color(51,181,229));
+        windPanel.setOpaque(false);
+        windPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(51,181,229)));
+        c.add(windPanel);
+        
+        kphPanel.setLayout(new GridLayout(1,1)); 
+        kphPanel.add(kmPerHour);
+        kphPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(60,60,60)));
+        kphPanel.setOpaque(false);
+        kmPerHour.setOpaque(false);
+        kmPerHour.setForeground(Color.white);
+        c.add(kphPanel);
+        
+        mphPanel.setLayout(new GridLayout(1,1)); 
+        mphPanel.add(milesPerHour);
+        mphPanel.setOpaque(false);
+        milesPerHour.setOpaque(false);
+        milesPerHour.setForeground(Color.white);
+        c.add(mphPanel);
+        
+         confirmPanel.setLayout(new GridLayout(1,1)); 
+         confirmPanel.setOpaque(false);
+         confirmPanel.add(confirm);
+         confirmPanel.setBorder(BorderFactory.createMatteBorder(2, 0, 0, 0, new Color(60,60,60)));
+         confirm.setContentAreaFilled(false);
+         confirm.setBorderPainted(false);
+         confirm.setOpaque(false);
+         confirm.setForeground(Color.white);
+         c.add(confirmPanel);
+        this.setVisible(true);
+        
+        kmPerHour.addActionListener(this);
+        milesPerHour.addActionListener(this);
+        confirm.addActionListener(this);
     }
     
-     @Override
-    public void actionPerformed(ActionEvent e) {}
+    public int getMetrics() {
+		return metrics;
+	}
+	
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource().equals(kmPerHour)) {
+            milesPerHour.setSelected(false);
+            kmPerHour.setSelected(true);
+            metrics = WindFrame.KMPERHOUR;
+            setParentText();
+        }
+        else if (e.getSource().equals(milesPerHour)) {
+            milesPerHour.setSelected(true);
+            kmPerHour.setSelected(false);
+            metrics = WindFrame.MILESPERHOUR;
+            setParentText();
+        }
+        else if (e.getSource().equals(confirm)) {
+            this.dispose();
+            setParentText();
+        }
+    }
+    
+    public void setParentText() {
+       parent.setWindMetrics(metrics);
+    }
+
 }
