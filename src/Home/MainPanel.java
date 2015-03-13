@@ -250,7 +250,7 @@ public class MainPanel extends AstroPanel {
 		buttonGrid.add(precipBtn);
 		currentDay.add(buttonGrid, BorderLayout.CENTER);
 
-		hourScroll = new JPanel(new GridLayout(10, 1));
+		hourScroll = new JPanel(new GridLayout(48, 1));
 		hourScroll.setOpaque(false);
 
 		for (int i = 0; i < hourButtons.length; i++) {
