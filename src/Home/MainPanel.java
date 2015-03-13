@@ -1,7 +1,5 @@
 package Home;
 
-import API.Forecast;
-import API.Forecasts;
 import AstroWeather.Main;
 import Common.AstroPanel;
 import Common.Resources;

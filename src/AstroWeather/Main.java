@@ -70,13 +70,6 @@ public class Main extends JFrame {
 		remove(p);
 		p = newPanel;
 		add(p, BorderLayout.CENTER);
-
-		// Do not ask me why this works. Wizardry i expect.
-//		setVisible(false);
-//		switchOrientation();
-//		switchOrientation();
-//		setVisible(true);
-		// Do not ask me why this doesnt work
 		changeDimensions();
 		pack();
 	}

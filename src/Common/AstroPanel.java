@@ -1,6 +1,5 @@
 package Common;
 
-import API.Forecasts;
 import AstroWeather.Main;
 
 import javax.swing.*;

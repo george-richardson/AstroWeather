@@ -19,7 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import API.Forecasts;
 import AstroWeather.Main;
 import Common.AstroPanel;
 import Common.Resources;

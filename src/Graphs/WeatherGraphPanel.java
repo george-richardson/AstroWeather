@@ -1,7 +1,5 @@
 package Graphs;
 
-import API.Forecast;
-import API.Forecasts;
 import AstroWeather.Main;
 import Common.AstroPanel;
 import Home.MainPanel;
@@ -30,7 +28,7 @@ public abstract class WeatherGraphPanel extends AstroPanel {
 
     private final String graphTitle;
 
-    public WeatherGraphPanel(Main parent, boolean orientation, Forecasts forecasts, String graphTitle) {
+    public WeatherGraphPanel(Main parent, boolean orientation, String graphTitle) {
         super(parent, orientation);
         this.graphTitle = graphTitle;
         layoutGraph();
@@ -51,16 +49,16 @@ public abstract class WeatherGraphPanel extends AstroPanel {
         layoutGraph();
     }
 
-    private XYSeries collectDataByHour(List<Forecast> hourlyForecasts, String graphTitle) {
-        XYSeries dataByHour = new XYSeries(graphTitle);
-        for (Forecast forecast : hourlyForecasts) {
-            dataByHour.add(forecast.date.getTime(), extractValue(forecast));
-        }
-        return dataByHour;
-    }
+//    private XYSeries collectDataByHour(List<Forecast> hourlyForecasts, String graphTitle) {
+//        XYSeries dataByHour = new XYSeries(graphTitle);
+//        for (Forecast forecast : hourlyForecasts) {
+//            dataByHour.add(forecast.date.getTime(), extractValue(forecast));
+//        }
+//        return dataByHour;
+//    }
 
     /**
      * @return the value displayed on the y-axis for this weather graph
      */
-    protected abstract double extractValue(Forecast forecast);
+    //protected abstract double extractValue(Forecast forecast);
 }
