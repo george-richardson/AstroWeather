@@ -3,6 +3,7 @@ package AstroWeather;
 import Common.AstroPanel;
 import Common.Resources;
 import Location.LocationPanel;
+import NewAPI.Forecast;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +16,7 @@ public class Main extends JFrame {
 	private boolean orientation;
 	private AstroPanel p;
 	private static final int lh = 320, lw = 480, ph = 480, pw = 320;
+    private Forecast forecast;
 
 
 	public static void main(String[] args) {
@@ -79,4 +81,11 @@ public class Main extends JFrame {
 		pack();
 	}
 
+    public Forecast getForecast() {
+        return forecast;
+    }
+
+    public void setForecast(Forecast forecast) {
+        this.forecast = forecast;
+    }
 }

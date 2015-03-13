@@ -24,6 +24,7 @@ import AstroWeather.Main;
 import Common.AstroPanel;
 import Common.Resources;
 import Home.MainPanel;
+import NewAPI.API;
 
 @SuppressWarnings("serial")
 public class LocationPanel extends AstroPanel {
@@ -43,7 +44,8 @@ public class LocationPanel extends AstroPanel {
 					public void run() {
 						try {
 							String city = locationField.getText();
-							parent.changePanel(new MainPanel(parent, orientation, new Forecasts(city)));
+                            parent.setForecast(new API().getForecastFromString(city));
+                            parent.changePanel(new MainPanel(parent, orientation, false, 1));
 							Scanner s = new Scanner(new File("previousSearches.txt"));
 							PrintWriter pw = new PrintWriter("temp.txt");
 							pw.println(city);
@@ -58,9 +60,11 @@ public class LocationPanel extends AstroPanel {
 							pw.close();
 							Path from = new File("temp.txt").toPath();
 							Path to = new File("previousSearches.txt").toPath();
-							
+
 							Files.copy(from, to, StandardCopyOption.REPLACE_EXISTING);
 						} catch (Exception e) {
+                            System.err.println(e + e.getMessage());
+                            e.printStackTrace();
 							parent.changePanel(new LocationPanel(parent, orientation));
 						}
 					}
@@ -88,7 +92,8 @@ public class LocationPanel extends AstroPanel {
 					public void run() {
 						try {
 							String city = ((JButton)e.getSource()).getText();
-							parent.changePanel(new MainPanel(parent, orientation, new Forecasts(city)));
+                            parent.setForecast(new API().getForecastFromString(city));
+							parent.changePanel(new MainPanel(parent, orientation, false, 1));
 						} catch (Exception e) {
 							parent.changePanel(new LocationPanel(parent, orientation));
 						}
@@ -106,7 +111,7 @@ public class LocationPanel extends AstroPanel {
 	private JPanel loading;
 
 	public LocationPanel(Main parent, boolean orientation) {
-		super(parent, orientation, null);
+		super(parent, orientation);
 		setLayout(new BorderLayout());
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		

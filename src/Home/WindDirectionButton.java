@@ -15,6 +15,13 @@ public class WindDirectionButton extends HomeButton {
         add(speed);
     }
 
+    public WindDirectionButton() {
+        super("windIcons/east.png", "Wind");
+        JLabel speed = new JLabel("50");
+        speed.setForeground(Color.RED);
+        add(speed);
+    }
+
     private static Icon determineWindIcon(Forecast forecast) {
         return HomeButton.createIcon("windIcons/" + forecast.getWindDirection() + ".png");
     }

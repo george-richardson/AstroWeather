@@ -10,67 +10,17 @@
   <credit/>
   <meta>
     <lastupdate/>
-    <calctime>0.0435</calctime>
+    <calctime>0.0527</calctime>
     <nextupdate/>
   </meta>
-  <sun rise="2015-03-12T06:20:30" set="2015-03-12T17:59:52"/>
+  <sun rise="2015-03-13T06:18:14" set="2015-03-13T18:01:35"/>
   <forecast>
-    <time from="2015-03-12T18:00:00" to="2015-03-12T21:00:00">
-      <symbol number="803" name="broken clouds" var="04n"/>
-      <precipitation/>
-      <windDirection deg="152.5" code="SSE" name="South-southeast"/>
-      <windSpeed mps="5.2" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="8.14" min="8.14" max="8.26"/>
-      <pressure unit="hPa" value="1025.94"/>
-      <humidity value="59" unit="%"/>
-      <clouds value="broken clouds" all="76" unit="%"/>
-    </time>
-    <time from="2015-03-12T21:00:00" to="2015-03-13T00:00:00">
-      <symbol number="804" name="overcast clouds" var="04n"/>
-      <precipitation/>
-      <windDirection deg="149.002" code="SSE" name="South-southeast"/>
-      <windSpeed mps="5.27" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="8.02" min="8.02" max="8.14"/>
-      <pressure unit="hPa" value="1025.78"/>
-      <humidity value="62" unit="%"/>
-      <clouds value="overcast clouds" all="88" unit="%"/>
-    </time>
-    <time from="2015-03-13T00:00:00" to="2015-03-13T03:00:00">
-      <symbol number="804" name="overcast clouds" var="04n"/>
-      <precipitation/>
-      <windDirection deg="154.502" code="SSE" name="South-southeast"/>
-      <windSpeed mps="5.06" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="7.88" min="7.88" max="7.99"/>
-      <pressure unit="hPa" value="1025.34"/>
-      <humidity value="64" unit="%"/>
-      <clouds value="overcast clouds" all="88" unit="%"/>
-    </time>
-    <time from="2015-03-13T03:00:00" to="2015-03-13T06:00:00">
-      <symbol number="804" name="overcast clouds" var="04n"/>
-      <precipitation/>
-      <windDirection deg="149.001" code="SSE" name="South-southeast"/>
-      <windSpeed mps="4.16" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="7.33" min="7.33" max="7.44"/>
-      <pressure unit="hPa" value="1024.91"/>
-      <humidity value="68" unit="%"/>
-      <clouds value="overcast clouds" all="88" unit="%"/>
-    </time>
-    <time from="2015-03-13T06:00:00" to="2015-03-13T09:00:00">
-      <symbol number="804" name="overcast clouds" var="04n"/>
-      <precipitation/>
-      <windDirection deg="126.001" code="SE" name="SouthEast"/>
-      <windSpeed mps="3.17" name="Light breeze"/>
-      <temperature unit="celsius" value="6.38" min="6.38" max="6.48"/>
-      <pressure unit="hPa" value="1025.32"/>
-      <humidity value="73" unit="%"/>
-      <clouds value="overcast clouds" all="88" unit="%"/>
-    </time>
     <time from="2015-03-13T09:00:00" to="2015-03-13T12:00:00">
       <symbol number="804" name="overcast clouds" var="04d"/>
       <precipitation/>
       <windDirection deg="99.5028" code="E" name="East"/>
       <windSpeed mps="3.51" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="7.09" min="7.09" max="7.18"/>
+      <temperature unit="celsius" value="8.78" min="7.18" max="8.78"/>
       <pressure unit="hPa" value="1026.12"/>
       <humidity value="74" unit="%"/>
       <clouds value="overcast clouds" all="88" unit="%"/>
@@ -80,7 +30,7 @@
       <precipitation/>
       <windDirection deg="91.0008" code="E" name="East"/>
       <windSpeed mps="4.26" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="9.16" min="9.16" max="9.24"/>
+      <temperature unit="celsius" value="10.76" min="9.24" max="10.76"/>
       <pressure unit="hPa" value="1027.05"/>
       <humidity value="72" unit="%"/>
       <clouds value="broken clouds" all="80" unit="%"/>
@@ -90,7 +40,7 @@
       <precipitation/>
       <windDirection deg="80.5043" code="E" name="East"/>
       <windSpeed mps="4.58" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="9.29" min="9.29" max="9.37"/>
+      <temperature unit="celsius" value="10.8" min="9.37" max="10.8"/>
       <pressure unit="hPa" value="1027.92"/>
       <humidity value="67" unit="%"/>
       <clouds value="broken clouds" all="68" unit="%"/>
@@ -100,7 +50,7 @@
       <precipitation/>
       <windDirection deg="64.0037" code="ENE" name="East-northeast"/>
       <windSpeed mps="4.22" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="6.86" min="6.86" max="6.93"/>
+      <temperature unit="celsius" value="8.29" min="6.93" max="8.29"/>
       <pressure unit="hPa" value="1029.34"/>
       <humidity value="64" unit="%"/>
       <clouds value="scattered clouds" all="48" unit="%"/>
@@ -110,7 +60,7 @@
       <precipitation/>
       <windDirection deg="57.5099" code="ENE" name="East-northeast"/>
       <windSpeed mps="4.01" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="4.2" min="4.2" max="4.27"/>
+      <temperature unit="celsius" value="5.55" min="4.27" max="5.55"/>
       <pressure unit="hPa" value="1031.31"/>
       <humidity value="70" unit="%"/>
       <clouds value="few clouds" all="20" unit="%"/>
@@ -120,7 +70,7 @@
       <precipitation/>
       <windDirection deg="43.003" code="NE" name="NorthEast"/>
       <windSpeed mps="3.9" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="1.83" min="1.83" max="1.89"/>
+      <temperature unit="celsius" value="3.09" min="1.89" max="3.09"/>
       <pressure unit="hPa" value="1032.36"/>
       <humidity value="75" unit="%"/>
       <clouds value="clear sky" all="8" unit="%"/>
@@ -130,7 +80,7 @@
       <precipitation value="0.015" unit="3h" type="rain"/>
       <windDirection deg="36.0135" code="NE" name="NorthEast"/>
       <windSpeed mps="4.31" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="1.28" min="1.28" max="1.33"/>
+      <temperature unit="celsius" value="2.45" min="1.33" max="2.45"/>
       <pressure unit="hPa" value="1032.96"/>
       <humidity value="83" unit="%"/>
       <clouds value="broken clouds" all="80" unit="%"/>
@@ -140,7 +90,7 @@
       <precipitation value="0.03" unit="3h" type="rain"/>
       <windDirection deg="56.0005" code="NE" name="NorthEast"/>
       <windSpeed mps="5.17" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="2.34" min="2.34" max="2.39"/>
+      <temperature unit="celsius" value="3.43" min="2.39" max="3.43"/>
       <pressure unit="hPa" value="1033.48"/>
       <humidity value="73" unit="%"/>
       <clouds value="broken clouds" all="80" unit="%"/>
@@ -150,7 +100,7 @@
       <precipitation value="0.03" unit="3h" type="rain"/>
       <windDirection deg="63.0049" code="ENE" name="East-northeast"/>
       <windSpeed mps="5.46" name=""/>
-      <temperature unit="celsius" value="3.99" min="3.99" max="4.03"/>
+      <temperature unit="celsius" value="4.99" min="4.03" max="4.99"/>
       <pressure unit="hPa" value="1034.1"/>
       <humidity value="73" unit="%"/>
       <clouds value="broken clouds" all="64" unit="%"/>
@@ -160,7 +110,7 @@
       <precipitation value="0.03" unit="3h" type="rain"/>
       <windDirection deg="56.0067" code="NE" name="NorthEast"/>
       <windSpeed mps="5.31" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="6.03" min="6.03" max="6.07"/>
+      <temperature unit="celsius" value="6.94" min="6.07" max="6.94"/>
       <pressure unit="hPa" value="1034.34"/>
       <humidity value="76" unit="%"/>
       <clouds value="scattered clouds" all="44" unit="%"/>
@@ -170,7 +120,7 @@
       <precipitation value="0.01" unit="3h" type="rain"/>
       <windDirection deg="51.0014" code="NE" name="NorthEast"/>
       <windSpeed mps="5.57" name="Moderate breeze"/>
-      <temperature unit="celsius" value="6.25" min="6.25" max="6.28"/>
+      <temperature unit="celsius" value="7.08" min="6.28" max="7.08"/>
       <pressure unit="hPa" value="1033.56"/>
       <humidity value="73" unit="%"/>
       <clouds value="scattered clouds" all="44" unit="%"/>
@@ -180,7 +130,7 @@
       <precipitation value="0.02" unit="3h" type="rain"/>
       <windDirection deg="48.5004" code="NE" name="NorthEast"/>
       <windSpeed mps="5.32" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="5.29" min="5.29" max="5.31"/>
+      <temperature unit="celsius" value="6.03" min="5.31" max="6.03"/>
       <pressure unit="hPa" value="1033.7"/>
       <humidity value="69" unit="%"/>
       <clouds value="broken clouds" all="76" unit="%"/>
@@ -190,7 +140,7 @@
       <precipitation value="0.03" unit="3h" type="rain"/>
       <windDirection deg="48.5013" code="NE" name="NorthEast"/>
       <windSpeed mps="4.77" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="4.57" min="4.57" max="4.59"/>
+      <temperature unit="celsius" value="5.23" min="4.59" max="5.23"/>
       <pressure unit="hPa" value="1033.78"/>
       <humidity value="72" unit="%"/>
       <clouds value="broken clouds" all="80" unit="%"/>
@@ -200,7 +150,7 @@
       <precipitation value="0.04" unit="3h" type="rain"/>
       <windDirection deg="42.0014" code="NE" name="NorthEast"/>
       <windSpeed mps="4.26" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="4.08" min="4.08" max="4.1"/>
+      <temperature unit="celsius" value="4.66" min="4.1" max="4.66"/>
       <pressure unit="hPa" value="1033.44"/>
       <humidity value="77" unit="%"/>
       <clouds value="broken clouds" all="80" unit="%"/>
@@ -210,7 +160,7 @@
       <precipitation value="0.11" unit="3h" type="rain"/>
       <windDirection deg="33.5078" code="NNE" name="North-northeast"/>
       <windSpeed mps="4.12" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="3.68" min="3.68" max="3.68"/>
+      <temperature unit="celsius" value="4.16" min="3.68" max="4.16"/>
       <pressure unit="hPa" value="1032.26"/>
       <humidity value="83" unit="%"/>
       <clouds value="overcast clouds" all="88" unit="%"/>
@@ -220,7 +170,7 @@
       <precipitation value="0.2" unit="3h" type="rain"/>
       <windDirection deg="36.0063" code="NE" name="NorthEast"/>
       <windSpeed mps="4.03" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="3.58" min="3.58" max="3.58"/>
+      <temperature unit="celsius" value="3.98" min="3.58" max="3.98"/>
       <pressure unit="hPa" value="1031.49"/>
       <humidity value="90" unit="%"/>
       <clouds value="overcast clouds" all="88" unit="%"/>
@@ -230,7 +180,7 @@
       <precipitation value="0.27" unit="3h" type="rain"/>
       <windDirection deg="40.0001" code="NE" name="NorthEast"/>
       <windSpeed mps="4.11" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="4.52" min="4.52" max="4.52"/>
+      <temperature unit="celsius" value="4.84" min="4.52" max="4.84"/>
       <pressure unit="hPa" value="1030.93"/>
       <humidity value="90" unit="%"/>
       <clouds value="overcast clouds" all="88" unit="%"/>
@@ -240,7 +190,7 @@
       <precipitation value="0.16" unit="3h" type="rain"/>
       <windDirection deg="49.0021" code="NE" name="NorthEast"/>
       <windSpeed mps="4.26" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="5.71" min="5.71" max="5.71"/>
+      <temperature unit="celsius" value="5.95" min="5.71" max="5.95"/>
       <pressure unit="hPa" value="1029.88"/>
       <humidity value="86" unit="%"/>
       <clouds value="overcast clouds" all="88" unit="%"/>
@@ -250,7 +200,7 @@
       <precipitation value="0.22" unit="3h" type="rain"/>
       <windDirection deg="57.5023" code="ENE" name="East-northeast"/>
       <windSpeed mps="4.12" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="5.81" min="5.81" max="5.81"/>
+      <temperature unit="celsius" value="5.97" min="5.81" max="5.97"/>
       <pressure unit="hPa" value="1028.5"/>
       <humidity value="85" unit="%"/>
       <clouds value="overcast clouds" all="88" unit="%"/>
@@ -260,7 +210,7 @@
       <precipitation value="0.25" unit="3h" type="rain"/>
       <windDirection deg="66.501" code="ENE" name="East-northeast"/>
       <windSpeed mps="3.67" name="Gentle Breeze"/>
-      <temperature unit="celsius" value="5.08" min="5.08" max="5.08"/>
+      <temperature unit="celsius" value="5.15" min="5.08" max="5.15"/>
       <pressure unit="hPa" value="1028.22"/>
       <humidity value="84" unit="%"/>
       <clouds value="overcast clouds" all="88" unit="%"/>
@@ -434,6 +384,16 @@
       <pressure unit="hPa" value="1033.81"/>
       <humidity value="89" unit="%"/>
       <clouds value="clear sky" all="8" unit="%"/>
+    </time>
+    <time from="2015-03-18T00:00:00" to="2015-03-18T03:00:00">
+      <symbol number="802" name="scattered clouds" var="03n"/>
+      <precipitation/>
+      <windDirection deg="272.003" code="W" name="West"/>
+      <windSpeed mps="1.25" name="Calm"/>
+      <temperature unit="celsius" value="2.5" min="2.5" max="2.5"/>
+      <pressure unit="hPa" value="1035.12"/>
+      <humidity value="90" unit="%"/>
+      <clouds value="scattered clouds" all="32" unit="%"/>
     </time>
   </forecast>
 </weatherdata>

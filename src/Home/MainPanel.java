@@ -13,6 +13,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 @SuppressWarnings("serial")
 public class MainPanel extends AstroPanel {
@@ -20,67 +22,159 @@ public class MainPanel extends AstroPanel {
 	private JLabel currentDayLabel;
 	private JScrollPane dayScrollPane;
 	private HomeButton windBtn, tempBtn, cloudCoverBtn, lunarBtn, precipBtn, humidityBtn;
+    private HourButton[] hourButtons;
+    private DayPanel[] dayPanels;
+    private NewAPI.Forecast.data[] hourData;
+    private NewAPI.Forecast.data[] dayData;
 
-	public MainPanel(Main parent, boolean orientation, Forecasts forecasts) {
-		super(parent, orientation, forecasts);
-		commonInit();
+	public MainPanel(final Main parent, final boolean orientation, boolean loadHour, int numberToLoad) {
+		super(parent, orientation);
+        hourData = parent.getForecast().getHourly().getData();
+        dayData = parent.getForecast().getDaily().getData();
+
+        UIManager.put("ScrollBar.width", new Integer(0));
+
+        hourButtons = new HourButton[48];
+        for (int i = 0 ; i < 48; i++) {
+            HourButton hour = new HourButton(hourData[i].getTimeAsHour());
+            final int number = i;
+            hour.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    parent.changePanel(new MainPanel(parent, orientation, true, number));
+                }
+            });
+            hourButtons[i] = hour;
+        }
+
+        dayPanels = new DayPanel[7];
+        for (int i = 0 ; i < 7; i++) {
+            final int number = i;
+            DayPanel day = new DayPanel(dayData[i].getTimeAsDay(), dayData[i].getCloudCoverAsInt(), (int) dayData[i].getTemperatureMax());
+            day.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    parent.changePanel(new MainPanel(parent, orientation, false, number));
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+
+                }
+            });
+            dayPanels[i] = day;
+        }
+
+        otherDays = new JPanel(new GridLayout(7, 1));
+        otherDays.setOpaque(false);
+        for(int i = 0; i < 7; i++) {
+            otherDays.add(dayPanels[i]);
+        }
+
+        dayScrollPane = new JScrollPane(otherDays);
+        dayScrollPane.setBorder(null);
+        dayScrollPane.setOpaque(false);
+        dayScrollPane.getViewport().setOpaque(false);
+        dayScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        dayScrollPane.getVerticalScrollBar().setUnitIncrement(16);
+
+        if (loadHour) loadHour(numberToLoad);
+        else loadDay(numberToLoad);
 		if (orientation) portraitInit();
 		else landscapeInit();
 	}
 
-	public void commonInit() {
-		UIManager.put("ScrollBar.width", new Integer(0));
-		//setBackground(Resources.bgColor);
+	public void loadDay(int day) {
+        NewAPI.Forecast.data thisDayData = dayData[day];
 
 		// Current Day
 		currentDay = new JPanel();
 		currentDay.setOpaque(false);
 		currentDay.setLayout(new BorderLayout());
 
-		currentDayLabel = new DayLabel(forecasts.getTodaysForecast());
+		currentDayLabel = new DayLabel(thisDayData.getTimeAsDay());
 		currentDay.add(currentDayLabel, BorderLayout.NORTH);
 
-		cloudCoverBtn = new CloudCoverageButton(forecasts.getTodaysForecast());
-		lunarBtn = new MoonPhaseButton();
-		windBtn = new WindDirectionButton(forecasts.getTodaysForecast());
-		tempBtn = new TemperatureButton(forecasts.getTodaysForecast());
+		cloudCoverBtn = new CloudCoverageButton(thisDayData.getCloudCoverAsInt());
+		lunarBtn = new MoonPhaseButton(thisDayData.getMoonPhaseAsAngle());
+		windBtn = new WindDirectionButton();
+		tempBtn = new TemperatureButton((int)thisDayData.getTemperatureMax());
         tempBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                change(new TemperatureByHour(parent, orientation, forecasts));
+                //change(new TemperatureByHour(parent, orientation, forecasts));
             }
         });
-		humidityBtn = new HumidityButton(forecasts.getTodaysForecast());
+		humidityBtn = new HumidityButton(thisDayData.getHumidityAsPercentage());
         humidityBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                change(new HumidityByHour(parent, orientation, forecasts));
+               //change(new HumidityByHour(parent, orientation, forecasts));
             }
         });
-		precipBtn = new PrecipitationButton(forecasts.getTodaysForecast());
+		precipBtn = new PrecipitationButton(thisDayData.getPrecipProbabilityAsPercentage());
         precipBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                change(new PrecipitationByHour(parent, orientation, forecasts));
+                //change(new PrecipitationByHour(parent, orientation, forecasts));
             }
         });
 
-		otherDays = new JPanel(new GridLayout(forecasts.getDailyForecasts().size(), 1));
-		otherDays.setOpaque(false);
-
-		for (Forecast forecast: forecasts.getDailyForecasts()) {
-
-			otherDays.add(new DayPanel(forecast));
-		}
-
-		dayScrollPane = new JScrollPane(otherDays);
-		dayScrollPane.setBorder(null);
-		dayScrollPane.setOpaque(false);
-		dayScrollPane.getViewport().setOpaque(false);
-		dayScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		dayScrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
 	}
+
+    public void loadHour(int hour) {
+        NewAPI.Forecast.data thisHourData = hourData[hour];
+
+        // Current Day
+        currentDay = new JPanel();
+        currentDay.setOpaque(false);
+        currentDay.setLayout(new BorderLayout());
+
+        currentDayLabel = new DayLabel(thisHourData.getTimeAsHour());
+        currentDay.add(currentDayLabel, BorderLayout.NORTH);
+
+        cloudCoverBtn = new CloudCoverageButton(thisHourData.getCloudCoverAsInt());
+        lunarBtn = new MoonPhaseButton(parent.getForecast().getDaily().getData()[0].getMoonPhaseAsAngle());
+        windBtn = new WindDirectionButton();
+        tempBtn = new TemperatureButton((int)thisHourData.getTemperature());
+        tempBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //change(new TemperatureByHour(parent, orientation, forecasts));
+            }
+        });
+        humidityBtn = new HumidityButton(thisHourData.getHumidityAsPercentage());
+        humidityBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //change(new HumidityByHour(parent, orientation, forecasts));
+            }
+        });
+        precipBtn = new PrecipitationButton(thisHourData.getPrecipProbabilityAsPercentage());
+        precipBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //change(new PrecipitationByHour(parent, orientation, forecasts));
+            }
+        });
+    }
+
 
 	public void portraitInit() {
 		buttonGrid = new JPanel(new GridLayout(2, 3));
@@ -93,13 +187,12 @@ public class MainPanel extends AstroPanel {
 		buttonGrid.add(precipBtn);
 		currentDay.add(buttonGrid, BorderLayout.CENTER);
 
-		hourScroll = new JPanel(new GridLayout(1, 10));
+		hourScroll = new JPanel(new GridLayout(1, 48));
 		hourScroll.setOpaque(false);
 
-		hourScroll.add(new HourButton("20", true));
-		for (int i = 0; i < 9; i++) {
-			hourScroll.add(new HourButton("20"));
-		}
+        for (int i = 0; i < hourButtons.length; i++) {
+            hourScroll.add(hourButtons[i]);
+        }
 
 		JScrollPane hourScrollPane = new JScrollPane(hourScroll);
 		hourScrollPane.setOpaque(false);
@@ -143,9 +236,8 @@ public class MainPanel extends AstroPanel {
 		hourScroll = new JPanel(new GridLayout(10, 1));
 		hourScroll.setOpaque(false);
 
-		hourScroll.add(new HourButton("20", true));
-		for (int i = 0; i < 9; i++) {
-			hourScroll.add(new HourButton("20"));
+		for (int i = 0; i < hourButtons.length; i++) {
+			hourScroll.add(hourButtons[i]);
 		}
 
 		JScrollPane hourScrollPane = new JScrollPane(hourScroll);

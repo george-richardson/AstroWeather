@@ -24,14 +24,14 @@ public abstract class WeatherGraphPanel extends AstroPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            parent.changePanel(new MainPanel(parent, orientation, forecasts));
+            //parent.changePanel(new MainPanel(parent, orientation));
         }
     };
 
     private final String graphTitle;
 
     public WeatherGraphPanel(Main parent, boolean orientation, Forecasts forecasts, String graphTitle) {
-        super(parent, orientation, forecasts);
+        super(parent, orientation);
         this.graphTitle = graphTitle;
         layoutGraph();
     }
@@ -42,7 +42,7 @@ public abstract class WeatherGraphPanel extends AstroPanel {
         JButton back = new JButton("Back");
         back.addActionListener(backListener);
         add(back, BorderLayout.NORTH);
-        add(new WeatherGraph(graphTitle, collectDataByHour(forecasts.getHourlyForecasts(), graphTitle)), BorderLayout.CENTER);
+        //add(new WeatherGraph(graphTitle, collectDataByHour(forecasts.getHourlyForecasts(), graphTitle)), BorderLayout.CENTER);
     }
 
     @Override

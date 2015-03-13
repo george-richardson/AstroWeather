@@ -6,21 +6,21 @@ import javax.swing.*;
 
 public class CloudCoverageButton extends HomeButton {
 
-    public CloudCoverageButton(Forecast forecast) {
-        super(determineCloudCoverageIcon(forecast), "Cloud");
+    public CloudCoverageButton(int cloudCover) {
+        super(determineCloudCoverageIcon(cloudCover), "Cloud");
     }
 
-    private static Icon determineCloudCoverageIcon(Forecast forecast) {
-        return HomeButton.createIcon("cloudCoverage/" + determineCloudCoverageIconName(forecast) + ".png");
+    private static Icon determineCloudCoverageIcon(int cloudCover) {
+        return HomeButton.createIcon("cloudCoverage/" + determineCloudCoverageIconName(cloudCover) + ".png");
     }
 
-    private static String determineCloudCoverageIconName(Forecast forecast) {
-        double coverage;
-        try {
-            coverage = Double.parseDouble(forecast.cloudVal);
-        } catch (NumberFormatException e) {
-            return "sky_obscured";
-        }
+    private static String determineCloudCoverageIconName(int cloudCover) {
+        double coverage = cloudCover;
+//        try {
+//            coverage = Double.parseDouble(forecast.cloudVal);
+//        } catch (NumberFormatException e) {
+//            return "sky_obscured";
+//        }
 
         if (coverage == 0) {
             return "clear";

@@ -9,21 +9,12 @@ import java.awt.*;
 @SuppressWarnings("serial")
 public abstract class AstroPanel extends JPanel {
 
-    protected Forecasts forecasts;
     protected Main parent;
     protected boolean orientation;
 
-    protected AstroPanel(Main parent, boolean orientation, Forecasts forecasts) {
-        this.parent = parent;
-        this.orientation= orientation;
-        this.forecasts = forecasts;
-        //setOpaque(false);
-    }
-    
     protected AstroPanel(Main parent, boolean orientation) {
         this.parent = parent;
         this.orientation= orientation;
-        this.forecasts = null;
         //setOpaque(false);
     }
     

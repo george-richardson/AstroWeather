@@ -7,12 +7,12 @@ import java.util.Calendar;
 
 public class MoonPhaseButton extends HomeButton {
 
-    public MoonPhaseButton() {
-        super(getMoonPhaseIcon(), "Lunar");
+    public MoonPhaseButton(double angle) {
+        super(getMoonPhaseIcon(angle), "Lunar");
     }
 
-    private static Icon getMoonPhaseIcon() {
-        return HomeButton.createIcon("moonPhases/" + getMoonPhaseIconName(findMoonPhase()) + ".png");
+    private static Icon getMoonPhaseIcon(double angle) {
+        return HomeButton.createIcon("moonPhases/" + getMoonPhaseIconName(angle) + ".png");
     }
 
     /**
@@ -38,9 +38,5 @@ public class MoonPhaseButton extends HomeButton {
         } else {
             return "old_moon";
         }
-    }
-
-    private static double findMoonPhase() {
-        return MoonPhaseFinder.getMoonAngle(Calendar.getInstance());
     }
 }
