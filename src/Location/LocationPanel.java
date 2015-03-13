@@ -76,7 +76,7 @@ public class LocationPanel extends AstroPanel {
 	private ActionListener prevButtonAction = new ActionListener() {
 
 		@Override
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(final ActionEvent e) {
 			try {
 				removeAll();
 				add(loading, BorderLayout.CENTER);

@@ -12,6 +12,6 @@ public class PrecipitationByHour extends WeatherGraphPanel {
 
 	@Override
 	protected double extractValue(Forecast forecast) {
-		return Double.parseDouble(forecast.precipitation);
+		return Double.parseDouble(forecast.getPrecipitation());
 	}
 }

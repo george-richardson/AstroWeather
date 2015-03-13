@@ -1,5 +1,6 @@
 package Home;
 
+import API.Forecast;
 import API.Forecasts;
 import AstroWeather.Main;
 import Common.AstroPanel;
@@ -36,14 +37,10 @@ public class MainPanel extends AstroPanel {
 		currentDay.setOpaque(false);
 		currentDay.setLayout(new BorderLayout());
 
-		currentDayLabel = new JLabel("<html>Monday<span style='text-size: 18px'>02/02</span></html>");
-		currentDayLabel.setFont(Resources.titleFont);
-		currentDayLabel.setForeground(Resources.titleColor);
-		currentDayLabel.setHorizontalAlignment(JLabel.CENTER);
-
+		currentDayLabel = new DayLabel(forecasts.getTodaysForecast());
 		currentDay.add(currentDayLabel, BorderLayout.NORTH);
 
-		cloudCoverBtn = new HomeButton(HomeButton.createIcon("moon75.png"), "Cloud");
+		cloudCoverBtn = new CloudCoverageButton(forecasts.getTodaysForecast());
 		lunarBtn = new MoonPhaseButton();
 		windBtn = new WindDirectionButton(forecasts.getTodaysForecast());
 		tempBtn = new TemperatureButton(forecasts.getTodaysForecast());
@@ -68,11 +65,12 @@ public class MainPanel extends AstroPanel {
             }
         });
 
-		otherDays = new JPanel(new GridLayout(10, 1));
+		otherDays = new JPanel(new GridLayout(forecasts.getDailyForecasts().size(), 1));
 		otherDays.setOpaque(false);
 
-		for (int i = 0; i < 10; i++) {
-			otherDays.add(new DayPanel());
+		for (Forecast forecast: forecasts.getDailyForecasts()) {
+
+			otherDays.add(new DayPanel(forecast));
 		}
 
 		dayScrollPane = new JScrollPane(otherDays);
