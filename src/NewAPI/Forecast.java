@@ -65,6 +65,13 @@ public class Forecast {
             return cal.getDisplayName(Calendar.DAY_OF_WEEK,Calendar.LONG, Locale.ENGLISH);
         }
 
+        public String getTimeAsDayAndHour() {
+            Calendar cal = Calendar.getInstance();
+            //cal.setTimeZone(TimeZone.getTimeZone("Europe/London"));
+            cal.setTimeInMillis(time * 1000);
+            return cal.getDisplayName(Calendar.DAY_OF_WEEK,Calendar.SHORT, Locale.ENGLISH)+ " " + cal.get(cal.HOUR_OF_DAY) + ":00";
+        }
+
 
         public float getTemperature() {
             return temperature;

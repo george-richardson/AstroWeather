@@ -161,7 +161,7 @@ public class MainPanel extends AstroPanel {
     public void loadHour(int hour) {
         NewAPI.Forecast.data thisHourData = hourData[hour];
 
-        currentDayLabel = new DayLabel(thisHourData.getTimeAsHour());
+        currentDayLabel = new DayLabel(thisHourData.getTimeAsDayAndHour());
         topPanel.add(currentDayLabel, BorderLayout.CENTER);
 
         cloudCoverBtn = new CloudCoverageButton(thisHourData.getCloudCoverAsInt());

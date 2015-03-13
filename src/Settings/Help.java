@@ -96,7 +96,7 @@ public class Help extends AstroPanel implements ActionListener {
     }
 
 		@Override
-		public void changeOrientation(boolean orientation) {
+		public void changeOrientation(boolean neworientation) {
 			// TODO Auto-generated method stub
 			orientation = !orientation;
 		}

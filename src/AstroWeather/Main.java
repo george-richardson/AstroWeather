@@ -54,7 +54,9 @@ public class Main extends JFrame {
 		orientation = !orientation;
 		changeDimensions();
 		p.changeOrientation(orientation);
+        getContentPane().revalidate();
 		pack();
+        repaint();
 	}
 
 	private void changeDimensions() {
@@ -69,8 +71,8 @@ public class Main extends JFrame {
 	public void changePanel(AstroPanel newPanel) {
 		remove(p);
 		p = newPanel;
-		add(p, BorderLayout.CENTER);
-		changeDimensions();
+        changeDimensions();
+        add(p, BorderLayout.CENTER);
 		pack();
 	}
 

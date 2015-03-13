@@ -111,9 +111,6 @@ public class AboutThisApp extends AstroPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(back)) {
-            //this.setVisible(false);
-            //this.dispose(); 
-            //parent.setVisible(true);
         	parent.changePanel(new SettingsMain(parent, orientation));
         }
         
@@ -122,7 +119,7 @@ public class AboutThisApp extends AstroPanel implements ActionListener {
 
 
 	@Override
-	public void changeOrientation(boolean orientation) {
+	public void changeOrientation(boolean neworientation) {
 		// TODO Auto-generated method stub
 		orientation = !orientation;
 		
