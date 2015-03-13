@@ -3,6 +3,9 @@ package Home;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
 
 import javax.swing.BorderFactory;
@@ -24,8 +27,16 @@ public class DayPanel extends JPanel {
         add(new DayLabel(day), BorderLayout.NORTH);
         JPanel p = new JPanel(new GridLayout(1, 2));
         p.setOpaque(false);
+        CloudCoverageButton cloudBtn = new CloudCoverageButton(cloudCover);
+        cloudBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
         p.add(new CloudCoverageButton(cloudCover));
         p.add(new TemperatureButton(temp));
         add(p, BorderLayout.CENTER);
     }
+
 }

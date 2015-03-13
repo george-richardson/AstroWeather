@@ -18,6 +18,8 @@ import javax.swing.SwingConstants;
 
 import Common.AstroPanel;
 import Common.Resources;
+import Home.MainPanel;
+
 @SuppressWarnings("serial")
 public class SettingsMain extends AstroPanel implements ActionListener {
     private SettingsMainPanel mainPanel = new SettingsMainPanel();
@@ -242,8 +244,7 @@ public class SettingsMain extends AstroPanel implements ActionListener {
             
         }
         else if(e.getSource().equals(back)){
-         
-          
+         parent.changePanel(new MainPanel(parent, orientation, false, 1));
         }
         
          if (e.getSource().equals(windBut)) {
@@ -275,7 +276,7 @@ public class SettingsMain extends AstroPanel implements ActionListener {
     }
 
 	@Override
-	public void changeOrientation(boolean orientation) {
+	public void changeOrientation(boolean newOrientation) {
 		// TODO Auto-generated method stub
 		orientation = !orientation;
 	}

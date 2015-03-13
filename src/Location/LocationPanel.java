@@ -52,7 +52,6 @@ public class LocationPanel extends AstroPanel {
 							int i = 0;
 							while(s.hasNextLine() && i < 7) {
 								String str = s.nextLine();
-								System.out.println(str);
 								pw.println(str);
 								i++;
 							}
@@ -157,8 +156,8 @@ public class LocationPanel extends AstroPanel {
 	}
 
 	@Override
-	public void changeOrientation(boolean orientation) {
-		this.orientation = orientation;
+	public void changeOrientation(boolean newOrientation) {
+		orientation = !orientation;
 	}
 
 }

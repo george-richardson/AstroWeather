@@ -8,6 +8,8 @@ import Common.Resources;
 import Graphs.HumidityByHour;
 import Graphs.PrecipitationByHour;
 import Graphs.TemperatureByHour;
+import Location.LocationPanel;
+import Settings.SettingsMain;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +20,7 @@ import java.awt.event.MouseListener;
 
 @SuppressWarnings("serial")
 public class MainPanel extends AstroPanel {
-	private JPanel currentDay, otherDays, hourScroll, buttonGrid;
+	private JPanel currentDay, otherDays, hourScroll, buttonGrid, topPanel;
 	private JLabel currentDayLabel;
 	private JScrollPane dayScrollPane;
 	private HomeButton windBtn, tempBtn, cloudCoverBtn, lunarBtn, precipBtn, humidityBtn;
@@ -26,6 +28,7 @@ public class MainPanel extends AstroPanel {
     private DayPanel[] dayPanels;
     private NewAPI.Forecast.data[] hourData;
     private NewAPI.Forecast.data[] dayData;
+    private TopButton settingsButton, backButton;
 
 	public MainPanel(final Main parent, final boolean orientation, boolean loadHour, int numberToLoad) {
 		super(parent, orientation);
@@ -80,6 +83,30 @@ public class MainPanel extends AstroPanel {
             dayPanels[i] = day;
         }
 
+        currentDay = new JPanel();
+        currentDay.setOpaque(false);
+        currentDay.setLayout(new BorderLayout());
+
+        settingsButton = new TopButton("settings.png");
+        settingsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                parent.changePanel(new SettingsMain(parent, orientation));
+            }
+        });
+        backButton = new TopButton("backarrow.png");
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                parent.changePanel(new LocationPanel(parent, orientation));
+            }
+        });
+
+        topPanel = new JPanel(new BorderLayout());
+        topPanel.setOpaque(false);
+        topPanel.add(settingsButton, BorderLayout.EAST);
+        topPanel.add(backButton, BorderLayout.WEST);
+
         otherDays = new JPanel(new GridLayout(7, 1));
         otherDays.setOpaque(false);
         for(int i = 0; i < 7; i++) {
@@ -93,6 +120,7 @@ public class MainPanel extends AstroPanel {
         dayScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         dayScrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
+        currentDay.add(topPanel, BorderLayout.NORTH);
         if (loadHour) loadHour(numberToLoad);
         else loadDay(numberToLoad);
 		if (orientation) portraitInit();
@@ -101,14 +129,8 @@ public class MainPanel extends AstroPanel {
 
 	public void loadDay(int day) {
         NewAPI.Forecast.data thisDayData = dayData[day];
-
-		// Current Day
-		currentDay = new JPanel();
-		currentDay.setOpaque(false);
-		currentDay.setLayout(new BorderLayout());
-
 		currentDayLabel = new DayLabel(thisDayData.getTimeAsDay());
-		currentDay.add(currentDayLabel, BorderLayout.NORTH);
+		topPanel.add(currentDayLabel, BorderLayout.CENTER);
 
 		cloudCoverBtn = new CloudCoverageButton(thisDayData.getCloudCoverAsInt());
 		lunarBtn = new MoonPhaseButton(thisDayData.getMoonPhaseAsAngle());
@@ -140,11 +162,6 @@ public class MainPanel extends AstroPanel {
 
     public void loadHour(int hour) {
         NewAPI.Forecast.data thisHourData = hourData[hour];
-
-        // Current Day
-        currentDay = new JPanel();
-        currentDay.setOpaque(false);
-        currentDay.setLayout(new BorderLayout());
 
         currentDayLabel = new DayLabel(thisHourData.getTimeAsHour());
         currentDay.add(currentDayLabel, BorderLayout.NORTH);
@@ -270,8 +287,8 @@ public class MainPanel extends AstroPanel {
 		add(dayScrollPane, gbc);
 	}
 
-	public void changeOrientation(boolean orientation) {
-		this.orientation = orientation;
+	public void changeOrientation(boolean newOrientation) {
+		orientation = !orientation;
 		removeAll();
 		if (orientation) portraitInit();
 		else landscapeInit();
