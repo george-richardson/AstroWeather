@@ -132,7 +132,7 @@ public class MainPanel extends AstroPanel {
 
 		cloudCoverBtn = new CloudCoverageButton(thisDayData.getCloudCoverAsInt());
 		lunarBtn = new MoonPhaseButton(thisDayData.getMoonPhaseAsAngle());
-		windBtn = new WindDirectionButton();
+		windBtn = new WindDirectionButton(thisDayData.getWindBearing(), (int) thisDayData.getWindSpeed());
 		tempBtn = new TemperatureButton((int)thisDayData.getTemperatureMax());
         tempBtn.addActionListener(new ActionListener() {
             @Override
@@ -162,11 +162,11 @@ public class MainPanel extends AstroPanel {
         NewAPI.Forecast.data thisHourData = hourData[hour];
 
         currentDayLabel = new DayLabel(thisHourData.getTimeAsHour());
-        currentDay.add(currentDayLabel, BorderLayout.NORTH);
+        topPanel.add(currentDayLabel, BorderLayout.CENTER);
 
         cloudCoverBtn = new CloudCoverageButton(thisHourData.getCloudCoverAsInt());
         lunarBtn = new MoonPhaseButton(parent.getForecast().getDaily().getData()[0].getMoonPhaseAsAngle());
-        windBtn = new WindDirectionButton();
+        windBtn = new WindDirectionButton(thisHourData.getWindBearing(), (int)thisHourData.getWindSpeed());
         tempBtn = new TemperatureButton((int)thisHourData.getTemperature());
         tempBtn.addActionListener(new ActionListener() {
             @Override
