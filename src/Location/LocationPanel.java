@@ -1,7 +1,14 @@
 package Location;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import AstroWeather.Main;
+import Common.AstroPanel;
+import Common.Resources;
+import Home.MainPanel;
+import NewAPI.API;
+
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -10,20 +17,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.Scanner;
-
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-
-import AstroWeather.Main;
-import Common.AstroPanel;
-import Common.Resources;
-import Home.MainPanel;
-import NewAPI.API;
 
 @SuppressWarnings("serial")
 public class LocationPanel extends AstroPanel {

@@ -1,7 +1,5 @@
 package Home;
 
-import API.Forecast;
-
 import javax.swing.*;
 
 public class CloudCoverageButton extends HomeButton {

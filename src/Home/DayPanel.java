@@ -1,21 +1,11 @@
 package Home;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.GridLayout;
+import Common.Resources;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.text.SimpleDateFormat;
-
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import API.Forecast;
-import org.jfree.chart.block.LineBorder;
-
-import Common.Resources;
 
 @SuppressWarnings("serial")
 public class DayPanel extends JPanel {

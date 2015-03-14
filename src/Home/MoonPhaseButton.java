@@ -1,9 +1,6 @@
 package Home;
 
-import com.bradsbrain.simpleastronomy.MoonPhaseFinder;
-
 import javax.swing.*;
-import java.util.Calendar;
 
 public class MoonPhaseButton extends HomeButton {
 

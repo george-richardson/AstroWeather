@@ -1,10 +1,9 @@
 package Home;
 
-import java.awt.Insets;
-
-import javax.swing.JButton;
-
 import Common.Resources;
+
+import javax.swing.*;
+import java.awt.*;
 
 @SuppressWarnings("serial")
 public class HourButton extends JButton {

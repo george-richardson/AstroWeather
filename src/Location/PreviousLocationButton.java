@@ -1,8 +1,8 @@
 package Location;
 
-import javax.swing.JButton;
-
 import Common.Resources;
+
+import javax.swing.*;
 
 @SuppressWarnings("serial")
 public class PreviousLocationButton extends JButton {

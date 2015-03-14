@@ -1,15 +1,13 @@
 package Common;
 
-import java.awt.Color;
-import java.awt.Font;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.font.TextAttribute;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
 public class Resources {
 	public static final Color bgColor = new Color(0, 0, 0, 0.0f);
@@ -18,7 +16,7 @@ public class Resources {
 	public static final Color titleColor = new Color(255, 255, 255);
 	public static final Font titleFont = getFont(24, 0.1);
 	public static final Font homeButtonFont = getFont(14, 0.2);
-	public static final Font chartTitleFont = getFont(14, 	0.2);
+	public static final Font chartLabelFont = getFont(14, 	0.2);
 
 	private static Font getFont(float size, double spacing) {
 		Map<TextAttribute, Object> attributes = new HashMap<TextAttribute, Object>();

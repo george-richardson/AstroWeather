@@ -1,15 +1,12 @@
 package Home;
 
-import java.awt.Dimension;
-import java.io.File;
-import java.io.IOException;
+import Common.Resources;
 
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-
-import Common.Resources;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 @SuppressWarnings("serial")
 public class HomeButton extends JButton {

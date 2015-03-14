@@ -2,7 +2,6 @@ package NewAPI;
 
 import java.util.Calendar;
 import java.util.Locale;
-import java.util.TimeZone;
 
 /**
  * Created by George on 13/03/2015.

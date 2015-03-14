@@ -3,18 +3,14 @@ package Graphs;
 import AstroWeather.Main;
 import Common.AstroPanel;
 import Home.MainPanel;
-
 import Home.TopButton;
 import NewAPI.Forecast;
 import org.jfree.data.xy.XYSeries;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.*;
-
-import java.util.Date;
 @SuppressWarnings("serial")
 
 
