@@ -7,6 +7,7 @@ import Graphs.HumidityByHour;
 import Graphs.PrecipitationByHour;
 import Graphs.TemperatureByHour;
 import Location.LocationPanel;
+import NewAPI.Forecast;
 import Settings.SettingsMain;
 
 import javax.swing.*;
@@ -134,29 +135,31 @@ public class MainPanel extends AstroPanel {
 		lunarBtn = new MoonPhaseButton(thisDayData.getMoonPhaseAsAngle());
 		windBtn = new WindDirectionButton(thisDayData.getWindBearing(), (int) thisDayData.getWindSpeed());
 		tempBtn = new TemperatureButton((int)thisDayData.getTemperatureMax());
+        addGraphButtons(thisDayData);
+	}
+
+    private void addGraphButtons(Forecast.data thisDayData) {
         tempBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 change(new TemperatureByHour(parent, orientation, hourData));
             }
         });
-		humidityBtn = new HumidityButton(thisDayData.getHumidityAsPercentage());
+        humidityBtn = new HumidityButton(thisDayData.getHumidityAsPercentage());
         humidityBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                change(new HumidityByHour(parent, orientation, hourData));
             }
         });
-		precipBtn = new PrecipitationButton(thisDayData.getPrecipProbabilityAsPercentage());
+        precipBtn = new PrecipitationButton(thisDayData.getPrecipProbabilityAsPercentage());
         precipBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 change(new PrecipitationByHour(parent, orientation, hourData));
             }
         });
-
-
-	}
+    }
 
     public void loadHour(int hour) {
         NewAPI.Forecast.data thisHourData = hourData[hour];
@@ -168,28 +171,8 @@ public class MainPanel extends AstroPanel {
         lunarBtn = new MoonPhaseButton(parent.getForecast().getDaily().getData()[0].getMoonPhaseAsAngle());
         windBtn = new WindDirectionButton(thisHourData.getWindBearing(), (int)thisHourData.getWindSpeed());
         tempBtn = new TemperatureButton((int)thisHourData.getTemperature());
-        tempBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //change(new TemperatureByHour(parent, orientation, forecasts));
-            }
-        });
-        humidityBtn = new HumidityButton(thisHourData.getHumidityAsPercentage());
-        humidityBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //change(new HumidityByHour(parent, orientation, forecasts));
-            }
-        });
-        precipBtn = new PrecipitationButton(thisHourData.getPrecipProbabilityAsPercentage());
-        precipBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //change(new PrecipitationByHour(parent, orientation, forecasts));
-            }
-        });
+        addGraphButtons(thisHourData);
     }
-
 
 	public void portraitInit() {
 		buttonGrid = new JPanel(new GridLayout(2, 3));
