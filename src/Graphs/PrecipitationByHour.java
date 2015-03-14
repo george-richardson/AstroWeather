@@ -5,8 +5,8 @@ import NewAPI.Forecast;
 
 public class PrecipitationByHour extends WeatherGraphPanel {
 
-	public PrecipitationByHour(Main parent, boolean orientation, Forecast.data[] hourlyForecastData) {
-		super(parent, orientation, "Precipitation", hourlyForecastData);
+	public PrecipitationByHour(Main parent, Forecast.data[] hourlyForecastData) {
+		super(parent, "Precipitation", hourlyForecastData);
 	}
 
 	@Override

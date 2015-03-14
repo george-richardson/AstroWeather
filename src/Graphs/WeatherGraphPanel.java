@@ -20,15 +20,15 @@ public abstract class WeatherGraphPanel extends AstroPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            parent.changePanel(new MainPanel(parent, orientation, false, 1));
+            parent.changePanel(new MainPanel(parent, false, 1));
         }
     };
 
     private final XYSeries series;
     private final String valueLabel;
 
-    public WeatherGraphPanel(Main parent, boolean orientation, String valueLabel, Forecast.data[] hourlyForecastData) {
-        super(parent, orientation);
+    public WeatherGraphPanel(Main parent, String valueLabel, Forecast.data[] hourlyForecastData) {
+        super(parent);
         this.valueLabel = valueLabel;
         this.series = collectDataByHour(hourlyForecastData, valueLabel);
         layoutGraph();
@@ -55,12 +55,6 @@ public abstract class WeatherGraphPanel extends AstroPanel {
         back.setHorizontalAlignment(SwingConstants.LEFT);
         back.addActionListener(backListener);
         return back;
-    }
-
-    @Override
-    public void changeOrientation(boolean orientation) {
-        this.orientation = orientation;
-        layoutGraph();
     }
 
     private XYSeries collectDataByHour(Forecast.data[] hourlyForecastData, String valueLabel) {

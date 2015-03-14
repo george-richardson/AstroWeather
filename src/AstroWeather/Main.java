@@ -2,6 +2,7 @@ package AstroWeather;
 
 import Common.AstroPanel;
 import Common.Resources;
+import Home.MainPanel;
 import Location.LocationPanel;
 import NewAPI.Forecast;
 
@@ -41,7 +42,7 @@ public class Main extends JFrame {
 		});
 
 		add(switchOrientationBtn, BorderLayout.SOUTH);
-		p = new LocationPanel(this, orientation);
+		p = new LocationPanel(this);
 		changeDimensions();
 		add(p, BorderLayout.CENTER);
 		pack();
@@ -53,7 +54,7 @@ public class Main extends JFrame {
 	private void switchOrientation() {
 		orientation = !orientation;
 		changeDimensions();
-		p.changeOrientation(orientation);
+        if(p instanceof MainPanel) ((MainPanel) p).changeOrientation();
         getContentPane().revalidate();
 		pack();
         repaint();
@@ -82,5 +83,9 @@ public class Main extends JFrame {
 
     public void setForecast(Forecast forecast) {
         this.forecast = forecast;
+    }
+
+    public boolean getOrientation() {
+        return orientation;
     }
 }

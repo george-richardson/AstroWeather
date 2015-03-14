@@ -5,8 +5,8 @@ import NewAPI.Forecast;
 
 public class TemperatureByHour extends WeatherGraphPanel {
 
-	public TemperatureByHour(Main parent, boolean orientation, Forecast.data[] hourlyForecastData) {
-		super(parent, orientation, "Temperature", hourlyForecastData);
+	public TemperatureByHour(Main parent, Forecast.data[] hourlyForecastData) {
+		super(parent, "Temperature", hourlyForecastData);
 	}
 
 	@Override

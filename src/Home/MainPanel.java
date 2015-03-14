@@ -29,8 +29,8 @@ public class MainPanel extends AstroPanel {
     private NewAPI.Forecast.data[] dayData;
     private TopButton settingsButton, backButton;
 
-	public MainPanel(final Main parent, final boolean orientation, boolean loadHour, int numberToLoad) {
-		super(parent, orientation);
+	public MainPanel(final Main parent, boolean loadHour, int numberToLoad) {
+		super(parent);
         hourData = parent.getForecast().getHourly().getData();
         dayData = parent.getForecast().getDaily().getData();
 
@@ -43,7 +43,7 @@ public class MainPanel extends AstroPanel {
             hour.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    parent.changePanel(new MainPanel(parent, orientation, true, number));
+                    parent.changePanel(new MainPanel(parent, true, number));
                 }
             });
             hourButtons[i] = hour;
@@ -56,7 +56,7 @@ public class MainPanel extends AstroPanel {
             day.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    parent.changePanel(new MainPanel(parent, orientation, false, number));
+                    parent.changePanel(new MainPanel(parent, false, number));
                 }
 
                 @Override
@@ -90,14 +90,14 @@ public class MainPanel extends AstroPanel {
         settingsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                parent.changePanel(new SettingsMain(parent, orientation));
+                parent.changePanel(new SettingsMain(parent));
             }
         });
         backButton = new TopButton("backarrow.png");
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                parent.changePanel(new LocationPanel(parent, orientation));
+                parent.changePanel(new LocationPanel(parent));
             }
         });
 
@@ -122,7 +122,7 @@ public class MainPanel extends AstroPanel {
         currentDay.add(topPanel, BorderLayout.NORTH);
         if (loadHour) loadHour(numberToLoad);
         else loadDay(numberToLoad);
-		if (orientation) portraitInit();
+		if (parent.getOrientation()) portraitInit();
 		else landscapeInit();
 	}
 
@@ -142,21 +142,21 @@ public class MainPanel extends AstroPanel {
         tempBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                change(new TemperatureByHour(parent, orientation, hourData));
+                change(new TemperatureByHour(parent, hourData));
             }
         });
         humidityBtn = new HumidityButton(thisDayData.getHumidityAsPercentage());
         humidityBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               change(new HumidityByHour(parent, orientation, hourData));
+               change(new HumidityByHour(parent, hourData));
             }
         });
         precipBtn = new PrecipitationButton(thisDayData.getPrecipProbabilityAsPercentage());
         precipBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                change(new PrecipitationByHour(parent, orientation, hourData));
+                change(new PrecipitationByHour(parent, hourData));
             }
         });
     }
@@ -268,10 +268,10 @@ public class MainPanel extends AstroPanel {
 		add(dayScrollPane, gbc);
 	}
 
-	public void changeOrientation(boolean newOrientation) {
-		orientation = !orientation;
-		removeAll();
-		if (orientation) portraitInit();
-		else landscapeInit();
-	}
+    public void changeOrientation() {
+        removeAll();
+        if (parent.getOrientation()) portraitInit();
+        else landscapeInit();
+    }
+
 }

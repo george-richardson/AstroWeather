@@ -37,7 +37,7 @@ public class LocationPanel extends AstroPanel {
 						try {
 							String city = locationField.getText();
                             parent.setForecast(new API().getForecastFromString(city));
-                            parent.changePanel(new MainPanel(parent, orientation, false, 1));
+                            parent.changePanel(new MainPanel(parent, false, 1));
 							Scanner s = new Scanner(new File("previousSearches.txt"));
 							PrintWriter pw = new PrintWriter("temp.txt");
 							pw.println(city);
@@ -56,7 +56,7 @@ public class LocationPanel extends AstroPanel {
 						} catch (Exception e) {
                             System.err.println(e + e.getMessage());
                             e.printStackTrace();
-							parent.changePanel(new LocationPanel(parent, orientation));
+							parent.changePanel(new LocationPanel(parent));
 						}
 					}
 				});
@@ -84,9 +84,9 @@ public class LocationPanel extends AstroPanel {
 						try {
 							String city = ((JButton)e.getSource()).getText();
                             parent.setForecast(new API().getForecastFromString(city));
-							parent.changePanel(new MainPanel(parent, orientation, false, 1));
+							parent.changePanel(new MainPanel(parent, false, 1));
 						} catch (Exception e) {
-							parent.changePanel(new LocationPanel(parent, orientation));
+							parent.changePanel(new LocationPanel(parent));
 						}
 					}
 				});
@@ -101,8 +101,8 @@ public class LocationPanel extends AstroPanel {
 	private JTextField locationField = new JTextField();
 	private JPanel loading;
 
-	public LocationPanel(Main parent, boolean orientation) {
-		super(parent, orientation);
+	public LocationPanel(Main parent) {
+		super(parent);
 		setLayout(new BorderLayout());
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		
@@ -145,11 +145,6 @@ public class LocationPanel extends AstroPanel {
 			loading.add(new JLabel(new ImageIcon(new File("assets/loader.gif").toURI().toURL())), BorderLayout.CENTER);		
 		} catch (Exception e) {}
 		
-	}
-
-	@Override
-	public void changeOrientation(boolean newOrientation) {
-		orientation = !orientation;
 	}
 
 }

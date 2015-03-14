@@ -21,8 +21,8 @@ public class Help extends AstroPanel implements ActionListener {
     private JLabel helpFeed = new JLabel("     Help and feedback");
     private JLabel helpFeed1 = new JLabel("     These are the most common questions we been ");
     private JLabel helpFeed2 = new JLabel("     about the application ");
-   public Help(Main parent, boolean orientation) {
-	   super(parent, orientation);
+   public Help(Main parent) {
+	   super(parent);
 	   setLayout(new BorderLayout());
        //this.parent = parent;
     }  
@@ -85,14 +85,9 @@ public class Help extends AstroPanel implements ActionListener {
             //this.setVisible(false);
             //this.dispose(); 
             //parent.setVisible(true);
-        	parent.changePanel(new SettingsMain(parent, orientation));
+        	parent.changePanel(new SettingsMain(parent));
         }
         
     }
 
-		@Override
-		public void changeOrientation(boolean neworientation) {
-			// TODO Auto-generated method stub
-			orientation = !orientation;
-		}
 }

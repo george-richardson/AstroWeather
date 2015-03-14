@@ -53,8 +53,8 @@ public class SettingsMain extends AstroPanel implements ActionListener {
         //app.startApp();
     }
     
-    public SettingsMain(AstroWeather.Main parent, boolean orientation) {
-		super(parent, orientation);
+    public SettingsMain(AstroWeather.Main parent) {
+		super(parent);
 		setLayout(new BorderLayout());
 		startApp();
 	}
@@ -235,7 +235,7 @@ public class SettingsMain extends AstroPanel implements ActionListener {
             
         }
         else if(e.getSource().equals(back)){
-         parent.changePanel(new MainPanel(parent, orientation, false, 1));
+         parent.changePanel(new MainPanel(parent, false, 1));
         }
         
          if (e.getSource().equals(windBut)) {
@@ -246,7 +246,7 @@ public class SettingsMain extends AstroPanel implements ActionListener {
         }
         else if(e.getSource().equals(aboutBut)){
            
-            AboutThisApp abtFrame = new AboutThisApp(parent, orientation);
+            AboutThisApp abtFrame = new AboutThisApp(parent);
             parent.changePanel(abtFrame);
 //            abtFrame.load();
 //            abtFrame.setVisible(true);
@@ -255,7 +255,7 @@ public class SettingsMain extends AstroPanel implements ActionListener {
 //            abtFrame.setLocation(0,0);
         }
         else if(e.getSource().equals(helpBut)){
-            Help helpFrame = new Help(parent, orientation);
+            Help helpFrame = new Help(parent);
             helpFrame.load();
             parent.changePanel(helpFrame);
             
@@ -266,9 +266,4 @@ public class SettingsMain extends AstroPanel implements ActionListener {
         }
     }
 
-	@Override
-	public void changeOrientation(boolean newOrientation) {
-		// TODO Auto-generated method stub
-		orientation = !orientation;
-	}
 }

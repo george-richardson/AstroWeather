@@ -25,8 +25,8 @@ public class AboutThisApp extends AstroPanel implements ActionListener {
     private JPanel headerPanel = new JPanel();
     private JPanel assocPanel = new JPanel();
     private JPanel createPanel = new JPanel();
-    public AboutThisApp(Main parent, boolean orientation) {
-    	super(parent, orientation);
+    public AboutThisApp(Main parent) {
+    	super(parent);
     	setLayout(new BorderLayout());
        load();
     }
@@ -106,17 +106,8 @@ public class AboutThisApp extends AstroPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(back)) {
-        	parent.changePanel(new SettingsMain(parent, orientation));
+        	parent.changePanel(new SettingsMain(parent));
         }
         
     }
-
-
-
-	@Override
-	public void changeOrientation(boolean neworientation) {
-		// TODO Auto-generated method stub
-		orientation = !orientation;
-		
-	}
 }

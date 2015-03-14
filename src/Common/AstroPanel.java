@@ -9,19 +9,14 @@ import java.awt.*;
 public abstract class AstroPanel extends JPanel {
 
     protected Main parent;
-    protected boolean orientation;
 
-    protected AstroPanel(Main parent, boolean orientation) {
+    protected AstroPanel(Main parent) {
         this.parent = parent;
-        this.orientation= orientation;
-        //setOpaque(false);
     }
     
     protected void change(AstroPanel p) {
         parent.changePanel(p);
     }
-
-    public abstract void changeOrientation(boolean orientation);
 
     @Override
     protected void paintComponent(Graphics g) {
