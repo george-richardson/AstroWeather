@@ -39,6 +39,10 @@ public class MainPanel extends AstroPanel {
         hourButtons = new HourButton[48];
         for (int i = 0 ; i < 48; i++) {
             HourButton hour = new HourButton(hourData[i].getTimeAsHour());
+            if (loadHour && i == numberToLoad) {
+                hour.setOpaque(true);
+                hour.setForeground(Color.black);
+            }
             final int number = i;
             hour.addActionListener(new ActionListener() {
                 @Override
