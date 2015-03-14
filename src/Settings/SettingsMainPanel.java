@@ -17,7 +17,7 @@ public class SettingsMainPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         BufferedImage image = null;
         try {                
-    		image = ImageIO.read(new File("assets/settings/background2.jpg"));
+    		image = ImageIO.read(ClassLoader.getSystemResource("settings/background2.jpg"));
         } catch (IOException ex) {
             System.out.println("Exception caught, exception is: " + ex.getMessage());
         }            

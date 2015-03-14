@@ -38,7 +38,10 @@ public class LocationPanel extends AstroPanel {
 							String city = locationField.getText();
                             parent.setForecast(new API().getForecastFromString(city));
                             parent.changePanel(new MainPanel(parent, false, 1));
-							Scanner s = new Scanner(new File("previousSearches.txt"));
+
+                            File f = new File("previousSearches.txt");
+                            f.createNewFile();
+                            Scanner s = new Scanner(f);
 							PrintWriter pw = new PrintWriter("temp.txt");
 							pw.println(city);
 							int i = 0;
@@ -142,7 +145,7 @@ public class LocationPanel extends AstroPanel {
 		loading = new JPanel(new BorderLayout());
 		loading.setOpaque(false);
 		try {
-			loading.add(new JLabel(new ImageIcon(new File("assets/loader.gif").toURI().toURL())), BorderLayout.CENTER);		
+			loading.add(new JLabel(new ImageIcon(ClassLoader.getSystemResource("loader.gif"))), BorderLayout.CENTER);
 		} catch (Exception e) {}
 		
 	}

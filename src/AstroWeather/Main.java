@@ -10,6 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
+import java.net.URLClassLoader;
 
 @SuppressWarnings("serial")
 public class Main extends JFrame {
@@ -21,6 +23,13 @@ public class Main extends JFrame {
 
 
 	public static void main(String[] args) {
+        ClassLoader cl = ClassLoader.getSystemClassLoader();
+
+        URL[] urls = ((URLClassLoader)cl).getURLs();
+
+        for(URL url: urls){
+            System.out.println(url.getFile());
+        }
 		new Main();
 	}
 

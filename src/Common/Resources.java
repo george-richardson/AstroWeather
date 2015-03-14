@@ -18,23 +18,43 @@ public class Resources {
 	public static final Font homeButtonFont = getFont(14, 0.2);
 	public static final Font chartLabelFont = getFont(14, 	0.2);
 
-	private static Font getFont(float size, double spacing) {
-		Map<TextAttribute, Object> attributes = new HashMap<TextAttribute, Object>();
-		attributes.put(TextAttribute.TRACKING, spacing);
-		try {
-			return Font.createFont(Font.TRUETYPE_FONT, new File("assets/AliquamREG.ttf")).deriveFont(size).deriveFont(attributes);
-		} catch (Exception e) {
-			System.err.println("ERR: FONT FILE NOT FOUND");
-			return new Font(Font.SERIF, Font.PLAIN, 12);
-		}
-	}
+//	private static Font getFont(float size, double spacing) {
+//		Map<TextAttribute, Object> attributes = new HashMap<TextAttribute, Object>();
+//		attributes.put(TextAttribute.TRACKING, spacing);
+//		try {
+//			return Font.createFont(Font.TRUETYPE_FONT, new File("assets/AliquamREG.ttf")).deriveFont(size).deriveFont(attributes);
+//		} catch (Exception e) {
+//			System.err.println("ERR: FONT FILE NOT FOUND");
+//			return new Font(Font.SERIF, Font.PLAIN, 12);
+//		}
+//	}
+
+    private static Font getFont(float size, double spacing) {
+        Map<TextAttribute, Object> attributes = new HashMap<TextAttribute, Object>();
+        attributes.put(TextAttribute.TRACKING, spacing);
+        try {
+            return Font.createFont(Font.TRUETYPE_FONT, ClassLoader.getSystemResourceAsStream("AliquamREG.ttf")).deriveFont(size).deriveFont(attributes);
+        } catch (Exception e) {
+            System.err.println("ERR: FONT FILE NOT FOUND");
+            return new Font(Font.SERIF, Font.PLAIN, 12);
+        }
+    }
 	
-	public static ImageIcon getImage(String filePath) {
-		try {
-			return new ImageIcon(ImageIO.read(new File("assets/" + filePath)));
-		} catch (IOException e) {
-			System.err.println("ERR: COULD NOT FIND ICON FILE");
-			return null;
-		}
-	}
+//	public static ImageIcon getImage(String filePath) {
+//		try {
+//			return new ImageIcon(ImageIO.read(new File("assets/" + filePath)));
+//		} catch (IOException e) {
+//			System.err.println("ERR: COULD NOT FIND ICON FILE");
+//			return null;
+//		}
+//	}
+
+    public static ImageIcon getImage(String filePath) {
+        try {
+            return new ImageIcon(ClassLoader.getSystemResource(filePath));
+        } catch (Exception e) {
+            System.err.println("ERR: COULD NOT FIND ICON FILE");
+            return null;
+        }
+    }
 }

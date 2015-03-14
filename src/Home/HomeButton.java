@@ -45,8 +45,8 @@ public class HomeButton extends JButton {
 	
 	public static Icon createIcon(String filePath) {
 		try {
-			return new ImageIcon(ImageIO.read(new File("assets/" + filePath)));
-		} catch (IOException e) {
+			return new ImageIcon(ClassLoader.getSystemResource(filePath));
+		} catch (Exception e) {
 			System.err.println("ERR: COULD NOT FIND ICON FILE");
 			return null;
 		}
