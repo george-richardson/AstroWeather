@@ -47,28 +47,32 @@ public class Forecast {
         private float precipProbability;
         private float moonPhase;
 
-        public long getTime() {
+        public long getTimeInSecondsSinceEpoch() {
             return time;
+        }
+
+        public long getTimeInMillisecondsSinceEpoch() {
+            return time * 1000;
         }
 
         public String getTimeAsHour() {
             Calendar cal = Calendar.getInstance();
             //cal.setTimeZone(TimeZone.getTimeZone("Europe/London"));
-            cal.setTimeInMillis(time * 1000);
+            cal.setTimeInMillis(getTimeInMillisecondsSinceEpoch());
             return "" + cal.get(cal.HOUR_OF_DAY);
         }
 
         public String getTimeAsDay() {
             Calendar cal = Calendar.getInstance();
             //cal.setTimeZone(TimeZone.getTimeZone("Europe/London"));
-            cal.setTimeInMillis(time * 1000);
+            cal.setTimeInMillis(getTimeInMillisecondsSinceEpoch());
             return cal.getDisplayName(Calendar.DAY_OF_WEEK,Calendar.LONG, Locale.ENGLISH);
         }
 
         public String getTimeAsDayAndHour() {
             Calendar cal = Calendar.getInstance();
             //cal.setTimeZone(TimeZone.getTimeZone("Europe/London"));
-            cal.setTimeInMillis(time * 1000);
+            cal.setTimeInMillis(getTimeInMillisecondsSinceEpoch());
             return cal.getDisplayName(Calendar.DAY_OF_WEEK,Calendar.SHORT, Locale.ENGLISH)+ " " + cal.get(cal.HOUR_OF_DAY) + ":00";
         }
 

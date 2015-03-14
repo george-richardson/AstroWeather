@@ -18,7 +18,7 @@ public class Resources {
 	public static final Color titleColor = new Color(255, 255, 255);
 	public static final Font titleFont = getFont(24, 0.1);
 	public static final Font homeButtonFont = getFont(14, 0.2);
-	public static final Font chartTitleFont = getFont(14, 	0.2);
+	public static final Font chartLabelFont = getFont(14, 	0.2);
 
 	private static Font getFont(float size, double spacing) {
 		Map<TextAttribute, Object> attributes = new HashMap<TextAttribute, Object>();

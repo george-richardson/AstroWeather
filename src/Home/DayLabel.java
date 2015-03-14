@@ -1,10 +1,8 @@
 package Home;
 
-import API.Forecast;
 import Common.Resources;
 
 import javax.swing.*;
-import java.text.SimpleDateFormat;
 
 public class DayLabel extends JLabel {
 

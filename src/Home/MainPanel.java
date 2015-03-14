@@ -137,21 +137,21 @@ public class MainPanel extends AstroPanel {
         tempBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //change(new TemperatureByHour(parent, orientation, forecasts));
+                change(new TemperatureByHour(parent, orientation, hourData));
             }
         });
 		humidityBtn = new HumidityButton(thisDayData.getHumidityAsPercentage());
         humidityBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               //change(new HumidityByHour(parent, orientation, forecasts));
+               change(new HumidityByHour(parent, orientation, hourData));
             }
         });
 		precipBtn = new PrecipitationButton(thisDayData.getPrecipProbabilityAsPercentage());
         precipBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //change(new PrecipitationByHour(parent, orientation, forecasts));
+                change(new PrecipitationByHour(parent, orientation, hourData));
             }
         });
 

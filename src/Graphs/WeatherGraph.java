@@ -20,15 +20,14 @@ import java.util.EventListener;
 @SuppressWarnings("serial")
 public class WeatherGraph extends ChartPanel {
 
-	private static final String X_AXIS_LABEl = "";
-	private static final String Y_AXIS_LABEl = "";
+	private static final String X_AXIS_LABEl = "Hour";
 	private static final boolean ENABLE_LEGEND = false;
 	private static final boolean ENABLE_TOOLTIPS = false;
 	private static final boolean ENABLE_URLS = false;
 	private static final SimpleDateFormat HOUR_FORMAT = new SimpleDateFormat("kk");
 
-	public WeatherGraph(String title, XYSeries dataByHour) {
-		super(createChart(title, dataByHour));
+	public WeatherGraph(String valueLabel, XYSeries dataByHour) {
+		super(createChart(valueLabel, dataByHour));
 		setBackground(Resources.bgColor);
 		setOpaque(false);
 		removeClickListeners();
@@ -52,15 +51,10 @@ public class WeatherGraph extends ChartPanel {
 		return dataset;
 	}
 
-	private static JFreeChart createChart(String title,
-			XYSeries temperatureByHour) {
+	private static JFreeChart createChart(String valueLabel, XYSeries temperatureByHour) {
 		XYDataset dataset = createDataset(temperatureByHour);
 
-		JFreeChart chart = ChartFactory.createTimeSeriesChart(title,
-				X_AXIS_LABEl, Y_AXIS_LABEl, dataset, ENABLE_LEGEND,
-				ENABLE_TOOLTIPS, ENABLE_URLS);
-
-		chart.getTitle().setFont(Resources.chartTitleFont);
+		JFreeChart chart = ChartFactory.createTimeSeriesChart("", X_AXIS_LABEl, valueLabel, dataset, ENABLE_LEGEND, ENABLE_TOOLTIPS, ENABLE_URLS);
 
 		chart.setBackgroundPaint(Resources.bgColor);
 		chart.getTitle().setPaint(Resources.titleColor);
@@ -89,8 +83,10 @@ public class WeatherGraph extends ChartPanel {
 		return chart;
 	}
 
-	private static void colorAxis(ValueAxis rangeAxis) {
-		rangeAxis.setAxisLinePaint(Resources.titleColor);
-		rangeAxis.setTickLabelPaint(Resources.titleColor);
-	}
+	private static void colorAxis(ValueAxis axis) {
+		axis.setAxisLinePaint(Resources.titleColor);
+		axis.setTickLabelPaint(Resources.titleColor);
+        axis.setLabelPaint(Resources.titleColor);
+        axis.setLabelFont(Resources.chartLabelFont);
+    }
 }

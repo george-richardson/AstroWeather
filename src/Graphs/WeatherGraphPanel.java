@@ -4,15 +4,17 @@ import AstroWeather.Main;
 import Common.AstroPanel;
 import Home.MainPanel;
 
+import Home.TopButton;
+import NewAPI.Forecast;
 import org.jfree.data.xy.XYSeries;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
-import javax.swing.JButton;
+import javax.swing.*;
 
+import java.util.Date;
 @SuppressWarnings("serial")
 
 
@@ -22,25 +24,41 @@ public abstract class WeatherGraphPanel extends AstroPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            //parent.changePanel(new MainPanel(parent, orientation));
+            parent.changePanel(new MainPanel(parent, orientation, false, 1));
         }
     };
 
-    private final String graphTitle;
+    private final XYSeries series;
+    private final String valueLabel;
 
-    public WeatherGraphPanel(Main parent, boolean orientation, String graphTitle) {
+    public WeatherGraphPanel(Main parent, boolean orientation, String valueLabel, Forecast.data[] hourlyForecastData) {
         super(parent, orientation);
-        this.graphTitle = graphTitle;
+        this.valueLabel = valueLabel;
+        this.series = collectDataByHour(hourlyForecastData, valueLabel);
         layoutGraph();
     }
 
     private void layoutGraph() {
         removeAll();
         setLayout(new BorderLayout());
-        JButton back = new JButton("Back");
+        add(createTopRibbon(), BorderLayout.NORTH);
+        add(new WeatherGraph(valueLabel, series), BorderLayout.CENTER);
+    }
+
+    private JPanel createTopRibbon() {
+        JPanel ribbon = new JPanel();
+        ribbon.setLayout(new BorderLayout());
+        ribbon.setOpaque(false);
+        ribbon.add(createBackButton(), BorderLayout.WEST);
+        ribbon.add(new WeatherGraphTitleLabel(valueLabel), BorderLayout.CENTER);
+        return ribbon;
+    }
+
+    private JButton createBackButton() {
+        JButton back = new TopButton("backarrow.png");
+        back.setHorizontalAlignment(SwingConstants.LEFT);
         back.addActionListener(backListener);
-        add(back, BorderLayout.NORTH);
-        //add(new WeatherGraph(graphTitle, collectDataByHour(forecasts.getHourlyForecasts(), graphTitle)), BorderLayout.CENTER);
+        return back;
     }
 
     @Override
@@ -49,16 +67,16 @@ public abstract class WeatherGraphPanel extends AstroPanel {
         layoutGraph();
     }
 
-//    private XYSeries collectDataByHour(List<Forecast> hourlyForecasts, String graphTitle) {
-//        XYSeries dataByHour = new XYSeries(graphTitle);
-//        for (Forecast forecast : hourlyForecasts) {
-//            dataByHour.add(forecast.date.getTime(), extractValue(forecast));
-//        }
-//        return dataByHour;
-//    }
+    private XYSeries collectDataByHour(Forecast.data[] hourlyForecastData, String valueLabel) {
+        XYSeries dataByHour = new XYSeries(valueLabel);
+        for (Forecast.data forecast : hourlyForecastData) {
+            dataByHour.add(forecast.getTimeInMillisecondsSinceEpoch(), extractValue(forecast));
+        }
+        return dataByHour;
+    }
 
     /**
      * @return the value displayed on the y-axis for this weather graph
      */
-    //protected abstract double extractValue(Forecast forecast);
+    protected abstract double extractValue(Forecast.data forecast);
 }
