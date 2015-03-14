@@ -86,12 +86,14 @@ public class TemperatureFrame extends JDialog implements ActionListener {
 			fahrenheit.setSelected(false);
 			celsius.setSelected(true);
 			metrics = TemperatureFrame.CELSIUS;
+            SettingsModel.getInstance().setCelcius(true);
 			setParentText();
 		}
 		else if (e.getSource().equals(fahrenheit)) {
 			fahrenheit.setSelected(true);
 			celsius.setSelected(false);
 			metrics = TemperatureFrame.FAHRENHEIT;
+            SettingsModel.getInstance().setCelcius(false);
 			setParentText();
 		}
 		else if (e.getSource().equals(confirm)) {

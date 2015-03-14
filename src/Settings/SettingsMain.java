@@ -15,8 +15,8 @@ import java.awt.event.MouseEvent;
 public class SettingsMain extends AstroPanel implements ActionListener {
     private SettingsMainPanel mainPanel = new SettingsMainPanel();
     private SettingsMainPanel locationPanel = new SettingsMainPanel ();
-    private JTextField tempText = new JTextField("Celcius");
-    private JTextField windText = new JTextField("Miles per hour");
+    private JTextField tempText = new JTextField(SettingsModel.getInstance().isCelcius()?"Celsius":"Fahrenheit");
+    private JTextField windText = new JTextField(SettingsModel.getInstance().isMph()?"Miles per hour":"Kilometers per hour");
     private JButton tempBut = new JButton("Temperatre");
     private JButton windBut = new JButton("Wind Speed");
     private JButton feedbackBut = new JButton("Feedback");
@@ -241,28 +241,19 @@ public class SettingsMain extends AstroPanel implements ActionListener {
          if (e.getSource().equals(windBut)) {
             new WindFrame(parent, this);
             
-            //windFrame.setLocation(300,  300);
-            
         }
         else if(e.getSource().equals(aboutBut)){
            
             AboutThisApp abtFrame = new AboutThisApp(parent);
             parent.changePanel(abtFrame);
-//            abtFrame.load();
-//            abtFrame.setVisible(true);
-//            this.setVisible(false);
-//            abtFrame.setSize(new Dimension(320, 480));
-//            abtFrame.setLocation(0,0);
+
         }
         else if(e.getSource().equals(helpBut)){
             Help helpFrame = new Help(parent);
             helpFrame.load();
             parent.changePanel(helpFrame);
             
-//            helpFrame.setVisible(true);
-//            this.setVisible(false);
-//            helpFrame.setSize(new Dimension(320, 480));
-//           helpFrame.setLocation(0,0);
+
         }
     }
 

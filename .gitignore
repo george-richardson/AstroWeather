@@ -6,3 +6,4 @@ bin
 cache
 *previousSearches.txt
 *temp.txt
+*settings.ini

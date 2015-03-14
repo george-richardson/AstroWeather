@@ -1,5 +1,7 @@
 package NewAPI;
 
+import Settings.SettingsModel;
+
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -10,6 +12,17 @@ public class Forecast {
 
     private hourly hourly;
     private daily daily;
+
+    public static float convertTemp(float temp) {
+        if (SettingsModel.getInstance().isCelcius()) return temp;
+        else return (temp*1.8f)+32;
+    }
+
+    public static float convertWindSpeed(float speed) {
+        if (SettingsModel.getInstance().isMph()) return speed;
+        else return speed * 1.6f;
+    }
+
 
     public Forecast.hourly getHourly() {
         return hourly;
@@ -77,7 +90,7 @@ public class Forecast {
 
 
         public float getTemperature() {
-            return temperature;
+            return convertTemp(temperature);
         }
 
         public float getHumidity() {
@@ -89,7 +102,7 @@ public class Forecast {
         }
 
         public float getWindSpeed() {
-            return windSpeed;
+            return convertWindSpeed(windSpeed);
         }
 
         public int getWindBearing() {
@@ -117,7 +130,7 @@ public class Forecast {
         public float getMoonPhaseAsAngle(){return moonPhase * 360;}
 
         public float getTemperatureMax() {
-            return temperatureMax;
+            return convertTemp(temperatureMax);
         }
     }
 

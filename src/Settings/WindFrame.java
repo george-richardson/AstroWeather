@@ -88,12 +88,14 @@ public class WindFrame extends JDialog implements ActionListener {
             milesPerHour.setSelected(false);
             kmPerHour.setSelected(true);
             metrics = WindFrame.KMPERHOUR;
+            SettingsModel.getInstance().setMph(false);
             setParentText();
         }
         else if (e.getSource().equals(milesPerHour)) {
             milesPerHour.setSelected(true);
             kmPerHour.setSelected(false);
             metrics = WindFrame.MILESPERHOUR;
+            SettingsModel.getInstance().setMph(true);
             setParentText();
         }
         else if (e.getSource().equals(confirm)) {
