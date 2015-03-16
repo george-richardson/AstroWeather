@@ -19,8 +19,8 @@ public class Help extends AstroPanel implements ActionListener {
     private JButton back = new JButton();
     private JLabel label1 = new JLabel("");
     private JLabel helpFeed = new JLabel("     Help and feedback");
-    private JLabel helpFeed1 = new JLabel("     These are the most common questions we been ");
-    private JLabel helpFeed2 = new JLabel("     about the application ");
+    private JLabel helpFeed1 = new JLabel("     For help and feedback please goto:");
+    private JLabel helpFeed2 = new JLabel("     github.com/sonotude/AstroWeather");
    public Help(Main parent) {
 	   super(parent);
 	   setLayout(new BorderLayout());

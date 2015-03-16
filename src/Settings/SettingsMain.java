@@ -248,7 +248,7 @@ public class SettingsMain extends AstroPanel implements ActionListener {
             parent.changePanel(abtFrame);
 
         }
-        else if(e.getSource().equals(helpBut)){
+        else if(e.getSource().equals(helpBut)||e.getSource().equals(feedbackBut)){
             Help helpFrame = new Help(parent);
             helpFrame.load();
             parent.changePanel(helpFrame);

@@ -78,7 +78,7 @@ public class AboutThisApp extends AstroPanel implements ActionListener {
         assocPanel.add(info2);
         assocPanel.add(info3);
         info2.setText("      Astro Weather was created with the help ");
-        info3.setText("     of several third-party libraries."); 
+        info3.setText("     of JFreeChart Chart Lib and Gson.");
         info2.setForeground(Color.white);
         info3.setForeground(Color.white);
          
@@ -86,7 +86,7 @@ public class AboutThisApp extends AstroPanel implements ActionListener {
         createPanel.setBackground(new Color(0,0,0,0));
         createPanel.setOpaque(false);
         createPanel.add(info1);
-        info1.setText("     Data in associate with the Yahoo .."); 
+        info1.setText("     Data is taken from forecast.io");
         info1.setForeground(Color.white);
         
         
